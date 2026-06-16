@@ -15,7 +15,7 @@ const faqs = [
   { q: "Do you help with job placement?", a: "Absolutely. Our career support team provides resume help, interview coaching, and connects graduates with hiring dental practices across the GTA." },
   { q: "Can I work while studying?", a: "Yes. Our weekend schedule is specifically designed for students who work or have other commitments during the week." },
   { q: "What's the class size?", a: "We keep classes small — typically 12–16 students — so every student gets ample chairside practice and personal instructor attention." },
-  { q: "Where is the school located?", a: "We're located in Toronto with easy access by transit and car. See our Contact page for full address and directions." },
+  { q: "Where is the school located?", a: "We're located at 2727 Steeles Ave W, Toronto, ON M3J 3G9 — easy access by transit and car. See our Contact page for directions and hours." },
 ];
 
 export const Route = createFileRoute("/faq")({

@@ -398,3 +398,7 @@ export const studentTestimonials: StudentTestimonial[] = [
     "image": "https://www.toronto-college-dental.org/images/testimonials/6.jpg"
   }
 ];
+
+export const homeDentalAssistingTestimonials = studentTestimonials.filter((t) =>
+  t.program.includes("Dental Assisting"),
+).slice(0, 3);

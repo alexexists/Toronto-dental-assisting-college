@@ -5,7 +5,7 @@ import logo from "@/assets/Toronto-College-Dental-Assisting-Logo.png";
 import { programs } from "@/lib/programs";
 
 const navLinks = [
-  { to: "/", label: "HOME", exact: true },
+  { to: "/about", label: "ABOUT" },
   { to: "/facility", label: "FACILITY" },
   { to: "/testimonials", label: "TESTIMONIALS" },
   { to: "/faq", label: "FAQ" },
@@ -46,15 +46,25 @@ export function Header() {
           />
         </Link>
         <div className="hidden md:flex items-center gap-3 text-right">
-          <div className="grid h-10 w-10 place-items-center rounded-full bg-primary/15 text-primary">
-            <Phone className="h-5 w-5" />
-          </div>
+          <a
+            href="tel:+14164233099"
+            aria-label="Call 416-423-3099"
+            className="group shrink-0 text-[#5eb8ad] transition-colors duration-300 hover:text-cta"
+          >
+            <Phone className="h-7 w-7" />
+          </a>
           <div>
-            <a href="tel:+14164233099" className="block font-semibold text-[color:var(--navy)] hover:text-primary">
-              416-423-3099
+            <a href="tel:+14164233099" className="block text-[color:var(--navy)] hover:text-primary">
+              <span className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">
+                Local{" "}
+              </span>
+              <span className="font-semibold">416-423-3099</span>
             </a>
-            <a href="tel:+18669233099" className="block font-semibold text-[color:var(--navy)] hover:text-primary">
-              1-866-923-3099
+            <a href="tel:+18669233099" className="mt-0.5 block text-[color:var(--navy)] hover:text-primary">
+              <span className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">
+                Toll Free{" "}
+              </span>
+              <span className="font-semibold">1-866-923-3099</span>
             </a>
             <a href="mailto:info@toronto-college-dental.org" className="text-xs text-muted-foreground hover:text-primary">
               info@toronto-college-dental.org
@@ -76,7 +86,6 @@ export function Header() {
             <Link
               key={l.to}
               to={l.to}
-              activeOptions={{ exact: l.exact }}
               activeProps={{ className: "text-primary" }}
               inactiveProps={{ className: "text-[color:var(--navy)] hover:text-primary" }}
               className="px-4 py-4 text-sm font-semibold tracking-wider transition-colors"
@@ -125,14 +134,13 @@ export function Header() {
           <div className="md:hidden border-t">
             <div className="flex flex-col px-4 py-2">
               <Link
-                to="/"
+                to="/about"
                 onClick={() => setOpen(false)}
-                activeOptions={{ exact: true }}
                 activeProps={{ className: "text-primary" }}
                 inactiveProps={{ className: "text-[color:var(--navy)]" }}
                 className="py-3 text-sm font-semibold tracking-wider border-b"
               >
-                HOME
+                ABOUT
               </Link>
 
               <button

@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout, CTAButton } from "@/components/site/SiteLayout";
 import { ProgramHero } from "@/components/site/ProgramDetailSections";
 import { communityTestimonials, studentTestimonials } from "@/lib/testimonials";
-import studentImg from "@/assets/student.jpg";
+import testimonialsHeroImg from "@/assets/dental-hygienist-student-program.jpg";
 
 export const Route = createFileRoute("/testimonials")({
   head: () => ({
@@ -118,8 +118,9 @@ function Testimonials() {
   return (
     <SiteLayout>
       <ProgramHero
-        image={studentImg}
-        imageAlt="Dental assisting students in clinic"
+        image={testimonialsHeroImg}
+        imageAlt="Dental hygienist student in program"
+        imagePosition="object-[center_11%] sm:object-[left_15%]"
         title="Testimonials"
         subtitle="See what real students have to say about us."
       >

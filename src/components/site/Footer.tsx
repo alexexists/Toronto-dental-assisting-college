@@ -22,6 +22,7 @@ export function Footer() {
           <div>
             <div className="font-display text-sm font-bold uppercase tracking-wider text-primary">Programs</div>
             <ul className="mt-4 space-y-2 text-sm">
+              <li><Link to="/about" className="text-white/80 hover:text-white">About Us</Link></li>
               <li><Link to="/programs" className="text-white/80 hover:text-white">All Programs</Link></li>
               <li><Link to="/programs/intra-oral-dental-assisting" className="text-white/80 hover:text-white">Intra Oral Level I &amp; II</Link></li>
               <li><Link to="/programs/dental-assisting-level-ii" className="text-white/80 hover:text-white">Dental Assisting Level II</Link></li>
@@ -35,7 +36,7 @@ export function Footer() {
           <div>
             <div className="font-display text-sm font-bold uppercase tracking-wider text-primary">Contact</div>
             <ul className="mt-4 space-y-3 text-sm text-white/80">
-              <li className="flex gap-3"><MapPin className="h-4 w-4 mt-0.5 shrink-0 text-primary" /><span>123 College Avenue<br />Toronto, ON M5V 0A0</span></li>
+              <li className="flex gap-3"><MapPin className="h-4 w-4 mt-0.5 shrink-0 text-primary" /><span>2727 Steeles Ave W<br />Toronto, ON M3J 3G9</span></li>
               <li className="flex gap-3"><Phone className="h-4 w-4 mt-0.5 shrink-0 text-primary" /><span><a href="tel:+14164233099" className="hover:text-white">416-423-3099</a><br /><a href="tel:+18669233099" className="hover:text-white">1-866-923-3099</a></span></li>
               <li className="flex gap-3"><Mail className="h-4 w-4 mt-0.5 shrink-0 text-primary" /><span><a href="mailto:info@toronto-college-dental.org" className="hover:text-white">info@toronto-college-dental.org</a></span></li>
             </ul>

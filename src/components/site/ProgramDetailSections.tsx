@@ -9,17 +9,23 @@ export function ProgramHero({
   children,
   image,
   imageAlt,
+  imagePosition = "object-[center_30%] sm:object-right",
 }: {
   title: ReactNode;
   subtitle?: string;
   children?: ReactNode;
   image?: string;
   imageAlt?: string;
+  imagePosition?: string;
 }) {
   if (image) {
     return (
       <section className="relative min-h-[320px] sm:min-h-[400px]">
-        <img src={image} alt={imageAlt ?? ""} className="absolute inset-0 h-full w-full object-cover object-[center_30%] sm:object-right" />
+        <img
+          src={image}
+          alt={imageAlt ?? ""}
+          className={`absolute inset-0 h-full w-full object-cover ${imagePosition}`}
+        />
         <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/45 to-black/10" />
         <div className="relative mx-auto flex min-h-[320px] max-w-7xl items-center px-4 py-16 sm:min-h-[400px] sm:py-20">
           <div className="max-w-xl text-left">

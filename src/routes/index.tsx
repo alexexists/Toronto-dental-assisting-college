@@ -1,9 +1,11 @@
+import { useEffect, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout, CTAButton } from "@/components/site/SiteLayout";
-import { GraduationCap, Users, Stethoscope, BriefcaseBusiness, Quote } from "lucide-react";
+import { GraduationCap, Users, Stethoscope, BriefcaseBusiness } from "lucide-react";
+import { homeDentalAssistingTestimonials } from "@/lib/testimonials";
 import heroImg from "@/assets/hero-building.jpg";
-import classroomImg from "@/assets/classroom.jpg";
 import studentImg from "@/assets/student.jpg";
+import dentalHygieneImg from "@/assets/dental-hygiene-small.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -33,20 +35,30 @@ function Home() {
         <div className="relative mx-auto max-w-7xl px-4 py-28 sm:py-40 text-white">
           <div className="max-w-2xl">
             <div className="text-xs sm:text-sm font-semibold uppercase tracking-[0.25em] text-primary">
-              Start Your Dental Career With Us
+              Start Your Dental Career Today
             </div>
             <h1 className="mt-4 font-display text-4xl sm:text-6xl font-bold leading-tight text-white">
               Your Pathway to a<br />Dental Assisting Career
             </h1>
             <p className="mt-6 text-base sm:text-lg text-white/90 max-w-xl">
-              Toronto College of Dental Assisting prepares students for rewarding
+              The Toronto College of Dental Assisting prepares students for rewarding
               careers as Level I and Level II Dental Assistants through hands-on
               training and expert instruction.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link to="/programs"><CTAButton>Learn More</CTAButton></Link>
+              <Link to="/programs">
+                <button
+                  type="button"
+                  className="inline-flex items-center justify-center rounded-md border-2 border-cta bg-cta px-7 py-3 text-sm font-bold uppercase tracking-wider text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:border-[color:var(--navy)] hover:bg-[color:var(--navy)] hover:shadow-lg"
+                >
+                  Learn More
+                </button>
+              </Link>
               <Link to="/apply">
-                <button className="inline-flex items-center justify-center rounded-md border-2 border-white px-7 py-3 text-sm font-bold uppercase tracking-wider text-white hover:bg-white hover:text-[color:var(--navy)] transition">
+                <button
+                  type="button"
+                  className="inline-flex items-center justify-center rounded-md border-2 border-[#6ec4b8] bg-[#6ec4b8] px-7 py-3 text-sm font-bold uppercase tracking-wider !text-black shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:border-[color:var(--navy)] hover:bg-[color:var(--navy)] hover:!text-white hover:shadow-lg"
+                >
                   Apply Now
                 </button>
               </Link>
@@ -56,18 +68,33 @@ function Home() {
       </section>
 
       {/* Welcome */}
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:py-20 text-center">
-        <div className="text-sm font-semibold uppercase tracking-widest text-primary">Welcome</div>
-        <h2 className="mt-2 font-display text-3xl sm:text-4xl">Comprehensive Dental Assisting Training</h2>
-        <p className="mx-auto mt-4 max-w-3xl text-muted-foreground">
-          Whether you're starting fresh or looking to advance your career,
-          our program gives you the practical skills, clinical experience,
-          and confidence you need to excel in today's dental industry.
-        </p>
+      <section className="mx-auto max-w-7xl px-4 py-16 sm:py-20 grid gap-10 lg:grid-cols-2 lg:gap-12 items-center">
+        <div className="text-center lg:text-left">
+          <div className="text-sm font-semibold uppercase tracking-widest text-primary">Welcome</div>
+          <h2 className="mt-2 font-display text-3xl sm:text-4xl text-[color:var(--navy)]">
+            Comprehensive Dental Assisting Training
+          </h2>
+          <p className="mt-4 text-muted-foreground lg:max-w-xl">
+            Whether you're starting fresh or looking to advance your career,
+            our program gives you the practical skills, clinical experience,
+            and confidence you need to excel in today's dental industry.
+          </p>
+        </div>
+        <div className="w-full min-w-0">
+          <div className="aspect-video w-full overflow-hidden rounded-lg shadow-lg ring-1 ring-black/5">
+            <iframe
+              src="https://www.youtube.com/embed/x205X2HmFJk"
+              title="Intra Oral Dental Assisting Level I & II program video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              className="h-full w-full border-0"
+            />
+          </div>
+        </div>
       </section>
 
       {/* Features */}
-      <section className="bg-muted">
+      <section className="bg-[#c5e4ec]">
         <div className="mx-auto max-w-7xl px-4 py-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {[
             { icon: GraduationCap, title: "Experienced Instructors", body: "Learn from practicing dental professionals with years of clinical experience." },
@@ -75,11 +102,16 @@ function Home() {
             { icon: Users, title: "Hands-on Training", body: "Small class sizes ensure personal attention and ample chairside practice." },
             { icon: BriefcaseBusiness, title: "Career Support", body: "Resume help, interview prep, and placement assistance to launch your career." },
           ].map(({ icon: Icon, title, body }) => (
-            <div key={title} className="bg-background rounded-lg border p-6 text-center">
-              <div className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-primary/15 text-primary">
-                <Icon className="h-7 w-7" />
+            <div
+              key={title}
+              className="group bg-white rounded-lg border border-white/60 p-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/15"
+            >
+              <div className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-primary/15 text-primary transition-colors duration-300 group-hover:bg-cta group-hover:text-white">
+                <Icon className="h-7 w-7 transition-transform duration-300 group-hover:scale-110" />
               </div>
-              <h3 className="mt-4 font-display text-lg">{title}</h3>
+              <h3 className="mt-4 font-display text-lg text-[color:var(--navy)] transition-colors duration-300 group-hover:text-cta">
+                {title}
+              </h3>
               <p className="mt-2 text-sm text-muted-foreground">{body}</p>
             </div>
           ))}
@@ -88,7 +120,17 @@ function Home() {
 
       {/* Program highlight */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:py-20 grid items-center gap-10 lg:grid-cols-2">
-        <img src={classroomImg} alt="Students training in dental classroom" width={1280} height={832} loading="lazy" className="rounded-lg shadow-lg" />
+        <div className="w-full min-w-0">
+          <div className="aspect-video w-full overflow-hidden rounded-lg shadow-lg ring-1 ring-black/5">
+            <iframe
+              src="https://www.youtube.com/embed/x205X2HmFJk"
+              title="Dental Assisting Level I & II program video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              className="h-full w-full border-0"
+            />
+          </div>
+        </div>
         <div>
           <div className="text-sm font-semibold uppercase tracking-widest text-primary">Our Program</div>
           <h2 className="mt-2 font-display text-3xl sm:text-4xl">Level I & Level II Dental Assisting</h2>
@@ -109,22 +151,7 @@ function Home() {
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="bg-[color:var(--navy)] text-white">
-        <div className="mx-auto max-w-7xl px-4 py-12 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          {[
-            { n: "1,500+", l: "Graduates" },
-            { n: "15+", l: "Years Teaching" },
-            { n: "12", l: "Expert Instructors" },
-            { n: "95%", l: "Placement Rate" },
-          ].map((s) => (
-            <div key={s.l}>
-              <div className="font-display text-4xl sm:text-5xl font-bold text-primary">{s.n}</div>
-              <div className="mt-1 text-sm uppercase tracking-widest text-white/70">{s.l}</div>
-            </div>
-          ))}
-        </div>
-      </section>
+      <StatsSection />
 
       {/* Testimonials preview */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:py-20">
@@ -133,17 +160,26 @@ function Home() {
           <h2 className="mt-2 font-display text-3xl sm:text-4xl">Stories from our graduates</h2>
         </div>
         <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {[
-            { name: "Sarah M.", role: "Class of 2024", quote: "The instructors genuinely care about your success. I had a job offer two weeks after graduating." },
-            { name: "Priya K.", role: "Level II Graduate", quote: "Hands-on practice every single class. I felt completely ready for my first day in a real office." },
-            { name: "Daniel R.", role: "Class of 2023", quote: "Flexible schedule let me keep working while I trained. The career support was a huge plus." },
-          ].map((t) => (
-            <div key={t.name} className="rounded-lg border bg-card p-6">
-              <Quote className="h-7 w-7 text-primary" />
-              <p className="mt-3 text-sm text-foreground/80 leading-relaxed">"{t.quote}"</p>
-              <div className="mt-4 text-sm font-semibold text-[color:var(--navy)]">{t.name}</div>
-              <div className="text-xs text-muted-foreground">{t.role}</div>
-            </div>
+          {homeDentalAssistingTestimonials.map((t) => (
+            <article
+              key={t.name}
+              className="group flex flex-col items-center rounded-lg border border-border bg-white p-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg"
+            >
+              <img
+                src={t.image}
+                alt={t.name}
+                loading="lazy"
+                className="h-24 w-24 rounded-full border-4 border-white object-cover object-top shadow-md ring-2 ring-primary/20 transition-transform duration-300 group-hover:scale-105"
+              />
+              <p className="mt-5 font-serif text-sm italic leading-relaxed text-foreground/85 line-clamp-6">
+                &ldquo;{t.quote}&rdquo;
+              </p>
+              <p className="mt-4 font-display text-xs font-bold uppercase tracking-wide text-[color:var(--navy)]">
+                {t.name}
+              </p>
+              <p className="mt-1 text-xs text-muted-foreground">{t.subtitle}</p>
+              <p className="mt-1 text-xs font-medium text-primary">{t.program}</p>
+            </article>
           ))}
         </div>
         <div className="mt-8 text-center">
@@ -152,24 +188,118 @@ function Home() {
       </section>
 
       {/* CTA band */}
-      <section className="bg-primary text-primary-foreground">
-        <div className="mx-auto max-w-7xl px-4 py-14 grid items-center gap-6 md:grid-cols-[1fr_auto]">
-          <div>
-            <h2 className="font-display text-2xl sm:text-3xl text-white">Ready to start your dental career?</h2>
-            <p className="mt-2 text-white/90">Applications are now being accepted for the next intake.</p>
-          </div>
-          <div className="flex gap-3">
-            <Link to="/apply"><CTAButton>Apply Now</CTAButton></Link>
-            <Link to="/contact">
-              <button className="inline-flex items-center justify-center rounded-md border-2 border-white px-7 py-3 text-sm font-bold uppercase tracking-wider text-white hover:bg-white hover:text-primary transition">
-                Contact Us
-              </button>
-            </Link>
+      <section className="relative overflow-visible bg-primary text-primary-foreground">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="grid items-end gap-6 md:grid-cols-[1fr_auto]">
+            <div className="py-10 sm:py-14">
+              <h2 className="font-display text-2xl sm:text-3xl text-white">
+                Ready to start your dental career?
+              </h2>
+              <p className="mt-2 max-w-lg text-white/90">
+                Applications are now being accepted for the next intake.
+              </p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <Link to="/apply">
+                  <button
+                    type="button"
+                    className="inline-flex items-center justify-center rounded-md border-2 border-cta bg-cta px-7 py-3 text-sm font-bold uppercase tracking-wider text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:border-[color:var(--navy)] hover:bg-[color:var(--navy)] hover:shadow-lg"
+                  >
+                    Apply Now
+                  </button>
+                </Link>
+                <Link to="/contact">
+                  <button
+                    type="button"
+                    className="inline-flex items-center justify-center rounded-md border-2 border-white bg-white px-7 py-3 text-sm font-bold uppercase tracking-wider !text-black shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:border-[color:var(--navy)] hover:bg-[color:var(--navy)] hover:!text-white hover:shadow-lg"
+                  >
+                    Contact Us
+                  </button>
+                </Link>
+              </div>
+            </div>
+            <div className="flex justify-center md:justify-end md:self-end">
+              <img
+                src={dentalHygieneImg}
+                alt="Toronto College dental assisting professionals"
+                loading="lazy"
+                className="h-auto w-full max-w-[260px] object-contain object-bottom sm:max-w-[300px] md:-mt-20 md:max-w-[340px] lg:-mt-28 lg:max-w-[400px]"
+              />
+            </div>
           </div>
         </div>
       </section>
 
       <img src={studentImg} alt="" className="hidden" aria-hidden />
     </SiteLayout>
+  );
+}
+
+const stats = [
+  { value: 1500, suffix: "+", label: "Graduates" },
+  { value: 15, suffix: "+", label: "Years Teaching" },
+  { value: 12, label: "Expert Instructors" },
+  { value: 95, suffix: "%", label: "Placement Rate" },
+] as const;
+
+function StatsSection() {
+  const [active, setActive] = useState(false);
+
+  return (
+    <section
+      className="bg-[color:var(--navy)] text-white"
+      onMouseEnter={() => setActive(true)}
+      onMouseLeave={() => setActive(false)}
+    >
+      <div className="mx-auto max-w-7xl px-4 py-12 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        {stats.map((stat) => (
+          <div key={stat.label}>
+            <StatValue value={stat.value} suffix={"suffix" in stat ? stat.suffix : undefined} active={active} />
+            <div className="mt-1 text-sm uppercase tracking-widest text-white/70">{stat.label}</div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function StatValue({
+  value,
+  suffix,
+  active,
+}: {
+  value: number;
+  suffix?: string;
+  active: boolean;
+}) {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!active) {
+      setCount(0);
+      return;
+    }
+
+    const duration = 1400;
+    const start = performance.now();
+
+    const tick = (now: number) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.round(value * eased));
+      if (progress < 1) requestAnimationFrame(tick);
+    };
+
+    const frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+  }, [active, value]);
+
+  const shown = active ? count : value;
+  const display = value >= 1000 ? shown.toLocaleString() : String(shown);
+
+  return (
+    <div className="font-display text-4xl sm:text-5xl font-bold text-primary tabular-nums">
+      {display}
+      {suffix}
+    </div>
   );
 }
