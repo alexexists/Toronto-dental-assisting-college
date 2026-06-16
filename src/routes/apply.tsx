@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { SiteLayout, PageHero, CTAButton } from "@/components/site/SiteLayout";
+import { SiteLayout, CTAButton } from "@/components/site/SiteLayout";
+import { ProgramHero } from "@/components/site/ProgramDetailSections";
+import applyHeroImg from "@/assets/apply-hero.jpg";
 import { programs } from "@/lib/programs";
 
 export const Route = createFileRoute("/apply")({
@@ -20,20 +22,28 @@ const inputClass =
 function Apply() {
   return (
     <SiteLayout>
-      <PageHero title="Apply Now" subtitle="Begin your dental career — fill out the application below and we'll be in touch." />
+      <ProgramHero
+        image={applyHeroImg}
+        imageAlt="Dental assisting student preparing an application"
+        imagePosition="object-[70%_22%] sm:object-[right_20%]"
+        title="Apply Now"
+        subtitle="Begin your dental career — fill out the application below and we'll be in touch."
+      />
 
-      <section className="mx-auto max-w-3xl px-4 py-12">
+      <section className="bg-muted px-4 py-12">
+        <div className="mx-auto max-w-3xl">
         <form
           onSubmit={(e) => e.preventDefault()}
-          className="w-full rounded-xl border border-primary/25 bg-gradient-to-br from-white via-white to-primary/10 p-6 sm:p-8 shadow-lg shadow-primary/10 ring-1 ring-black/[0.04] space-y-6"
+          className="w-full overflow-hidden rounded-xl border border-primary/25 bg-white shadow-lg shadow-primary/10 ring-1 ring-black/[0.04]"
         >
-          <div className="border-b border-primary/15 pb-4">
+          <div className="border-b border-primary/20 bg-gradient-to-br from-primary/25 via-[#c5e4ec]/60 to-primary/10 px-6 py-5 sm:px-8 sm:py-6">
             <h2 className="font-display text-2xl text-[color:var(--navy)]">Application</h2>
-            <p className="mt-1 text-sm text-muted-foreground">
+            <p className="mt-1 text-sm text-[color:var(--navy)]/75">
               Complete the form below and our admissions team will follow up with you.
             </p>
           </div>
 
+          <div className="space-y-6 p-6 sm:p-8">
           <div className="space-y-4">
             <h3 className="font-display text-lg text-[color:var(--navy)]">Personal Information</h3>
             <div className="grid gap-4 sm:grid-cols-2">
@@ -56,7 +66,7 @@ function Apply() {
                     {program.navLabel}
                   </option>
                 ))}
-                <option>Not sure — please advise</option>
+                <option>Both</option>
               </select>
             </div>
           </div>
@@ -85,7 +95,9 @@ function Apply() {
           <p className="text-center text-xs text-muted-foreground">
             This is a display-only form — submissions are not recorded.
           </p>
+          </div>
         </form>
+        </div>
       </section>
     </SiteLayout>
   );

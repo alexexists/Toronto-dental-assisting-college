@@ -55,17 +55,15 @@ function About() {
 
       <nav className="border-b bg-muted/40">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-6 px-4 py-4 text-sm font-semibold tracking-wider">
-          <span className="text-[color:var(--navy)]">About Us</span>
-          <a href="#our-values" className="text-primary hover:underline">
-            Our Values
-          </a>
-          <a href="#our-staff" className="text-primary hover:underline">
-            Our Staff
-          </a>
+          <AboutNavLink targetId="about-us" active>
+            About Us
+          </AboutNavLink>
+          <AboutNavLink targetId="our-values">Our Values</AboutNavLink>
+          <AboutNavLink targetId="our-staff">Our Staff</AboutNavLink>
         </div>
       </nav>
 
-      <section className="mx-auto max-w-4xl px-4 py-14 text-center">
+      <section id="about-us" className="mx-auto max-w-4xl scroll-mt-24 px-4 py-14 text-center">
         <h2 className="font-display text-2xl sm:text-3xl text-[color:var(--navy)]">
           We commit ourselves to our students and their futures
         </h2>
@@ -197,6 +195,32 @@ function About() {
         </div>
       </section>
     </SiteLayout>
+  );
+}
+
+function AboutNavLink({
+  children,
+  targetId,
+  active,
+}: {
+  children: ReactNode;
+  targetId: string;
+  active?: boolean;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={() => {
+        document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }}
+      className={
+        active
+          ? "text-[color:var(--navy)] hover:underline"
+          : "text-primary hover:underline"
+      }
+    >
+      {children}
+    </button>
   );
 }
 

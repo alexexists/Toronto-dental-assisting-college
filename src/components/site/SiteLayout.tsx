@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { cn } from "@/lib/utils";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 
@@ -23,11 +24,14 @@ export function PageHero({ title, subtitle }: { title: string; subtitle?: string
   );
 }
 
-export function CTAButton({ children, ...props }: React.ButtonHTMLAttributes<HTMLButtonElement> & { children: ReactNode }) {
+export function CTAButton({ children, className, ...props }: React.ButtonHTMLAttributes<HTMLButtonElement> & { children: ReactNode }) {
   return (
     <button
       {...props}
-      className={"inline-flex items-center justify-center rounded-md bg-cta px-7 py-3 text-sm font-bold uppercase tracking-wider text-cta-foreground shadow hover:opacity-90 transition " + (props.className ?? "")}
+      className={cn(
+        "inline-flex items-center justify-center rounded-md bg-cta px-7 py-3 text-sm font-bold uppercase tracking-wider text-cta-foreground shadow transition hover:opacity-90",
+        className,
+      )}
     >
       {children}
     </button>

@@ -10,6 +10,7 @@ export function ProgramHero({
   image,
   imageAlt,
   imagePosition = "object-[center_30%] sm:object-right",
+  flipImage = false,
 }: {
   title: ReactNode;
   subtitle?: string;
@@ -17,6 +18,7 @@ export function ProgramHero({
   image?: string;
   imageAlt?: string;
   imagePosition?: string;
+  flipImage?: boolean;
 }) {
   if (image) {
     return (
@@ -24,7 +26,7 @@ export function ProgramHero({
         <img
           src={image}
           alt={imageAlt ?? ""}
-          className={`absolute inset-0 h-full w-full object-cover ${imagePosition}`}
+          className={`absolute inset-0 h-full w-full object-cover ${imagePosition} ${flipImage ? "-scale-x-100" : ""}`}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/45 to-black/10" />
         <div className="relative mx-auto flex min-h-[320px] max-w-7xl items-center px-4 py-16 sm:min-h-[400px] sm:py-20">

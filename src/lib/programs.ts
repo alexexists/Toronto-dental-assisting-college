@@ -4,7 +4,8 @@ export const programs = [
     path: "/programs/intra-oral-dental-assisting",
     navLabel: "Intra Oral Dental Assisting Level I & II",
     shortTitle: "Intra Oral Dental Assisting Level I & II",
-    overviewTitle: "INTRA ORAL DENTAL ASSISTING LEVEL I & II",
+    overviewTitle: "INTRA ORAL DENTAL ASSISTING",
+    overviewTitleLine2: "Level one and 2",
     overviewSubtitle: "Preparing you for your dental career",
     overviewExcerpt:
       "The Intra Oral Dental Assisting Level I and II course will prepare the student to assist the dentist in all dental procedures in a general practice or a specialist setting.",

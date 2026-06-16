@@ -11,6 +11,7 @@ const images = {
 
 type ProgramStripProps = {
   title: string;
+  titleLine2?: string;
   subtitle: string;
   excerpt: string;
   excerpt2: string;
@@ -23,6 +24,7 @@ type ProgramStripProps = {
 
 export function ProgramStrip({
   title,
+  titleLine2,
   subtitle,
   excerpt,
   excerpt2,
@@ -46,6 +48,12 @@ export function ProgramStrip({
         }`}
       >
         {title}
+        {titleLine2 && (
+          <>
+            <br />
+            {titleLine2}
+          </>
+        )}
       </h2>
       <p
         className={`mt-3 text-sm sm:text-base font-bold ${
@@ -66,8 +74,8 @@ export function ProgramStrip({
           <CTAButton
             className={
               isDark
-                ? "bg-white text-[color:var(--navy)] hover:opacity-90 shadow-none"
-                : "bg-primary text-primary-foreground hover:opacity-90 shadow-none"
+                ? "border-2 border-white bg-white text-[color:var(--navy)] shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-[color:var(--navy)] hover:bg-[color:var(--navy)] hover:text-white hover:opacity-100 hover:shadow-xl hover:shadow-black/20"
+                : "border-2 border-cta bg-cta text-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-[color:var(--navy)] hover:bg-[color:var(--navy)] hover:opacity-100 hover:shadow-xl hover:shadow-primary/25"
             }
           >
             Learn More

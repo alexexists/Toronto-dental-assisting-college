@@ -1,5 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { SiteLayout, PageHero } from "@/components/site/SiteLayout";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { SiteLayout, CTAButton } from "@/components/site/SiteLayout";
+import { ProgramHero } from "@/components/site/ProgramDetailSections";
+import faqHeroImg from "@/assets/faq-hero-admin.jpg";
+import { intraOralFaqs, type FaqBlock } from "@/lib/intra-oral-faq";
 import {
   Accordion,
   AccordionContent,
@@ -7,41 +10,94 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const faqs = [
-  { q: "How long is the Dental Assisting program?", a: "Our Level II program runs for 8 weekends. We also offer weekday intakes. Specific dates are available on request." },
-  { q: "What are the admission requirements?", a: "A high school diploma (or equivalent) is the minimum requirement. We also welcome internationally trained students. Contact us for a personalized assessment." },
-  { q: "Do you offer payment plans?", a: "Yes — flexible tuition payment plans are available. Please contact our admissions office to discuss options." },
-  { q: "Is the program certified?", a: "Yes. Graduates earn HARP (Healing Arts Radiation Protection) certification, CPR/First Aid, and infection control training that meets industry standards." },
-  { q: "Do you help with job placement?", a: "Absolutely. Our career support team provides resume help, interview coaching, and connects graduates with hiring dental practices across the GTA." },
-  { q: "Can I work while studying?", a: "Yes. Our weekend schedule is specifically designed for students who work or have other commitments during the week." },
-  { q: "What's the class size?", a: "We keep classes small — typically 12–16 students — so every student gets ample chairside practice and personal instructor attention." },
-  { q: "Where is the school located?", a: "We're located at 2727 Steeles Ave W, Toronto, ON M3J 3G9 — easy access by transit and car. See our Contact page for directions and hours." },
-];
-
 export const Route = createFileRoute("/faq")({
   head: () => ({
     meta: [
-      { title: "FAQ — Toronto College of Dental Assisting" },
-      { name: "description", content: "Answers to common questions about our Dental Assisting program: duration, admission, certification, and tuition." },
-      { property: "og:title", content: "FAQ — TCDA" },
-      { property: "og:description", content: "Common questions about our Dental Assisting program." },
+      { title: "Intra Oral Dental Assisting Level I & II FAQ — Toronto College of Dental Assisting" },
+      {
+        name: "description",
+        content:
+          "Frequently asked questions about the Intra Oral Dental Assisting Level I & II program: registration, tuition, payment options, admissions, and employment assistance.",
+      },
+      { property: "og:title", content: "Intra Oral Dental Assisting Level I & II FAQ — TCDA" },
+      {
+        property: "og:description",
+        content: "Answers to common questions about our Intra Oral Dental Assisting program.",
+      },
     ],
   }),
   component: FAQ,
 });
 
+function FaqBlockContent({ block }: { block: FaqBlock }) {
+  if (block.type === "p") {
+    return <p>{block.text}</p>;
+  }
+
+  if (block.type === "p-with-link") {
+    return (
+      <p>
+        {block.before}
+        <a
+          href={block.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-medium text-primary underline-offset-2 hover:underline"
+        >
+          {block.linkText}
+        </a>
+        {block.after}
+      </p>
+    );
+  }
+
+  return (
+    <ul className="list-disc space-y-2 pl-5">
+      {block.items.map((item) => (
+        <li key={item}>{item}</li>
+      ))}
+    </ul>
+  );
+}
+
 function FAQ() {
   return (
     <SiteLayout>
-      <PageHero title="Frequently Asked Questions" subtitle="Everything you need to know before applying." />
-      <section className="mx-auto max-w-3xl px-4 py-12">
+      <ProgramHero
+        image={faqHeroImg}
+        imageAlt="Dental college instructor ready to answer student questions"
+        imagePosition="object-[70%_18%] sm:object-[right_15%]"
+        title="Intra Oral Dental Assisting Level I & II FAQ"
+        subtitle="You have questions, we have answers."
+      >
+        <Link to="/apply">
+          <CTAButton className="border-2 border-cta bg-cta text-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-[color:var(--navy)] hover:bg-[color:var(--navy)] hover:opacity-100 hover:shadow-xl hover:shadow-primary/25">
+            Apply Now
+          </CTAButton>
+        </Link>
+      </ProgramHero>
+
+      <section className="mx-auto max-w-3xl px-4 py-12 sm:py-16">
+        <div className="mb-8">
+          <h2 className="font-display text-xl font-bold uppercase tracking-wide text-[color:var(--navy)] sm:text-2xl">
+            Frequently Asked Questions
+          </h2>
+          <div className="mt-3 h-1 w-14 bg-[color:var(--navy)]" />
+        </div>
+
         <Accordion type="single" collapsible className="w-full">
-          {faqs.map((f, i) => (
-            <AccordionItem key={i} value={`item-${i}`}>
+          {intraOralFaqs.map((faq) => (
+            <AccordionItem key={faq.id} value={faq.id}>
               <AccordionTrigger className="text-left font-display text-base text-[color:var(--navy)]">
-                {f.q}
+                {faq.question}
               </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">{f.a}</AccordionContent>
+              <AccordionContent>
+                <div className="space-y-4 text-muted-foreground leading-relaxed">
+                  {faq.blocks.map((block, index) => (
+                    <FaqBlockContent key={`${faq.id}-${index}`} block={block} />
+                  ))}
+                </div>
+              </AccordionContent>
             </AccordionItem>
           ))}
         </Accordion>

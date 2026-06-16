@@ -9,8 +9,8 @@ const navLinks = [
   { to: "/facility", label: "FACILITY" },
   { to: "/testimonials", label: "TESTIMONIALS" },
   { to: "/faq", label: "FAQ" },
-  { to: "/contact", label: "CONTACT" },
   { to: "/apply", label: "APPLY" },
+  { to: "/contact", label: "CONTACT" },
 ] as const;
 
 function isProgramsActive(pathname: string) {

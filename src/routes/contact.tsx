@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { SiteLayout, PageHero, CTAButton } from "@/components/site/SiteLayout";
+import { SiteLayout, CTAButton } from "@/components/site/SiteLayout";
+import { ProgramHero } from "@/components/site/ProgramDetailSections";
+import contactHeroImg from "@/assets/contact-hero-v2.jpg";
 import { Facebook, Instagram, Twitter } from "lucide-react";
 
 export const Route = createFileRoute("/contact")({
@@ -30,7 +32,13 @@ const inputClass =
 function Contact() {
   return (
     <SiteLayout>
-      <PageHero title="Contact Us" subtitle="We'd love to hear from you. Reach out with any questions about the program." />
+      <ProgramHero
+        image={contactHeroImg}
+        imageAlt="Admissions team member answering phone inquiries"
+        imagePosition="object-[70%_22%] sm:object-[right_20%]"
+        title="Contact Us"
+        subtitle="We'd love to hear from you. Reach out with any questions about the program."
+      />
 
       <section className="mx-auto max-w-5xl px-4 py-12 grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:gap-10 items-start">
         <form

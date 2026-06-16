@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { SiteLayout, PageHero } from "@/components/site/SiteLayout";
+import { SiteLayout } from "@/components/site/SiteLayout";
+import { ProgramHero } from "@/components/site/ProgramDetailSections";
+import heroBuildingImg from "@/assets/hero-building.jpg";
 import f1 from "@/assets/facility1.jpg";
 import f2 from "@/assets/facility2.jpg";
 import f3 from "@/assets/facility3.jpg";
@@ -27,7 +29,13 @@ function Facility() {
   ];
   return (
     <SiteLayout>
-      <PageHero title="Our Facility" subtitle="Purpose-built training spaces equipped with the same technology you'll use in practice." />
+      <ProgramHero
+        image={heroBuildingImg}
+        imageAlt="Toronto College of Dental Assisting campus building"
+        imagePosition="object-[center_35%] sm:object-right"
+        title="Our Facility"
+        subtitle="Purpose-built training spaces equipped with the same technology you'll use in practice."
+      />
 
       <section className="mx-auto max-w-7xl px-4 py-12 grid gap-6 sm:grid-cols-2">
         {photos.map((p) => (
