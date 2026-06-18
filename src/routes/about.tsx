@@ -2,27 +2,21 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import { SiteLayout, CTAButton } from "@/components/site/SiteLayout";
 import { ProgramHero } from "@/components/site/ProgramDetailSections";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+import { CareerCtaBand } from "@/components/site/CareerCtaBand";
 import {
   accountabilityQuotes,
   edibStatement,
   landAcknowledgement,
   missionStatement,
   philosophyParagraphs,
-  staffMembers,
   values,
   visionStatement,
 } from "@/lib/about";
 import heroImg from "@/assets/hero-building.jpg";
-import studentImg from "@/assets/student.jpg";
+import hygienistStripImg from "@/assets/dental-assisting-level-ii-strip.jpg";
 import facilityImg from "@/assets/facility1.jpg";
 import classroomImg from "@/assets/classroom.jpg";
+import programStudentsImg from "@/assets/dental-assisting-program-students.png";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -59,7 +53,6 @@ function About() {
             About Us
           </AboutNavLink>
           <AboutNavLink targetId="our-values">Our Values</AboutNavLink>
-          <AboutNavLink targetId="our-staff">Our Staff</AboutNavLink>
         </div>
       </nav>
 
@@ -81,8 +74,8 @@ function About() {
       </ContentBlock>
 
       <ImageTextRow
-        image={studentImg}
-        imageAlt="Toronto dental college students training"
+        image={hygienistStripImg}
+        imageAlt="Dental assistant with dentist and patient in a modern clinical training environment"
         title="Our philosophy"
       >
         {philosophyParagraphs.map((p) => (
@@ -175,25 +168,14 @@ function About() {
           imageAlt="Toronto dental college students training"
           title="Experienced Staff"
           body="The Toronto College of Dental Hygiene and Auxiliaries Inc. believes students, clients, staff, faculty, and the community in which we live and work, need to be treated with respect and that we all need to work collaboratively to achieve high standards of dental education."
-          to="/about#our-staff"
+          to="/about"
         />
       </section>
 
-      <section id="our-staff" className="scroll-mt-24 bg-muted">
-        <div className="mx-auto max-w-7xl px-4 py-14">
-          <div className="text-center">
-            <h2 className="font-display text-2xl sm:text-3xl text-[color:var(--navy)]">
-              TCDHA Staff and Faculty
-            </h2>
-            <p className="mt-2 text-muted-foreground">Meet our team.</p>
-          </div>
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {staffMembers.map((member) => (
-              <StaffCard key={member.name} member={member} />
-            ))}
-          </div>
-        </div>
-      </section>
+      <CareerCtaBand
+        image={programStudentsImg}
+        imageClassName="max-w-[520px] sm:max-w-[600px] md:-mt-32 md:max-w-[680px] md:translate-x-10 lg:-mt-40 lg:max-w-[800px] lg:translate-x-14"
+      />
     </SiteLayout>
   );
 }
@@ -312,39 +294,5 @@ function HighlightCard({
         </Link>
       </div>
     </article>
-  );
-}
-
-function StaffCard({ member }: { member: (typeof staffMembers)[number] }) {
-  return (
-    <Dialog>
-      <div className="rounded-lg border bg-background p-6 text-center shadow-sm">
-        <div className="mx-auto grid h-20 w-20 place-items-center rounded-full bg-primary/15 font-display text-lg font-bold text-primary">
-          {member.name
-            .split(" ")
-            .filter((w) => w.length > 1 && w[0] === w[0].toUpperCase())
-            .slice(0, 2)
-            .map((w) => w[0])
-            .join("")}
-        </div>
-        <h3 className="mt-4 font-display text-base text-[color:var(--navy)]">{member.name}</h3>
-        <p className="mt-1 text-sm text-muted-foreground">{member.title}</p>
-        <DialogTrigger asChild>
-          <button
-            type="button"
-            className="mt-4 text-sm font-semibold text-primary hover:underline"
-          >
-            Read bio
-          </button>
-        </DialogTrigger>
-      </div>
-      <DialogContent className="max-h-[85vh] overflow-y-auto sm:max-w-lg">
-        <DialogHeader>
-          <DialogTitle className="font-display text-[color:var(--navy)]">{member.name}</DialogTitle>
-          <p className="text-sm text-primary font-semibold">{member.role}</p>
-        </DialogHeader>
-        <p className="text-sm leading-relaxed text-muted-foreground">{member.bio}</p>
-      </DialogContent>
-    </Dialog>
   );
 }

@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { ProgramHero } from "@/components/site/ProgramDetailSections";
+import { CareerCtaBand } from "@/components/site/CareerCtaBand";
 import heroBuildingImg from "@/assets/hero-building.jpg";
 import f1 from "@/assets/facility1.jpg";
 import f2 from "@/assets/facility2.jpg";
@@ -55,6 +56,8 @@ function Facility() {
           practice real-world procedures in a safe, supervised environment.
         </p>
       </section>
+
+      <CareerCtaBand />
     </SiteLayout>
   );
 }

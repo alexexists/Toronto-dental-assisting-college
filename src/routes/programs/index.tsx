@@ -33,7 +33,7 @@ function ProgramsIndex() {
         imageAlt="Dental assistant in a clinical training environment"
         imagePosition="object-[70%_22%] sm:object-[right_18%]"
         title="Our Dental Programs"
-        subtitle="The leading choice for your dental career."
+        subtitle="Become a Dental Assistant Level II in just 8 Weekends"
       >
         <Link to="/apply">
           <CTAButton className="border-2 border-cta bg-cta text-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-[color:var(--navy)] hover:bg-[color:var(--navy)] hover:opacity-100 hover:shadow-xl hover:shadow-primary/25">
@@ -53,6 +53,8 @@ function ProgramsIndex() {
             to={program.path}
             image={program.image}
             imageAlt={program.imageAlt}
+            youtubeId={"youtubeId" in program ? program.youtubeId : undefined}
+            videoTitle={"videoTitle" in program ? program.videoTitle : undefined}
             reversed={index % 2 === 1}
             variant={program.variant}
           />

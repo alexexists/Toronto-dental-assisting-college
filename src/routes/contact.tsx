@@ -29,6 +29,9 @@ const schoolHours = [
 const inputClass =
   "mt-1.5 w-full rounded-lg border border-border/80 bg-white px-3.5 py-2.5 text-sm shadow-sm transition placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20";
 
+const campusAddress = "2727 Steeles Ave W, Toronto, ON M3J 3G9";
+const mapsEmbedSrc = `https://maps.google.com/maps?q=${encodeURIComponent(campusAddress)}&z=15&output=embed`;
+
 function Contact() {
   return (
     <SiteLayout>
@@ -40,7 +43,20 @@ function Contact() {
         subtitle="We'd love to hear from you. Reach out with any questions about the program."
       />
 
-      <section className="mx-auto max-w-5xl px-4 py-12 grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:gap-10 items-start">
+      <section className="mx-auto max-w-5xl px-4 pt-10 pb-4">
+        <div className="overflow-hidden rounded-xl border border-primary/20 shadow-md ring-1 ring-black/[0.04]">
+          <iframe
+            title="Toronto College of Dental Assisting — 2727 Steeles Ave W, Toronto"
+            src={mapsEmbedSrc}
+            className="aspect-[16/9] w-full min-h-[280px] border-0 sm:min-h-[360px]"
+            loading="lazy"
+            allowFullScreen
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-5xl px-4 pb-12 pt-4 grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:gap-10 items-start">
         <form
           className="max-w-xl w-full rounded-xl border border-primary/25 bg-gradient-to-br from-white via-white to-primary/10 p-6 sm:p-8 shadow-lg shadow-primary/10 ring-1 ring-black/[0.04] space-y-5"
           onSubmit={(e) => e.preventDefault()}

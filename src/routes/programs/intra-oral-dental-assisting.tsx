@@ -8,7 +8,7 @@ import {
   BenefitsGrid,
 } from "@/components/site/ProgramDetailSections";
 import { CTAButton } from "@/components/site/SiteLayout";
-import studentImg from "@/assets/student.jpg";
+import intraOralStripImg from "@/assets/intra-oral-program-strip.jpg";
 
 export const Route = createFileRoute("/programs/intra-oral-dental-assisting")({
   head: () => ({
@@ -33,8 +33,9 @@ function IntraOralProgram() {
   return (
     <SiteLayout>
       <ProgramHero
-        image={studentImg}
+        image={intraOralStripImg}
         imageAlt="Intra oral dental assisting students in clinic"
+        imagePosition="object-center"
         title="Intra Oral Dental Assisting Level I & II"
       >
         <Link to="/apply">
@@ -44,8 +45,10 @@ function IntraOralProgram() {
 
       <ProgramOverview
         title="Program Overview"
-        image={studentImg}
-        imageAlt="Intra oral dental assisting student"
+        image={intraOralStripImg}
+        imageAlt="Intra oral dental assisting students in clinic"
+        youtubeId="u637NGnNLF0"
+        videoTitle="Intra Oral Dental Assisting Level I & II program video"
         paragraphs={[
           "The Intra Oral Dental Assisting Level I and II course will prepare the student to assist the dentist in all dental procedures in a general practice or a specialist setting.",
           "Our state of the art facilities give students plenty of practice in real situations with modern equipment. The program includes field training in a dental office as well as extensive practical experience with knowledgeable instructors. Training includes taking x-rays and sterilization, as well as an office administration overview to give the individual a well-rounded knowledge of all the functions of a modern dental office.",

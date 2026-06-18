@@ -9,7 +9,7 @@ import {
   CoreDutiesList,
 } from "@/components/site/ProgramDetailSections";
 import { CTAButton } from "@/components/site/SiteLayout";
-import studentImg from "@/assets/student.jpg";
+import levelIiStripImg from "@/assets/dental-assisting-level-ii-strip.jpg";
 
 export const Route = createFileRoute("/programs/dental-assisting-level-ii")({
   head: () => ({
@@ -34,8 +34,9 @@ function DentalAssistingLevelII() {
   return (
     <SiteLayout>
       <ProgramHero
-        image={studentImg}
-        imageAlt="Dental assisting level II students in clinic"
+        image={levelIiStripImg}
+        imageAlt="Dental assistant with dentist and patient in a modern clinical training environment"
+        imagePosition="object-center"
         title="Dental Assisting Level II"
         subtitle="Become a Dental Assistant Level II in just 8 Weekends"
       >
@@ -47,6 +48,7 @@ function DentalAssistingLevelII() {
       <ProgramOverview
         title="Program Overview & Benefits"
         youtubeId="x205X2HmFJk"
+        videoTitle="Dental Assisting Level II program video"
         paragraphs={[
           "Our Level II Dental Assisting Program's curriculum has been approved by the National Dental Assisting Examining Board (NDAEB). Graduates of the program are able to write the National Dental Assisting Board Examination.",
           "This program provides the student with the theoretical and practical experience of a Level II Dental Assistant. All concepts taught in the classroom are demonstrated and practiced in the clinical setting on mannequins, student partners, and clients. Students must demonstrate these clinical skills while adhering to the ODAA Code of Ethics.",

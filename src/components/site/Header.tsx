@@ -3,6 +3,7 @@ import { Facebook, Instagram, Twitter, Mail, Phone, Menu, X, ChevronDown } from 
 import { useState } from "react";
 import logo from "@/assets/Toronto-College-Dental-Assisting-Logo.png";
 import { programs } from "@/lib/programs";
+import { cn } from "@/lib/utils";
 
 const navLinks = [
   { to: "/about", label: "ABOUT" },
@@ -72,11 +73,27 @@ export function Header() {
           </div>
         </div>
         <button
-          className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-md border"
+          type="button"
+          className={cn(
+            "relative md:hidden inline-flex h-10 w-10 items-center justify-center rounded-md border transition-colors duration-300",
+            open ? "border-primary/40 bg-primary/10" : "border-border bg-background",
+          )}
           onClick={() => setOpen((v) => !v)}
-          aria-label="Toggle menu"
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
         >
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          <Menu
+            className={cn(
+              "h-5 w-5 transition-all duration-300 ease-out",
+              open ? "rotate-90 scale-75 opacity-0" : "rotate-0 scale-100 opacity-100",
+            )}
+          />
+          <X
+            className={cn(
+              "absolute h-5 w-5 transition-all duration-300 ease-out",
+              open ? "rotate-0 scale-100 opacity-100" : "-rotate-90 scale-75 opacity-0",
+            )}
+          />
         </button>
       </div>
 
@@ -105,6 +122,12 @@ export function Header() {
               <ChevronDown className="h-4 w-4 transition-transform group-hover:rotate-180" />
             </Link>
             <div className="invisible absolute left-0 top-full z-50 min-w-[320px] border border-border bg-background py-2 opacity-0 shadow-lg transition-all group-hover:visible group-hover:opacity-100">
+              <Link
+                to="/programs"
+                className="block px-4 py-3 text-sm font-semibold tracking-wide text-[color:var(--navy)] hover:bg-muted hover:text-primary"
+              >
+                All Programs
+              </Link>
               {programs.map((program) => (
                 <Link
                   key={program.slug}
@@ -130,8 +153,14 @@ export function Header() {
           ))}
         </div>
 
-        {open && (
-          <div className="md:hidden border-t">
+        <div
+          className={cn(
+            "md:hidden grid border-t transition-[grid-template-rows,opacity] duration-300 ease-in-out",
+            open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0 pointer-events-none",
+          )}
+          aria-hidden={!open}
+        >
+          <div className="overflow-hidden">
             <div className="flex flex-col px-4 py-2">
               <Link
                 to="/about"
@@ -189,7 +218,7 @@ export function Header() {
               ))}
             </div>
           </div>
-        )}
+        </div>
       </nav>
     </header>
   );

@@ -1,8 +1,21 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout, CTAButton } from "@/components/site/SiteLayout";
 import { ProgramHero } from "@/components/site/ProgramDetailSections";
+import { CareerCtaBand } from "@/components/site/CareerCtaBand";
 import { communityTestimonials, studentTestimonials } from "@/lib/testimonials";
 import testimonialsHeroImg from "@/assets/testimonials-hero-v2.jpg";
+
+const orderedStudentTestimonials = (() => {
+  const valedictorianIndex = studentTestimonials.findIndex(
+    (t) => t.featuredTitle === "Valedictorian Speech",
+  );
+  if (valedictorianIndex === -1) return studentTestimonials;
+
+  const ordered = [...studentTestimonials];
+  const [valedictorian] = ordered.splice(valedictorianIndex, 1);
+  ordered.splice(1, 0, valedictorian);
+  return ordered;
+})();
 
 export const Route = createFileRoute("/testimonials")({
   head: () => ({
@@ -120,7 +133,7 @@ function Testimonials() {
       <ProgramHero
         image={testimonialsHeroImg}
         imageAlt="Diverse dental assisting students in clinical training"
-        imagePosition="object-[center_0%] sm:object-[right_8%]"
+        imagePosition="object-[50%_12%] sm:object-[68%_15%]"
         title="Testimonials"
         subtitle="See what real students have to say about us."
       >
@@ -142,12 +155,14 @@ function Testimonials() {
         <div className="mx-auto max-w-5xl px-4 py-12 sm:py-16">
           <SectionHeading>Student Testimonials</SectionHeading>
           <div className="space-y-6">
-            {studentTestimonials.map((t) => (
+            {orderedStudentTestimonials.map((t) => (
               <StudentTestimonialCard key={`${t.name}-${t.subtitle}`} {...t} />
             ))}
           </div>
         </div>
       </section>
+
+      <CareerCtaBand />
     </SiteLayout>
   );
 }

@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout, CTAButton } from "@/components/site/SiteLayout";
-import { GraduationCap, Users, Stethoscope, BriefcaseBusiness } from "lucide-react";
+import { CareerCtaBand } from "@/components/site/CareerCtaBand";
+import { GraduationCap, Users, Stethoscope, BriefcaseBusiness, ChevronRight } from "lucide-react";
 import { homeDentalAssistingTestimonials } from "@/lib/testimonials";
 import heroImg from "@/assets/hero-building.jpg";
 import studentImg from "@/assets/student.jpg";
-import dentalHygieneImg from "@/assets/dental-hygiene-small.png";
+import dentalAssistingStudentImg from "@/assets/dental-Assisting-student10.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -67,28 +68,86 @@ function Home() {
         </div>
       </section>
 
-      {/* Welcome */}
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:py-20 grid gap-10 lg:grid-cols-2 lg:gap-12 items-center">
-        <div className="text-center lg:text-left">
-          <div className="text-sm font-semibold uppercase tracking-widest text-primary">Welcome</div>
-          <h2 className="mt-2 font-display text-3xl sm:text-4xl text-[color:var(--navy)]">
-            Comprehensive Dental Assisting Training
-          </h2>
-          <p className="mt-4 text-muted-foreground lg:max-w-xl">
-            Whether you're starting fresh or looking to advance your career,
-            our program gives you the practical skills, clinical experience,
-            and confidence you need to excel in today's dental industry.
+      <StatsSection />
+
+      {/* Program highlight */}
+      <section className="mx-auto max-w-7xl px-4 py-16 sm:py-20 grid items-center gap-10 lg:grid-cols-2">
+        <div>
+          <div className="text-sm font-semibold uppercase tracking-widest text-primary">Our Program</div>
+          <h2 className="mt-2 font-display text-3xl sm:text-4xl">Level I & Level II Dental Assisting</h2>
+          <p className="mt-4 text-muted-foreground">
+            Our intensive program combines classroom theory with extensive
+            chairside practice. Graduate ready to step into a dental office
+            and contribute from day one.
           </p>
+          <ul className="mt-6 space-y-2 text-sm">
+            <li className="flex gap-3"><span className="text-primary font-bold">✓</span>Comprehensive curriculum covering theory and clinical skills</li>
+            <li className="flex gap-3"><span className="text-primary font-bold">✓</span>HARP, radiography, and infection control certification</li>
+            <li className="flex gap-3"><span className="text-primary font-bold">✓</span>Flexible weekend and weekday schedules</li>
+            <li className="flex gap-3"><span className="text-primary font-bold">✓</span>Job placement assistance upon graduation</li>
+          </ul>
+          <div className="mt-8">
+            <Link to="/programs"><CTAButton>Explore the Program</CTAButton></Link>
+          </div>
         </div>
         <div className="w-full min-w-0">
           <div className="aspect-video w-full overflow-hidden rounded-lg shadow-lg ring-1 ring-black/5">
             <iframe
               src="https://www.youtube.com/embed/x205X2HmFJk"
-              title="Intra Oral Dental Assisting Level I & II program video"
+              title="Dental Assisting Level I & II program video"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
               className="h-full w-full border-0"
             />
+          </div>
+        </div>
+      </section>
+
+      {/* Choose dental education */}
+      <section className="mx-auto max-w-7xl px-4 py-16 sm:py-20">
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+          <div className="flex justify-center lg:justify-start">
+            <img
+              src={dentalAssistingStudentImg}
+              alt="Dental assisting students in clinical training"
+              loading="lazy"
+              className="h-auto w-full max-w-md object-contain lg:max-w-lg"
+            />
+          </div>
+          <div>
+            <h2 className="font-display text-2xl font-bold uppercase tracking-wide text-[color:var(--navy)] sm:text-3xl">
+              Choose a Dental Education for Your Future
+            </h2>
+            <div className="mt-4 h-px w-14 bg-border" />
+            <p className="mt-6 text-sm leading-relaxed text-muted-foreground sm:text-base">
+              The Toronto College of Dental Assisting provides a learning centered environment
+              enabling individuals to achieve personal and professional success by offering high
+              standards of current comprehensive dental education. These standards provide knowledge
+              and skills that reflect current practices and promote ongoing education and research.
+            </p>
+            <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+              {[
+                "Become a Dental Assistant in as little as 8 Weekends",
+                "Competitive Tuition with Payment Options",
+                "Curriculum meets all National Competencies",
+                "Excellent National and International Reputation",
+                "Excellent Faculty to Student Ratio",
+              ].map((item) => (
+                <li key={item} className="flex gap-2 text-sm text-foreground/90">
+                  <ChevronRight
+                    className="mt-0.5 h-4 w-4 shrink-0 text-cta"
+                    strokeWidth={3}
+                    aria-hidden
+                  />
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <div className="mt-8">
+              <Link to="/programs">
+                <CTAButton className="shadow-md">Our Programs</CTAButton>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -118,40 +177,31 @@ function Home() {
         </div>
       </section>
 
-      {/* Program highlight */}
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:py-20 grid items-center gap-10 lg:grid-cols-2">
+      {/* Training overview */}
+      <section className="mx-auto max-w-7xl px-4 py-16 sm:py-20 grid gap-10 lg:grid-cols-2 lg:gap-12 items-center">
+        <div className="text-center lg:text-left">
+          <div className="text-sm font-semibold uppercase tracking-widest text-primary">Why Choose Us</div>
+          <h2 className="mt-2 font-display text-3xl sm:text-4xl text-[color:var(--navy)]">
+            Comprehensive Dental Assisting Training
+          </h2>
+          <p className="mt-4 text-muted-foreground lg:max-w-xl">
+            Whether you're starting fresh or looking to advance your career,
+            our program gives you the practical skills, clinical experience,
+            and confidence you need to excel in today's dental industry.
+          </p>
+        </div>
         <div className="w-full min-w-0">
           <div className="aspect-video w-full overflow-hidden rounded-lg shadow-lg ring-1 ring-black/5">
             <iframe
               src="https://www.youtube.com/embed/x205X2HmFJk"
-              title="Dental Assisting Level I & II program video"
+              title="Intra Oral Dental Assisting Level I & II program video"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
               className="h-full w-full border-0"
             />
           </div>
         </div>
-        <div>
-          <div className="text-sm font-semibold uppercase tracking-widest text-primary">Our Program</div>
-          <h2 className="mt-2 font-display text-3xl sm:text-4xl">Level I & Level II Dental Assisting</h2>
-          <p className="mt-4 text-muted-foreground">
-            Our intensive program combines classroom theory with extensive
-            chairside practice. Graduate ready to step into a dental office
-            and contribute from day one.
-          </p>
-          <ul className="mt-6 space-y-2 text-sm">
-            <li className="flex gap-3"><span className="text-primary font-bold">✓</span>Comprehensive curriculum covering theory and clinical skills</li>
-            <li className="flex gap-3"><span className="text-primary font-bold">✓</span>HARP, radiography, and infection control certification</li>
-            <li className="flex gap-3"><span className="text-primary font-bold">✓</span>Flexible weekend and weekday schedules</li>
-            <li className="flex gap-3"><span className="text-primary font-bold">✓</span>Job placement assistance upon graduation</li>
-          </ul>
-          <div className="mt-8">
-            <Link to="/programs"><CTAButton>Explore the Program</CTAButton></Link>
-          </div>
-        </div>
       </section>
-
-      <StatsSection />
 
       {/* Testimonials preview */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:py-20">
@@ -187,47 +237,7 @@ function Home() {
         </div>
       </section>
 
-      {/* CTA band */}
-      <section className="relative overflow-visible bg-primary text-primary-foreground">
-        <div className="mx-auto max-w-7xl px-4">
-          <div className="grid items-end gap-6 md:grid-cols-[1fr_auto]">
-            <div className="py-10 sm:py-14">
-              <h2 className="font-display text-2xl sm:text-3xl text-white">
-                Ready to start your dental career?
-              </h2>
-              <p className="mt-2 max-w-lg text-white/90">
-                Applications are now being accepted for the next intake.
-              </p>
-              <div className="mt-6 flex flex-wrap gap-3">
-                <Link to="/apply">
-                  <button
-                    type="button"
-                    className="inline-flex items-center justify-center rounded-md border-2 border-cta bg-cta px-7 py-3 text-sm font-bold uppercase tracking-wider text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:border-[color:var(--navy)] hover:bg-[color:var(--navy)] hover:shadow-lg"
-                  >
-                    Apply Now
-                  </button>
-                </Link>
-                <Link to="/contact">
-                  <button
-                    type="button"
-                    className="inline-flex items-center justify-center rounded-md border-2 border-white bg-white px-7 py-3 text-sm font-bold uppercase tracking-wider !text-black shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:border-[color:var(--navy)] hover:bg-[color:var(--navy)] hover:!text-white hover:shadow-lg"
-                  >
-                    Contact Us
-                  </button>
-                </Link>
-              </div>
-            </div>
-            <div className="flex justify-center md:justify-end md:self-end">
-              <img
-                src={dentalHygieneImg}
-                alt="Toronto College dental assisting professionals"
-                loading="lazy"
-                className="h-auto w-full max-w-[260px] object-contain object-bottom sm:max-w-[300px] md:-mt-20 md:max-w-[340px] lg:-mt-28 lg:max-w-[400px]"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      <CareerCtaBand />
 
       <img src={studentImg} alt="" className="hidden" aria-hidden />
     </SiteLayout>

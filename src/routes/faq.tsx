@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout, CTAButton } from "@/components/site/SiteLayout";
 import { ProgramHero } from "@/components/site/ProgramDetailSections";
+import { CareerCtaBand } from "@/components/site/CareerCtaBand";
 import faqHeroImg from "@/assets/faq-hero-admin.jpg";
 import { intraOralFaqs, type FaqBlock } from "@/lib/intra-oral-faq";
 import {
@@ -102,6 +103,8 @@ function FAQ() {
           ))}
         </Accordion>
       </section>
+
+      <CareerCtaBand />
     </SiteLayout>
   );
 }

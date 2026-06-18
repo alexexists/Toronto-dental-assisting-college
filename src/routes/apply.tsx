@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout, CTAButton } from "@/components/site/SiteLayout";
 import { ProgramHero } from "@/components/site/ProgramDetailSections";
-import applyHeroImg from "@/assets/apply-hero.jpg";
+import applyHeroImg from "@/assets/apply-hero-graduates.jpg";
 import { programs } from "@/lib/programs";
 
 export const Route = createFileRoute("/apply")({
@@ -24,10 +24,10 @@ function Apply() {
     <SiteLayout>
       <ProgramHero
         image={applyHeroImg}
-        imageAlt="Dental assisting student preparing an application"
-        imagePosition="object-[70%_22%] sm:object-[right_20%]"
+        imageAlt="Diverse graduating dental assisting students celebrating"
+        imagePosition="object-[55%_32%] sm:object-[62%_24%]"
         title="Apply Now"
-        subtitle="Begin your dental career — fill out the application below and we'll be in touch."
+        subtitle="Start your dental career today! Fill out the application below and we'll be in touch."
       />
 
       <section className="bg-muted px-4 py-12">
