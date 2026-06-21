@@ -1,8 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { SiteLayout } from "@/components/site/SiteLayout";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { SiteLayout, CTAButton } from "@/components/site/SiteLayout";
 import { ProgramHero } from "@/components/site/ProgramDetailSections";
 import { CareerCtaBand } from "@/components/site/CareerCtaBand";
-import heroBuildingImg from "@/assets/hero-building.jpg";
+import facilityHeroImg from "@/assets/facility-hero.jpg";
 import f1 from "@/assets/facility1.jpg";
 import f2 from "@/assets/facility2.jpg";
 import f3 from "@/assets/facility3.jpg";
@@ -31,12 +31,18 @@ function Facility() {
   return (
     <SiteLayout>
       <ProgramHero
-        image={heroBuildingImg}
-        imageAlt="Toronto College of Dental Assisting campus building"
-        imagePosition="object-[center_35%] sm:object-right"
-        title="Our Facility"
-        subtitle="Purpose-built training spaces equipped with the same technology you'll use in practice."
-      />
+        image={facilityHeroImg}
+        imageAlt="Spacious modern indoor dental training facility with multiple operatories"
+        imagePosition="object-[60%_center] sm:object-[right_center]"
+        title="Our Facilities"
+        subtitle="Everything you need to succeed & grow your career."
+      >
+        <Link to="/programs">
+          <CTAButton className="border-2 border-[#1ABC9C] bg-[#1ABC9C] text-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-[color:var(--navy)] hover:bg-[color:var(--navy)] hover:opacity-100 hover:shadow-xl">
+            Our Programs
+          </CTAButton>
+        </Link>
+      </ProgramHero>
 
       <section className="mx-auto max-w-7xl px-4 py-12 grid gap-6 sm:grid-cols-2">
         {photos.map((p) => (

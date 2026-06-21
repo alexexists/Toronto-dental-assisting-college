@@ -10,11 +10,12 @@ export const programs = [
     overviewExcerpt:
       "The Intra Oral Dental Assisting Level I and II course will prepare the student to assist the dentist in all dental procedures in a general practice or a specialist setting.",
     overviewExcerpt2:
-      "Our state of the art facilities give students plenty of practice in real situations with modern equipment. The program includes field training in a dental office as well as extensive practical experience with knowledgeable instructors.",
+      "Our state of the art facilities give students plenty of practice in real situations with modern equipment. The program includes field training in a dental office as well as extensive practical experience with seasoned instructors.",
     image: "student",
-    imageAlt: "Dental assisting students in clinical training",
+    imageAlt: "Asian and Black dental assistants working together in clinical practice",
     youtubeId: "u637NGnNLF0",
     videoTitle: "Intra Oral Dental Assisting Level I & II program video",
+    stripReversed: false,
     variant: "light" as const,
   },
   {
@@ -32,6 +33,7 @@ export const programs = [
     imageAlt: "Dental assistant with dentist and patient in a modern clinical training environment",
     youtubeId: "x205X2HmFJk",
     videoTitle: "Dental Assisting Level II program video",
+    stripReversed: true,
     variant: "dark" as const,
   },
 ] as const;

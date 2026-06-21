@@ -1,5 +1,5 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { SiteLayout, CTAButton } from "@/components/site/SiteLayout";
+import { createFileRoute } from "@tanstack/react-router";
+import { SiteLayout } from "@/components/site/SiteLayout";
 import { ProgramHero } from "@/components/site/ProgramDetailSections";
 import { CareerCtaBand } from "@/components/site/CareerCtaBand";
 import faqHeroImg from "@/assets/faq-hero-admin.jpg";
@@ -70,13 +70,7 @@ function FAQ() {
         imagePosition="object-[70%_18%] sm:object-[right_15%]"
         title="Intra Oral Dental Assisting Level I & II FAQ"
         subtitle="You have questions, we have answers."
-      >
-        <Link to="/apply">
-          <CTAButton className="border-2 border-cta bg-cta text-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-[color:var(--navy)] hover:bg-[color:var(--navy)] hover:opacity-100 hover:shadow-xl hover:shadow-primary/25">
-            Apply Now
-          </CTAButton>
-        </Link>
-      </ProgramHero>
+      />
 
       <section className="mx-auto max-w-3xl px-4 py-12 sm:py-16">
         <div className="mb-8">

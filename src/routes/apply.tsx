@@ -27,7 +27,7 @@ function Apply() {
         imageAlt="Diverse graduating dental assisting students celebrating"
         imagePosition="object-[55%_32%] sm:object-[62%_24%]"
         title="Apply Now"
-        subtitle="Start your dental career today! Fill out the application below and we'll be in touch."
+        subtitle="Ready to start your dental career? Fill out the application below and let's get you started."
       />
 
       <section className="bg-muted px-4 py-12">

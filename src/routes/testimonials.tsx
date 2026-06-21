@@ -137,8 +137,8 @@ function Testimonials() {
         title="Testimonials"
         subtitle="See what real students have to say about us."
       >
-        <Link to="/programs">
-          <CTAButton className="shadow-md">Our Programs</CTAButton>
+        <Link to="/apply">
+          <CTAButton className="shadow-md">Apply Now</CTAButton>
         </Link>
       </ProgramHero>
 

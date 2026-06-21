@@ -4,7 +4,7 @@ import { ProgramHero } from "@/components/site/ProgramDetailSections";
 import { ProgramStrip } from "@/components/site/ProgramStrip";
 import { ProgramsPageShell } from "@/components/site/ProgramsPageShell";
 import { programs } from "@/lib/programs";
-import faqHeroImg from "@/assets/faq-hero.jpg";
+import programsHeroImg from "@/assets/programs-hero.jpg";
 
 export const Route = createFileRoute("/programs/")({
   head: () => ({
@@ -29,9 +29,9 @@ function ProgramsIndex() {
   return (
     <SiteLayout>
       <ProgramHero
-        image={faqHeroImg}
-        imageAlt="Dental assistant in a clinical training environment"
-        imagePosition="object-[70%_22%] sm:object-[right_18%]"
+        image={programsHeroImg}
+        imageAlt="Dental professionals training in a modern clinical environment"
+        imagePosition="object-[65%_center] sm:object-[right_center]"
         title="Our Dental Programs"
         subtitle="Become a Dental Assistant Level II in just 8 Weekends"
       >
@@ -42,7 +42,7 @@ function ProgramsIndex() {
         </Link>
       </ProgramHero>
       <ProgramsPageShell>
-        {programs.map((program, index) => (
+        {programs.map((program) => (
           <ProgramStrip
             key={program.slug}
             title={program.overviewTitle}
@@ -55,7 +55,7 @@ function ProgramsIndex() {
             imageAlt={program.imageAlt}
             youtubeId={"youtubeId" in program ? program.youtubeId : undefined}
             videoTitle={"videoTitle" in program ? program.videoTitle : undefined}
-            reversed={index % 2 === 1}
+            reversed={"stripReversed" in program ? program.stripReversed : false}
             variant={program.variant}
           />
         ))}

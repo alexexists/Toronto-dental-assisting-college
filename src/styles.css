@@ -84,6 +84,10 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .programs-page {
   background-color: #c5e4ec;
 }
