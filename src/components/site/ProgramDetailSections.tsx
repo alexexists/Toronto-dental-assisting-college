@@ -15,6 +15,7 @@ import {
   Pencil,
   Play,
   User,
+  Asterisk,
 } from "lucide-react";
 import { CTAButton } from "./SiteLayout";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
@@ -105,7 +106,7 @@ export function ProgramDetailLayout({
   return (
     <div id={PROGRAM_CONTENT_ID} className="mx-auto max-w-7xl scroll-mt-0 px-4 py-12 lg:py-14">
       <div className="grid gap-10 lg:grid-cols-[minmax(240px,280px)_minmax(0,1fr)] lg:gap-12 lg:items-start">
-        <aside className="lg:sticky lg:top-8 space-y-8">
+        <aside className="order-2 space-y-8 lg:order-1 lg:sticky lg:top-8">
           <div className="overflow-hidden rounded-md border border-border bg-white shadow-sm">
             <div className="border-b border-border bg-muted/30 px-4 py-3">
               <p className="font-display text-xs font-bold uppercase leading-snug tracking-wide text-[color:var(--navy)]">
@@ -165,7 +166,7 @@ export function ProgramDetailLayout({
           </div>
         </aside>
 
-        <div className="min-w-0">{children}</div>
+        <div className="order-1 min-w-0 lg:order-2">{children}</div>
       </div>
     </div>
   );
@@ -229,6 +230,50 @@ export function ProgramOverviewSection({
   );
 }
 
+const levelIiCoreDuties = [
+  "Dental Assisting (Level I)",
+  "Dental radiography",
+  "Mechanical polishing of the coronal portion of the teeth (not including any instrumentation)",
+  "Placement and removal of rubber dam",
+  "Taking of preliminary impressions of teeth for study models",
+  "Topical application of anti-cariogenic agents",
+  "Oral hygiene instruction with an intra-oral component",
+  "Dietary counseling relative to dentistry",
+  "Application of materials topically to prepare the surface of the teeth for pit and fissure sealants",
+  "Application of pit and fissure sealants",
+  "Application of topical anesthetics",
+  "Application of desensitizing agents",
+  "Whitening of the coronal portion of the teeth using materials generally available to the public without prescription",
+  "Application of treatment liners (no pulpal involvement)",
+  "Application of matrices and wedges",
+];
+
+export function ProgramCoreDutiesSection() {
+  return (
+    <section className="mt-10 scroll-mt-24">
+      <div className="flex flex-col gap-4 border-b border-primary pb-6 sm:flex-row sm:items-start sm:justify-between">
+        <h2 className="font-display text-2xl sm:text-3xl text-[color:var(--navy)]">Programs Core Duties</h2>
+        <Link to="/apply">
+          <button
+            type="button"
+            className="inline-flex shrink-0 items-center justify-center rounded-md bg-black px-6 py-3 text-xs font-bold uppercase tracking-wider text-white transition hover:opacity-90"
+          >
+            Apply Now
+          </button>
+        </Link>
+      </div>
+      <ul className="mt-6 space-y-2">
+        {levelIiCoreDuties.map((duty) => (
+          <li key={duty} className="flex gap-3 text-base leading-relaxed text-primary">
+            <Check className="mt-0.5 h-5 w-5 shrink-0 text-primary" strokeWidth={3.5} />
+            <span>{duty}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
 export function ProgramPrerequisitesSection() {
   const canadaRequirements = [
     "Ontario Secondary Diploma - OSSD or;",
@@ -285,13 +330,74 @@ export function ProgramPrerequisitesSection() {
   );
 }
 
+export function ProgramLevelIiPrerequisitesSection() {
+  const canadaRequirements = [
+    "Dental Assisting Level I Diploma",
+    "Proof of HARP Certification",
+    "Ontario Secondary Diploma - OSSD 30 Credits (General level and/or Advanced) or;",
+    "Grade 12 Equivalency - GED Certificate or;",
+    "Canadian Public College Diploma or;",
+    "Canadian University Degree or;",
+    "Be at least 18 years of age and pass a Superintendent approved qualifying test. The Wonderlic Scholastic Exam is accepted at Toronto College of Dental Hygiene and Auxiliaries Inc. Valid ID must be provided to show proof of age.",
+  ];
+
+  return (
+    <section id="prerequisites" className="scroll-mt-24">
+      <h2 className="font-display text-2xl sm:text-3xl text-[color:var(--navy)]">
+        Program Prerequisites &amp; Requirements
+      </h2>
+      <div className="mt-3 h-1 w-14 bg-primary" />
+
+      <div className="mt-8 space-y-8">
+        <div>
+          <h3 className="font-display text-lg font-bold text-primary">Applicants Educated in Canada</h3>
+          <p className="mt-4 text-muted-foreground leading-relaxed">
+            All applicants must have proof that they have successfully completed a Dental Assisting Level I Program
+            and have their HARP certification. A copy of their transcript and or Diploma is required to be submitted.
+          </p>
+          <ul className="mt-5 space-y-3">
+            {canadaRequirements.map((item) => (
+              <li key={item} className="flex gap-3 text-base font-bold leading-relaxed text-primary">
+                <Check className="mt-0.5 h-5 w-5 shrink-0 text-primary" strokeWidth={3.5} />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="font-display text-lg font-bold text-[color:var(--navy)]">Official Transcripts</h3>
+          <p className="mt-4 text-muted-foreground leading-relaxed">
+            The applicant is responsible for the delivery of official transcripts to the college. Any digital
+            transcripts must be sent by the institution directly to our admission department. Digital transcripts
+            sent by the applicant will not be accepted.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 const intraOralRequestApplicationUrl = "https://www.toronto-college-dental.org/requestapplication.html";
 const intraOralDownloadInfoUrl =
   "https://www.toronto-college-dental.org/admissions/TCDHA-IODALNew%20Students.pdf";
+const levelIiDownloadInfoUrl =
+  "https://www.toronto-college-dental.org/admissions/TCDHA-DA2-InformationforNewStudents.pdf";
+const ndaebGeneralInfoUrl = "https://ndaeb.ca/international_general_E.php";
+
+const programTuitionInfoParagraphs = [
+  "Additional fees can only be made by certified cheque, bank draft and / or money order. Monthly tuition payments will be made by post-dated personal cheques.",
+  "Transportation fees are the responsibility of the student.",
+  "Black dress pants, black shoes and white running shoes are the responsibility of the student.",
+  "Clinical insurance fees are paid to the insurance provider in advance as per their policy and are non-refundable.",
+];
+
+const programTuitionInfoFooter =
+  "Toronto College of Dental Hygiene and Auxiliaries Inc. is approved under the Ontario Career Colleges Act, 2005.";
 
 function CheckListItem({ children }: { children: ReactNode }) {
   return (
-    <li className="flex gap-3 text-sm leading-relaxed text-foreground/90">
+    <li className="flex gap-3 text-base leading-relaxed text-foreground/90">
       <Check className="mt-0.5 h-5 w-5 shrink-0 text-primary" strokeWidth={3.5} />
       <span>{children}</span>
     </li>
@@ -372,23 +478,27 @@ export function ProgramHowToApplySection() {
         <p className="text-muted-foreground leading-relaxed">
           TCDHA reserves an additional number of seats per intake to students who fall under the below categories:
         </p>
-        <ul className="mt-3 space-y-3 text-sm font-semibold leading-relaxed text-primary">
-          <li>2 Seats: Indigenous students (First Nations, Inuit, Métis)</li>
-          <li>5 Seats: International students</li>
+        <ul className="mt-3 space-y-3">
+          <li className="text-base font-semibold leading-relaxed text-primary">
+            2 Seats: Indigenous students (First Nations, Inuit, Métis)
+          </li>
+          <li className="text-base font-semibold leading-relaxed text-primary">
+            5 Seats: International students
+          </li>
         </ul>
       </div>
 
       <div>
-        <p className="text-sm font-bold text-[color:var(--navy)]">Next class start:</p>
+        <p className="text-base font-bold leading-relaxed text-[color:var(--navy)]">Next class start:</p>
         <p className="mt-1 font-display text-3xl font-bold text-primary sm:text-4xl">November 2025</p>
       </div>
 
       <div className="rounded-md border border-border bg-white px-5 py-4">
-        <p className="text-sm leading-relaxed text-foreground/90">
+        <p className="text-base leading-relaxed text-foreground/90">
           Weekday morning or evening program:{" "}
           <span className="font-bold text-primary">Monday to Thursday</span>
         </p>
-        <p className="mt-2 text-sm leading-relaxed text-foreground/90">
+        <p className="mt-2 text-base leading-relaxed text-foreground/90">
           Course length: <span className="font-bold text-primary">41 weeks</span>
         </p>
       </div>
@@ -452,6 +562,176 @@ export function ProgramHowToApplySection() {
   );
 }
 
+export function ProgramLevelIiHowToApplySection() {
+  const indigenousRequirements = [
+    "Provide documentation of Indigenous heritage (First Nations, Métis, or Inuit). This could include but is not limited to, Indian or Métis status cards, official Inuit identification, official letters from Aboriginal organizations, or a combination of proof.",
+    "Complete the application process and the admissions test.",
+    "Complete the prerequisites required to be eligible for admission into the program",
+  ];
+
+  const applicationSteps = [
+    "Request the Application form and fill it out",
+    "Complete your Edulink Admissions Profile to complete your Application Form",
+    "Arrange to provide Official Transcripts to the Admissions Office (proof of Dental Assisting Level I and HARP certification)",
+    "Call or email an Admissions Coordinator at the college to schedule a tour",
+  ];
+
+  return (
+    <section id="how-to-apply" className="scroll-mt-24 space-y-8">
+      <div className="flex flex-col gap-4 border-b border-border pb-6 sm:flex-row sm:items-start sm:justify-between">
+        <h2 className="font-display text-2xl sm:text-3xl text-[color:var(--navy)]">
+          How to Apply for Dental Assisting Level II
+        </h2>
+        <a
+          href={intraOralRequestApplicationUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex shrink-0 items-center justify-center rounded-md bg-[color:var(--navy)] px-6 py-3 text-xs font-bold uppercase tracking-wider text-white transition hover:opacity-90"
+        >
+          Request Application
+        </a>
+      </div>
+
+      <div>
+        <h3 className="font-display text-lg font-bold text-primary">Apply Today</h3>
+        <p className="mt-4 text-muted-foreground leading-relaxed">
+          We are currently accepting applications for our{" "}
+          <strong className="font-semibold text-foreground">Dental Assisting Level II Program</strong>. Apply now by
+          clicking on the request application button below. The Dental Assisting Level II Program is offered on the
+          weekends from Friday to Sunday.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="font-display text-lg font-bold text-primary">Indigenous Applicant Eligibility</h3>
+        <div className="mt-4 space-y-4 text-muted-foreground leading-relaxed">
+          <p>
+            TCDHA is dedicated to creating an inclusive learning environment that lifts and honours the Indigenous
+            worldview and ways of knowing to support First Nations, Metis, and Inuit students who choose to study here.
+          </p>
+          <p>
+            For this reason, and to continue to improve our support of Indigenous students as they strive to reach their
+            educational goals and dreams, we invite you to identify if you are of Indigenous ancestry within the meaning
+            of the Canadian Constitutional Act of 1982.
+          </p>
+          <p>
+            Self-identifying Indigenous ancestry on your application for admission will allow us to stay connected
+            throughout your college career and provide information on topics such as Indigenous student scholarships,
+            bursaries and more.
+          </p>
+          <p className="font-medium text-foreground">Applicants applying must meet the following requirements:</p>
+        </div>
+        <ul className="mt-5 space-y-3">
+          {indigenousRequirements.map((item) => (
+            <CheckListItem key={item}>{item}</CheckListItem>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <p className="text-muted-foreground leading-relaxed">
+          TCDHA reserves an additional number of seats per intake to students who fall under the below categories:
+        </p>
+        <ul className="mt-3 space-y-3">
+          <li className="text-base font-semibold leading-relaxed text-primary">
+            2 Seats: Indigenous students (First Nations, Inuit, Métis)
+          </li>
+          <li className="text-base font-semibold leading-relaxed text-primary">
+            5 Seats: International students
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <p className="text-base font-bold leading-relaxed text-[color:var(--navy)]">Next classes start:</p>
+        <p className="mt-1 font-display text-3xl font-bold text-primary sm:text-4xl">July 17th, 2026</p>
+      </div>
+
+      <div className="rounded-md border border-border bg-white px-5 py-4">
+        <p className="text-base leading-relaxed text-foreground/90">
+          Weekend program: <span className="font-bold text-primary">Friday to Sunday</span>
+        </p>
+        <p className="mt-2 text-base leading-relaxed text-foreground/90">
+          Course length: <span className="font-bold text-primary">8 weekends</span>
+        </p>
+      </div>
+
+      <div className="rounded-md bg-[#1ABC9C] px-6 py-6 text-white sm:px-8">
+        <h4 className="font-display text-lg font-bold leading-snug">
+          Call us today to schedule a tour of our facility.
+        </h4>
+        <p className="mt-4 text-sm leading-relaxed">
+          Tel :{" "}
+          <a href="tel:+14164233099" className="font-medium hover:underline">
+            (416) 423-3099
+          </a>
+          <br />
+          Toll Free:{" "}
+          <a href="tel:+18669233099" className="font-medium hover:underline">
+            1 (866) 923-3099
+          </a>
+          <br />
+          <strong className="mt-2 inline-block">Ask to speak to an Admissions Coordinator</strong>
+        </p>
+      </div>
+
+      <div className="overflow-hidden rounded-md bg-[color:var(--navy)] px-6 py-8 text-white sm:px-8 sm:py-10">
+        <div className="border-b border-white/20 pb-4">
+          <h3 className="font-display text-lg font-bold text-primary sm:text-xl">
+            Steps to enter the Dental Assisting Level II Program
+          </h3>
+        </div>
+        <ul className="mt-6 space-y-4">
+          {applicationSteps.map((step) => (
+            <li key={step} className="flex gap-3 text-sm leading-relaxed text-white/90 sm:text-base">
+              <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary text-white">
+                <ChevronRight className="h-3 w-3" strokeWidth={3} />
+              </span>
+              <span>{step}</span>
+            </li>
+          ))}
+        </ul>
+        <p className="mt-6 text-sm leading-relaxed text-white/90 sm:text-base">
+          <strong className="font-bold text-white">International Applicants</strong> who have completed schooling in the
+          dental field in their respective countries and wish to join the Dental Assisting Level II program without
+          completing the Dental Assisting Level I program must have their credentials assessed by the NDAEB. For more
+          information please visit{" "}
+          <a
+            href={ndaebGeneralInfoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium text-primary underline-offset-2 hover:underline"
+          >
+            the NDAEB General Information page
+          </a>
+          .
+        </p>
+        <div className="mt-8 space-y-3">
+          <a
+            href={levelIiDownloadInfoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex w-full items-center justify-center rounded-md bg-white px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-[color:var(--navy)] transition hover:bg-white/90"
+          >
+            Download Information
+          </a>
+          <a
+            href={intraOralRequestApplicationUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex w-full items-center justify-center rounded-md bg-cta px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-cta-foreground transition hover:opacity-90"
+          >
+            Request Application
+          </a>
+        </div>
+        <p className="mt-6 text-xs italic text-white/60 sm:text-sm">
+          *This program is Approved as a vocational program under the Ontario Career Colleges Act, 2005*
+        </p>
+      </div>
+    </section>
+  );
+}
+
 export function ProgramFeesSection({ feesImage }: { feesImage: string }) {
   const additionalFees = [
     { label: "Textbooks", amount: "$1,600" },
@@ -459,13 +739,6 @@ export function ProgramFeesSection({ feesImage }: { feesImage: string }) {
     { label: "Uniforms", amount: "$185" },
     { label: "Insurance", amount: "$250" },
     { label: "Equipment Rental Fees", amount: "$850" },
-  ];
-
-  const tuitionInfoParagraphs = [
-    "Additional fees can only be made by certified cheque, bank draft and / or money order. Monthly tuition payments will be made by post-dated personal cheques.",
-    "Transportation fees are the responsibility of the student.",
-    "The cost of uniforms is included in the addtiional fees. This includes: One golf shirt, one set of scrubs, and one lab coat. Black dress pants, black shoes and white running shoes are the responsibility of the student.",
-    "Clinical insurance fees are paid to the insurance provider in advance as per their policy and are non-refundable.",
   ];
 
   return (
@@ -484,15 +757,15 @@ export function ProgramFeesSection({ feesImage }: { feesImage: string }) {
       </div>
 
       <div>
-        <p className="text-sm font-bold text-[color:var(--navy)]">Tuition Fees</p>
+        <p className="text-base font-bold text-[color:var(--navy)] sm:text-lg">Tuition Fees</p>
         <p className="mt-1 font-display text-4xl font-bold text-primary sm:text-5xl">$18,490</p>
       </div>
 
       <div className="rounded-md border border-border bg-white px-5 py-4">
-        <p className="text-sm font-bold leading-relaxed text-foreground/90">
+        <p className="text-base font-bold leading-relaxed text-foreground/90 sm:text-lg">
           Full time program: <span className="text-primary">Monday to Friday</span>
         </p>
-        <p className="mt-2 text-sm font-bold leading-relaxed text-foreground/90">
+        <p className="mt-2 text-base font-bold leading-relaxed text-foreground/90 sm:text-lg">
           Course length: <span className="text-primary">10 months</span>
         </p>
       </div>
@@ -533,7 +806,7 @@ export function ProgramFeesSection({ feesImage }: { feesImage: string }) {
       <div className="overflow-hidden rounded-md bg-[color:var(--navy)] px-6 py-8 text-white sm:px-8 sm:py-10">
         <h3 className="font-display text-lg font-bold text-primary sm:text-xl">Tuition Information</h3>
         <div className="mt-5 space-y-4 text-sm leading-relaxed text-white/90 sm:text-base">
-          {tuitionInfoParagraphs.map((paragraph) => (
+          {programTuitionInfoParagraphs.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
           ))}
         </div>
@@ -555,16 +828,304 @@ export function ProgramFeesSection({ feesImage }: { feesImage: string }) {
             Request Application
           </a>
         </div>
-        <p className="mt-6 text-xs italic text-white/60 sm:text-sm">
-          Toronto College of Dental Hygiene and Auxiliaries Inc. is registered as a career college under the Ontario
-          Career Colleges Act, 2005.
-        </p>
+        <p className="mt-6 text-xs italic text-white/60 sm:text-sm">{programTuitionInfoFooter}</p>
       </div>
     </section>
   );
 }
 
-export function ProgramInternationalApplicantsPanel() {
+export function ProgramLevelIiFeesSection({ feesImage }: { feesImage: string }) {
+  const additionalFees = [
+    { label: "Books", amount: "$200" },
+    { label: "Equipment", amount: "$15" },
+    { label: "Equipment Rental Fees", amount: "$400" },
+    { label: "Expendable Materials", amount: "$660" },
+    { label: "Other Compulsory Fees", amount: "$125" },
+  ];
+
+  return (
+    <section id="program-fees" className="scroll-mt-24 space-y-8">
+      <div>
+        <h2 className="font-display text-2xl sm:text-3xl text-[color:var(--navy)]">Program Fees &amp; Financing</h2>
+        <div className="mt-3 h-1 w-14 bg-primary" />
+      </div>
+
+      <div>
+        <h3 className="font-display text-lg font-bold text-primary">Program Fees</h3>
+        <p className="mt-4 text-muted-foreground leading-relaxed">
+          The Toronto College of Dental Hygiene and Auxiliaries Inc. fees for the Dental Assisting Level II Program are
+          as follows:
+        </p>
+      </div>
+
+      <div>
+        <p className="text-base font-bold text-[color:var(--navy)] sm:text-lg">Tuition Fees</p>
+        <p className="mt-1 font-display text-4xl font-bold text-primary sm:text-5xl">$6,290</p>
+      </div>
+
+      <div className="rounded-md border border-border bg-white px-5 py-4">
+        <p className="text-base font-bold leading-relaxed text-foreground/90 sm:text-lg">
+          Full time program: <span className="text-primary">Weekdays and/or Weekends</span>
+        </p>
+        <p className="mt-2 text-base font-bold leading-relaxed text-foreground/90 sm:text-lg">
+          Course length: <span className="text-primary">2 months</span>
+        </p>
+      </div>
+
+      <div className="relative pt-10 sm:pt-14">
+        <img
+          src={feesImage}
+          alt="Piggy bank on stack of textbooks representing program fees"
+          className="absolute right-0 top-0 z-10 hidden w-[240px] -translate-y-12 sm:block lg:right-4 lg:w-[300px] lg:-translate-y-20"
+          loading="lazy"
+        />
+        <div className="overflow-hidden rounded-md bg-[#1ABC9C] px-6 py-6 text-white sm:px-8 sm:py-8 lg:pr-64">
+          <div>
+            <h4 className="font-display text-lg font-bold">Additional Fees:</h4>
+            <ul className="mt-4 space-y-1.5 text-sm leading-relaxed sm:text-base">
+              {additionalFees.map((fee) => (
+                <li key={fee.label}>
+                  {fee.label}: {fee.amount}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-4 text-base font-bold sm:text-lg">Total: $7,690</p>
+            <p className="mt-3 text-sm leading-relaxed">International Student Fee $5000 (if applicable)</p>
+            <p className="mt-4 text-xs italic text-white/80 sm:text-sm">
+              *Book fees may be subject to change due to price increases by book publishers.
+            </p>
+          </div>
+          <img
+            src={feesImage}
+            alt=""
+            aria-hidden
+            className="mx-auto mt-6 w-full max-w-[220px] sm:hidden"
+            loading="lazy"
+          />
+        </div>
+      </div>
+
+      <div className="overflow-hidden rounded-md bg-[color:var(--navy)] px-6 py-8 text-white sm:px-8 sm:py-10">
+        <h3 className="font-display text-lg font-bold text-primary sm:text-xl">Tuition Information</h3>
+        <div className="mt-5 space-y-4 text-sm leading-relaxed text-white/90 sm:text-base">
+          {programTuitionInfoParagraphs.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </div>
+        <div className="mt-8 space-y-3">
+          <a
+            href={levelIiDownloadInfoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex w-full items-center justify-center rounded-md bg-white px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-[color:var(--navy)] transition hover:bg-white/90"
+          >
+            Download Information
+          </a>
+          <a
+            href={intraOralRequestApplicationUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex w-full items-center justify-center rounded-md bg-cta px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-cta-foreground transition hover:opacity-90"
+          >
+            Request Application
+          </a>
+        </div>
+        <p className="mt-6 text-xs italic text-white/60 sm:text-sm">{programTuitionInfoFooter}</p>
+      </div>
+    </section>
+  );
+}
+
+const financingLinkClass =
+  "font-medium text-[#3db5d8] underline-offset-2 hover:underline";
+
+function FinancingOptionCard({
+  title,
+  children,
+  light = false,
+}: {
+  title: string;
+  children: ReactNode;
+  light?: boolean;
+}) {
+  return (
+    <div
+      className={`rounded-md border border-border px-5 py-5 sm:px-6 ${
+        light ? "bg-muted/40" : "bg-white"
+      }`}
+    >
+      <h4 className="flex items-start gap-2 font-display text-base font-bold text-cta sm:text-lg">
+        <Asterisk className="mt-1 h-4 w-4 shrink-0 text-cta" strokeWidth={2.5} />
+        <span>{title}</span>
+      </h4>
+      <div className="mt-3 space-y-3 text-sm leading-relaxed text-foreground/90 sm:text-base">
+        {children}
+      </div>
+    </div>
+  );
+}
+
+export function ProgramFinancingOptionsSection() {
+  return (
+    <section id="financing-options" className="scroll-mt-24 mt-10 space-y-6">
+      <div>
+        <h2 className="font-display text-2xl sm:text-3xl text-[color:var(--navy)]">
+          Financing Options For Intra Oral Dental Assisting Level I and II Program
+        </h2>
+        <div className="mt-3 h-1 w-full max-w-none bg-primary" />
+      </div>
+
+      <div className="space-y-4">
+        <FinancingOptionCard title="Monthly Payments">
+          <p>
+            Toronto College of Dental Assisting makes payment for the course easier through monthly payments.
+          </p>
+          <p>Total cost of the program is $22,835 (10 months).</p>
+          <p>The average monthly fee is approximately $2,050/month.</p>
+          <p>
+            <strong>
+              Note: The fees are calculated for each educational day, so some payments may fluctuate slightly from
+              month to month.
+            </strong>
+          </p>
+        </FinancingOptionCard>
+
+        <FinancingOptionCard title="OSAP Ontario Student Assistance Program" light>
+          <p>
+            Students enrolled in the Intra Oral Dental Assisting Level I &amp; II program may be eligible, if
+            qualified, for loans, grants, or awards granted under the Ontario Student Assistance Program (OSAP). For
+            more information, please visit:
+          </p>
+          <p>
+            <a
+              href="https://www.ontario.ca/page/osap-ontario-student-assistance-program"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={financingLinkClass}
+            >
+              www.ontario.ca/page/osap-ontario-student-assistance-program
+            </a>
+          </p>
+          <p>
+            For the default rate memo, please visit{" "}
+            <a
+              href="https://osap.gov.on.ca/OSAPPortal/en/PlanYourEducation/ChooseaCareerSchoolProgram/POCONT1_096897"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={financingLinkClass}
+            >
+              https://osap.gov.on.ca/OSAPPortal/en/PlanYourEducation/ChooseaCareerSchoolProgram/POCONT1_096897
+            </a>
+          </p>
+        </FinancingOptionCard>
+
+        <FinancingOptionCard title="Student Loans from Financial institutions">
+          <p>
+            Intra Oral Dental Assisting Level I &amp; II is a respected profession and banks may offer financial
+            assistance knowing that the loan will be repaid. We work with several financial institutions and can help
+            you arrange financing.
+          </p>
+        </FinancingOptionCard>
+
+        <FinancingOptionCard title="Other Provincial Assistance Programs" light>
+          <p>
+            Other provinces may also offer finanical assistance programs for those who qualify. Please visit{" "}
+            <a
+              href="https://www.canada.ca/en/services/benefits/education/student-aid.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={financingLinkClass}
+            >
+              https://www.canada.ca/en/services/benefits/education/student-aid.html
+            </a>
+          </p>
+        </FinancingOptionCard>
+
+        <FinancingOptionCard title="The Lifelong Learning Plan">
+          <p>
+            The Canada Revenue Agency Lifelong Learning Plan (LLP):{" "}
+            <a
+              href="http://www.cra-arc.gc.ca/tx/ndvdls/tpcs/rrsp-reer/llp-reep/menu-eng.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={financingLinkClass}
+            >
+              http://www.cra-arc.gc.ca/tx/ndvdls/tpcs/rrsp-reer/llp-reep/menu-eng.html
+            </a>{" "}
+            allows you to withdraw funds from your RRSP&apos;s to finance your education. You can also withdraw funding
+            from your spouse or common law partner&apos;s LLP. Limits are $10,000 per year to a maximum of $20,000.
+          </p>
+        </FinancingOptionCard>
+
+        <FinancingOptionCard title="Registered Education Savings Plan" light>
+          <p>
+            Registered Education Savings Plan (RESP){" "}
+            <a
+              href="http://www.cra-arc.gc.ca/tx/ndvdls/tpcs/resp-reee/menu-eng.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={financingLinkClass}
+            >
+              http://www.cra-arc.gc.ca/tx/ndvdls/tpcs/resp-reee/menu-eng.html
+            </a>{" "}
+            If you are named as the beneficiary of this plan by one of your family members you may be able to use these
+            funds.
+          </p>
+        </FinancingOptionCard>
+
+        <FinancingOptionCard title="Employment Ontario">
+          <p>
+            The Government of Ontario administers programs that helps people who are unemployed and want to get back
+            into the workforce. There is limited funding but you may qualify. Please visit{" "}
+            <a
+              href="http://www.tcu.gov.on.ca/eng/employmentontario/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={financingLinkClass}
+            >
+              http://www.tcu.gov.on.ca/eng/employmentontario/
+            </a>{" "}
+            for more information.
+          </p>
+        </FinancingOptionCard>
+      </div>
+    </section>
+  );
+}
+
+export function ProgramLevelIiFinancingOptionsSection() {
+  return (
+    <section id="financing-options" className="mt-10 scroll-mt-24 space-y-6">
+      <div>
+        <h2 className="font-display text-2xl sm:text-3xl text-[color:var(--navy)]">
+          Financing Options For Dental Assisting Level II Program
+        </h2>
+        <div className="mt-3 h-1 w-full max-w-none bg-primary" />
+      </div>
+
+      <FinancingOptionCard title="Monthly Payments">
+        <p>
+          Toronto College of Dental Hygiene and Auxiliaries Inc. makes payment for the course easier through monthly
+          payments.
+        </p>
+        <p>Total cost of the program is $5,690 (8 weeks).</p>
+        <p>The average monthly fee is approximately $2,845/month.</p>
+        <p>
+          <strong>
+            Note: The fees are calculated for each educational day, so some payments may fluctuate slightly from month
+            to month.
+          </strong>
+        </p>
+      </FinancingOptionCard>
+    </section>
+  );
+}
+
+export function ProgramInternationalApplicantsPanel({
+  programName = "Intra Oral Dental Assisting Level I and II Program",
+}: {
+  programName?: string;
+}) {
   return (
     <section className="relative mt-10 overflow-hidden rounded-md bg-[color:var(--navy)] px-6 py-8 text-white sm:px-8 sm:py-10">
       <div className="relative z-10 max-w-3xl space-y-6">
@@ -608,8 +1169,7 @@ export function ProgramInternationalApplicantsPanel() {
           <h4 className="font-display text-lg font-bold text-primary">English Proficiency</h4>
           <div className="mt-4 space-y-4 text-sm leading-relaxed text-white/90 sm:text-base">
             <p>
-              Intra Oral Dental Assisting Level I and II Program at the Toronto College of Dental Hygiene and
-              Auxiliaries Inc. is taught in English.
+              {programName} at the Toronto College of Dental Hygiene and Auxiliaries Inc. is taught in English.
             </p>
             <p>
               In order to complete the program it is imperative that the student has a strong grasp of the English
@@ -788,8 +1348,10 @@ export function ProgramDetailsCard({
               >
                 {Icon ? (
                   <Icon className="mt-0.5 h-5 w-5 shrink-0 text-[#8DDECE]" strokeWidth={2} />
+                ) : item.indent ? (
+                  <ChevronRight className="mt-1 h-3.5 w-3.5 shrink-0 text-[#8DDECE]" strokeWidth={2.5} />
                 ) : (
-                  !item.indent && <span className="w-5 shrink-0" />
+                  <span className="w-5 shrink-0" />
                 )}
                 <span>{item.label}</span>
               </li>
@@ -840,7 +1402,7 @@ export function SalaryCallout({ role, rate, embedded = false }: { role: string; 
         <div className={embedded ? "" : "shrink-0"}>
           <Link to="/apply">
             <CTAButton
-              className={`bg-black/20 shadow-none hover:bg-white hover:text-[#444] ${
+              className={`bg-[color:var(--navy)] shadow-md hover:opacity-90 ${
                 embedded ? "w-full px-6 py-3" : "px-8 py-3.5"
               }`}
             >

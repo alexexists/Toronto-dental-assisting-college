@@ -131,17 +131,8 @@ export function ProgramStrip({
   return (
     <>
       <section className="grid lg:grid-cols-2">
-      {reversed ? (
-        <>
-          {media}
-          {content}
-        </>
-      ) : (
-        <>
-          {content}
-          {media}
-        </>
-      )}
+        <div className={reversed ? "order-1 lg:order-2" : "order-1"}>{content}</div>
+        <div className={reversed ? "order-2 lg:order-1" : "order-2"}>{media}</div>
       </section>
 
       {youtubeId && (

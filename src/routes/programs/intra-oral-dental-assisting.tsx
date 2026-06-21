@@ -9,14 +9,13 @@ import {
   SalaryCallout,
 } from "@/components/site/ProgramDetailSections";
 import { CTAButton } from "@/components/site/SiteLayout";
-import { CareerCtaBand } from "@/components/site/CareerCtaBand";
+import { ProgramCareerCtaBand } from "@/components/site/CareerCtaBand";
 import {
   getIntraOralNavItems,
   intraOralOverviewBenefitItems,
   intraOralSidebarTitle,
 } from "@/lib/intra-oral-program-nav";
 import intraOralStripImg from "@/assets/intra-oral-program-strip.jpg";
-import programStudentsImg from "@/assets/dental-assisting-program-students.png";
 
 const programDetailsItems = [
   { label: "41 week program", icon: GraduationCap },
@@ -70,7 +69,7 @@ function IntraOralProgram() {
         benefitItems={intraOralOverviewBenefitItems}
       >
         <ProgramOverviewSection
-          title="Program Overview"
+          title="Program Overview and Benefits"
           introImage={intraOralStripImg}
           introImageAlt="Asian and Black dental assistants working together in clinical practice"
           youtubeId="u637NGnNLF0"
@@ -106,10 +105,7 @@ function IntraOralProgram() {
         </div>
       </ProgramDetailLayout>
 
-      <CareerCtaBand
-        image={programStudentsImg}
-        imageClassName="max-w-[420px] sm:max-w-[460px] md:-mt-28 md:max-w-[520px] lg:-mt-36 lg:max-w-[580px]"
-      />
+      <ProgramCareerCtaBand />
     </SiteLayout>
   );
 }

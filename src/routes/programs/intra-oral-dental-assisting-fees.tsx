@@ -4,6 +4,7 @@ import {
   ProgramHero,
   ProgramDetailLayout,
   ProgramFeesSection,
+  ProgramFinancingOptionsSection,
 } from "@/components/site/ProgramDetailSections";
 import {
   getIntraOralNavItems,
@@ -12,6 +13,7 @@ import {
 } from "@/lib/intra-oral-program-nav";
 import intraOralStripImg from "@/assets/intra-oral-program-strip.jpg";
 import feesImg from "@/assets/dental-assisting-college-fees.png";
+import { ProgramCareerCtaBand } from "@/components/site/CareerCtaBand";
 
 export const Route = createFileRoute("/programs/intra-oral-dental-assisting-fees")({
   head: () => ({
@@ -57,7 +59,9 @@ function IntraOralFees() {
         benefitItems={intraOralOverviewBenefitItems}
       >
         <ProgramFeesSection feesImage={feesImg} />
+        <ProgramFinancingOptionsSection />
       </ProgramDetailLayout>
+      <ProgramCareerCtaBand />
     </SiteLayout>
   );
 }

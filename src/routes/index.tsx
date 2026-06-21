@@ -58,7 +58,7 @@ function Home() {
               <Link to="/apply">
                 <button
                   type="button"
-                  className="inline-flex items-center justify-center rounded-md border-2 border-[#6ec4b8] bg-[#6ec4b8] px-7 py-3 text-sm font-bold uppercase tracking-wider !text-black shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:border-[color:var(--navy)] hover:bg-[color:var(--navy)] hover:!text-white hover:shadow-lg"
+                  className="inline-flex items-center justify-center rounded-md border-2 border-[#d81b8c] bg-[#d81b8c] px-7 py-3 text-sm font-bold uppercase tracking-wider text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:border-[#a0146d] hover:bg-[#a0146d] hover:shadow-lg"
                 >
                   Apply Now
                 </button>

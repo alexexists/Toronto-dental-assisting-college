@@ -1,9 +1,13 @@
 import { Link } from "@tanstack/react-router";
 import dentalHygieneImg from "@/assets/dental-hygiene-small.png";
+import programStudentsImg from "@/assets/dental-assisting-program-students.png";
 import { cn } from "@/lib/utils";
 
 const defaultImageClassName =
   "h-auto w-full max-w-[260px] object-contain object-bottom sm:max-w-[300px] md:-mt-20 md:max-w-[340px] lg:-mt-28 lg:max-w-[400px]";
+
+const programImageClassName =
+  "max-w-[420px] sm:max-w-[460px] md:-mt-28 md:max-w-[520px] lg:-mt-36 lg:max-w-[580px]";
 
 export function CareerCtaBand({
   image = dentalHygieneImg,
@@ -54,4 +58,8 @@ export function CareerCtaBand({
       </div>
     </section>
   );
+}
+
+export function ProgramCareerCtaBand() {
+  return <CareerCtaBand image={programStudentsImg} imageClassName={programImageClassName} />;
 }

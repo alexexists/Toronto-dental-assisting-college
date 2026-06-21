@@ -3,7 +3,8 @@ import { SiteLayout, CTAButton } from "@/components/site/SiteLayout";
 import {
   ProgramHero,
   ProgramDetailLayout,
-  ProgramFeesSection,
+  ProgramLevelIiFeesSection,
+  ProgramLevelIiFinancingOptionsSection,
 } from "@/components/site/ProgramDetailSections";
 import {
   getLevelIiNavItems,
@@ -12,6 +13,7 @@ import {
 } from "@/lib/level-ii-program-nav";
 import levelIiStripImg from "@/assets/dental-assisting-level-ii-strip.jpg";
 import feesImg from "@/assets/dental-assisting-college-fees.png";
+import { ProgramCareerCtaBand } from "@/components/site/CareerCtaBand";
 
 export const Route = createFileRoute("/programs/dental-assisting-level-ii-fees")({
   head: () => ({
@@ -53,8 +55,10 @@ function LevelIiFees() {
         navItems={getLevelIiNavItems("fees")}
         benefitItems={levelIiOverviewBenefitItems}
       >
-        <ProgramFeesSection feesImage={feesImg} />
+        <ProgramLevelIiFeesSection feesImage={feesImg} />
+        <ProgramLevelIiFinancingOptionsSection />
       </ProgramDetailLayout>
+      <ProgramCareerCtaBand />
     </SiteLayout>
   );
 }
