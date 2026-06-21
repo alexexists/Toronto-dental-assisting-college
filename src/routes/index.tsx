@@ -87,7 +87,7 @@ function Home() {
             <li className="flex gap-3"><span className="text-primary font-bold">✓</span>Job placement assistance upon graduation</li>
           </ul>
           <div className="mt-8">
-            <Link to="/programs"><CTAButton>Explore the Program</CTAButton></Link>
+            <Link to="/programs"><CTAButton>Explore the programs</CTAButton></Link>
           </div>
         </div>
         <div className="w-full min-w-0">
@@ -189,6 +189,9 @@ function Home() {
             our program gives you the practical skills, clinical experience,
             and confidence you need to excel in today's dental industry.
           </p>
+          <div className="mt-8">
+            <Link to="/programs"><CTAButton>Explore the programs</CTAButton></Link>
+          </div>
         </div>
         <div className="w-full min-w-0">
           <div className="aspect-video w-full overflow-hidden rounded-lg shadow-lg ring-1 ring-black/5">
