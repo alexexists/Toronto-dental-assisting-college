@@ -53,7 +53,7 @@ function Facility() {
         ))}
       </section>
 
-      <section className="mx-auto max-w-4xl px-4 pb-16 text-center">
+      <section className="mx-auto max-w-4xl px-4 pb-20 text-center sm:pb-24">
         <h2 className="font-display text-3xl">Designed for hands-on learning</h2>
         <p className="mt-4 text-muted-foreground">
           Our facility includes full dental operatories, a simulation lab with

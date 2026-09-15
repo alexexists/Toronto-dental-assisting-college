@@ -12,11 +12,16 @@ import {
   values,
   visionStatement,
 } from "@/lib/about";
+import { studentTestimonials } from "@/lib/testimonials";
 import heroImg from "@/assets/hero-building.jpg";
 import hygienistStripImg from "@/assets/dental-assisting-level-ii-strip.jpg";
 import facilityImg from "@/assets/facility1.jpg";
 import classroomImg from "@/assets/classroom.jpg";
 import programStudentsImg from "@/assets/dental-assisting-program-students.png";
+
+const featuredAlumniTestimonial = studentTestimonials.find(
+  (t) => t.name === "Joanna Marie Jardiel",
+)!;
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -65,11 +70,11 @@ function About() {
         </p>
       </section>
 
-      <ContentBlock title="Vision Statement">
+      <ContentBlock title="Vision Statement" center>
         <p>{visionStatement}</p>
       </ContentBlock>
 
-      <ContentBlock title="Mission Statement" alt>
+      <ContentBlock title="Mission Statement" alt center>
         <p>{missionStatement}</p>
       </ContentBlock>
 
@@ -132,7 +137,7 @@ function About() {
         <ProgramsLink />
       </ImageTextRow>
 
-      <ContentBlock title="Equity, Diversity, Inclusion and Belonging (EDI-B) Statement" alt>
+      <ContentBlock title="Equity, Diversity, Inclusion and Belonging (EDI-B) Statement" alt center>
         <p>{edibStatement}</p>
         <div className="mt-8">
           <ProgramsLink />
@@ -140,17 +145,61 @@ function About() {
       </ContentBlock>
 
       <section className="bg-[color:var(--navy)] text-white">
-        <div className="mx-auto max-w-4xl px-4 py-14 text-center">
-          <h2 className="font-display text-2xl sm:text-3xl">
-            Begin your dental assisting career with us
-          </h2>
-          <p className="mt-4 text-white/85">
-            We strive to obtain each individual&apos;s maximum growth potential.
-          </p>
-          <div className="mt-8">
-            <Link to="/apply">
-              <CTAButton>Apply Now</CTAButton>
-            </Link>
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:py-16">
+          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
+            <div className="text-center lg:text-left">
+              <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-white">
+                We strive to obtain each individual&apos;s maximum growth potential.
+              </h2>
+              <div className="mt-8">
+                <Link to="/testimonials">
+                  <CTAButton className="px-9 py-4 text-base sm:px-10 sm:py-5 sm:text-lg">
+                    Read more Alumni experiences
+                  </CTAButton>
+                </Link>
+              </div>
+            </div>
+
+            <article className="relative overflow-hidden rounded-2xl bg-white p-7 text-left shadow-[0_12px_32px_-18px_rgba(0,0,0,0.28)] ring-1 ring-black/[0.03] sm:p-8">
+              <div
+                className="pointer-events-none absolute inset-0"
+                style={{
+                  background:
+                    "radial-gradient(ellipse 95% 85% at 100% 100%, oklch(0.25 0.04 240 / 0.32) 0%, oklch(0.78 0.09 210 / 0.14) 28%, transparent 62%)",
+                }}
+                aria-hidden
+              />
+              <div
+                className="pointer-events-none absolute -right-2 -top-4 select-none font-serif text-[7rem] leading-none text-primary/16"
+                aria-hidden
+              >
+                &ldquo;
+              </div>
+              <div className="relative flex flex-col gap-5 sm:flex-row sm:items-start sm:gap-6">
+                <div className="mx-auto shrink-0 sm:mx-0">
+                  <img
+                    src={featuredAlumniTestimonial.image}
+                    alt={featuredAlumniTestimonial.name}
+                    loading="lazy"
+                    className="h-28 w-28 rounded-full object-cover object-top shadow-md ring-4 ring-primary/20 sm:h-32 sm:w-32"
+                  />
+                </div>
+                <div className="min-w-0 flex-1 text-center sm:text-left">
+                  <p className="font-serif text-[0.95rem] italic leading-relaxed text-foreground/80 sm:text-base">
+                    {featuredAlumniTestimonial.quote}
+                  </p>
+                  <div className="mx-auto mt-6 h-px w-16 bg-primary/32 sm:mx-0" />
+                  <p className="mt-4 font-display text-xs font-bold uppercase tracking-wide text-[color:var(--navy)] sm:text-sm">
+                    {featuredAlumniTestimonial.name}
+                    <span className="mx-1.5 font-normal text-muted-foreground">|</span>
+                    {featuredAlumniTestimonial.subtitle}
+                  </p>
+                  <p className="mt-1.5 text-sm text-muted-foreground">
+                    {featuredAlumniTestimonial.program}
+                  </p>
+                </div>
+              </div>
+            </article>
           </div>
         </div>
       </section>
@@ -218,10 +267,12 @@ function ContentBlock({
   title,
   children,
   alt,
+  center,
 }: {
   title: string;
   children: ReactNode;
   alt?: boolean;
+  center?: boolean;
 }) {
   return (
     <section className={alt ? "bg-muted" : "bg-background"}>
@@ -229,7 +280,11 @@ function ContentBlock({
         <h2 className="text-center font-display text-2xl sm:text-3xl text-[color:var(--navy)]">
           {title}
         </h2>
-        <div className="mt-6 space-y-4 text-sm leading-relaxed text-foreground/90 sm:text-base">
+        <div
+          className={`mt-6 space-y-4 text-sm leading-relaxed text-foreground/90 sm:text-base ${
+            center ? "text-center" : ""
+          }`}
+        >
           {children}
         </div>
       </div>

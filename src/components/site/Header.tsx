@@ -67,8 +67,8 @@ export function Header() {
               </span>
               <span className="font-semibold">1-866-923-3099</span>
             </a>
-            <a href="mailto:info@toronto-college-dental.org" className="text-xs text-muted-foreground hover:text-primary">
-              info@toronto-college-dental.org
+            <a href="mailto:info@dental-assisting-toronto.ca" className="text-xs text-muted-foreground hover:text-primary">
+              info@dental-assisting-toronto.ca
             </a>
           </div>
         </div>

@@ -38,7 +38,7 @@ export function Footer() {
             <ul className="mt-4 space-y-3 text-sm text-white/80">
               <li className="flex gap-3"><MapPin className="h-4 w-4 mt-0.5 shrink-0 text-primary" /><span>2727 Steeles Ave W<br />Toronto, ON M3J 3G9</span></li>
               <li className="flex gap-3"><Phone className="h-4 w-4 mt-0.5 shrink-0 text-primary" /><span><a href="tel:+14164233099" className="hover:text-white">416-423-3099</a><br /><a href="tel:+18669233099" className="hover:text-white">1-866-923-3099</a></span></li>
-              <li className="flex gap-3"><Mail className="h-4 w-4 mt-0.5 shrink-0 text-primary" /><span><a href="mailto:info@toronto-college-dental.org" className="hover:text-white">info@toronto-college-dental.org</a></span></li>
+              <li className="flex gap-3"><Mail className="h-4 w-4 mt-0.5 shrink-0 text-primary" /><span><a href="mailto:info@dental-assisting-toronto.ca" className="hover:text-white">info@dental-assisting-toronto.ca</a></span></li>
             </ul>
           </div>
         </div>

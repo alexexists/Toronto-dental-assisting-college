@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout, CTAButton } from "@/components/site/SiteLayout";
 import { CareerCtaBand } from "@/components/site/CareerCtaBand";
@@ -67,8 +66,6 @@ function Home() {
           </div>
         </div>
       </section>
-
-      <StatsSection />
 
       {/* Program highlight */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:py-20 grid items-center gap-10 lg:grid-cols-2">
@@ -244,75 +241,5 @@ function Home() {
 
       <img src={studentImg} alt="" className="hidden" aria-hidden />
     </SiteLayout>
-  );
-}
-
-const stats = [
-  { value: 1500, suffix: "+", label: "Graduates" },
-  { value: 15, suffix: "+", label: "Years Teaching" },
-  { value: 12, label: "Expert Instructors" },
-  { value: 95, suffix: "%", label: "Placement Rate" },
-] as const;
-
-function StatsSection() {
-  const [active, setActive] = useState(false);
-
-  return (
-    <section
-      className="bg-[color:var(--navy)] text-white"
-      onMouseEnter={() => setActive(true)}
-      onMouseLeave={() => setActive(false)}
-    >
-      <div className="mx-auto max-w-7xl px-4 py-12 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-        {stats.map((stat) => (
-          <div key={stat.label}>
-            <StatValue value={stat.value} suffix={"suffix" in stat ? stat.suffix : undefined} active={active} />
-            <div className="mt-1 text-sm uppercase tracking-widest text-white/70">{stat.label}</div>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function StatValue({
-  value,
-  suffix,
-  active,
-}: {
-  value: number;
-  suffix?: string;
-  active: boolean;
-}) {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    if (!active) {
-      setCount(0);
-      return;
-    }
-
-    const duration = 1400;
-    const start = performance.now();
-
-    const tick = (now: number) => {
-      const progress = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      setCount(Math.round(value * eased));
-      if (progress < 1) requestAnimationFrame(tick);
-    };
-
-    const frame = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(frame);
-  }, [active, value]);
-
-  const shown = active ? count : value;
-  const display = value >= 1000 ? shown.toLocaleString() : String(shown);
-
-  return (
-    <div className="font-display text-4xl sm:text-5xl font-bold text-primary tabular-nums">
-      {display}
-      {suffix}
-    </div>
   );
 }

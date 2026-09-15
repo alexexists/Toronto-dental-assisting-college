@@ -55,20 +55,33 @@ function CommunityTestimonialCard({
   image: string;
 }) {
   return (
-    <article className="flex flex-col gap-6 rounded-md bg-primary p-6 text-primary-foreground sm:flex-row sm:items-start sm:p-8">
-      <div className="mx-auto shrink-0 sm:mx-0">
-        <img
-          src={image}
-          alt={name}
-          className="h-28 w-28 rounded-full border-4 border-white object-cover object-top shadow-md sm:h-32 sm:w-32"
-          loading="lazy"
-        />
+    <article className="relative overflow-hidden rounded-2xl bg-primary p-7 text-primary-foreground shadow-[0_14px_36px_-18px_rgba(0,0,0,0.28)] ring-1 ring-black/[0.04] sm:p-8">
+      <div
+        className="pointer-events-none absolute -right-1 -top-3 select-none font-serif text-[5.5rem] leading-none text-white/15"
+        aria-hidden
+      >
+        &ldquo;
       </div>
-      <div className="min-w-0 flex-1 text-center sm:text-left">
-        <p className="font-serif text-base italic leading-relaxed text-white/95">&ldquo;{quote}&rdquo;</p>
-        <p className="mt-5 font-display text-xs font-bold uppercase tracking-wide text-white sm:text-sm">
-          &mdash;{name} | {subtitle}
-        </p>
+      <div className="relative flex flex-col gap-5 sm:flex-row sm:items-start sm:gap-6">
+        <div className="mx-auto shrink-0 sm:mx-0">
+          <img
+            src={image}
+            alt={name}
+            className="h-28 w-28 rounded-full object-cover object-top shadow-md ring-[3px] ring-white/40 sm:h-32 sm:w-32"
+            loading="lazy"
+          />
+        </div>
+        <div className="min-w-0 flex-1 text-center sm:text-left">
+          <p className="font-serif text-[0.95rem] italic leading-relaxed text-white/95 sm:text-base">
+            {quote}
+          </p>
+          <div className="mx-auto mt-6 h-px w-16 bg-white/35 sm:mx-0" />
+          <p className="mt-4 font-display text-xs font-bold uppercase tracking-wide text-white sm:text-sm">
+            {name}
+            <span className="mx-1.5 font-normal text-white/70">|</span>
+            {subtitle}
+          </p>
+        </div>
       </div>
     </article>
   );
@@ -142,25 +155,40 @@ function Testimonials() {
         </Link>
       </ProgramHero>
 
-      <section className="mx-auto max-w-5xl px-4 py-12 sm:py-16">
-        <SectionHeading>Community Testimonials</SectionHeading>
-        <div className="space-y-6">
-          {communityTestimonials.map((t) => (
-            <CommunityTestimonialCard key={t.name} {...t} />
-          ))}
-        </div>
-      </section>
+      <div className="relative overflow-hidden">
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background: `
+              radial-gradient(ellipse 90% 55% at 0% 8%, oklch(0.78 0.09 210 / 0.45) 0%, transparent 55%),
+              radial-gradient(ellipse 80% 50% at 100% 35%, oklch(0.25 0.04 240 / 0.22) 0%, transparent 58%),
+              radial-gradient(ellipse 95% 60% at 50% 100%, oklch(0.78 0.09 210 / 0.35) 0%, transparent 55%),
+              linear-gradient(180deg, oklch(0.97 0.02 210) 0%, oklch(0.94 0.035 210) 45%, oklch(0.96 0.02 220) 100%)
+            `,
+          }}
+          aria-hidden
+        />
 
-      <section className="border-t border-border bg-background">
-        <div className="mx-auto max-w-5xl px-4 py-12 sm:py-16">
-          <SectionHeading>Student Testimonials</SectionHeading>
+        <section className="relative mx-auto max-w-5xl px-4 py-12 sm:py-16">
+          <SectionHeading>Community Testimonials</SectionHeading>
           <div className="space-y-6">
-            {orderedStudentTestimonials.map((t) => (
-              <StudentTestimonialCard key={`${t.name}-${t.subtitle}`} {...t} />
+            {communityTestimonials.map((t) => (
+              <CommunityTestimonialCard key={t.name} {...t} />
             ))}
           </div>
-        </div>
-      </section>
+        </section>
+
+        <section className="relative border-t border-[color:var(--navy)]/10">
+          <div className="mx-auto max-w-5xl px-4 py-12 sm:py-16">
+            <SectionHeading>Student Testimonials</SectionHeading>
+            <div className="space-y-6">
+              {orderedStudentTestimonials.map((t) => (
+                <StudentTestimonialCard key={`${t.name}-${t.subtitle}`} {...t} />
+              ))}
+            </div>
+          </div>
+        </section>
+      </div>
 
       <CareerCtaBand />
     </SiteLayout>

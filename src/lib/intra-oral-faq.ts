@@ -131,7 +131,7 @@ export const intraOralFaqs: IntraOralFaq[] = [
       },
       {
         type: "p",
-        text: "Sample questions are available by contacting the Admissions Department at info@toronto-college-dental.org or 416-423-3099 or toll free 1-866-923-3099.",
+        text: "Sample questions are available by contacting the Admissions Department at info@dental-assisting-toronto.ca or 416-423-3099 or toll free 1-866-923-3099.",
       },
     ],
   },

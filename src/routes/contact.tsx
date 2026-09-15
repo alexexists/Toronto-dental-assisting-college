@@ -43,20 +43,7 @@ function Contact() {
         subtitle="We'd love to hear from you. Reach out with any questions about the program."
       />
 
-      <section className="mx-auto max-w-5xl px-4 pt-10 pb-4">
-        <div className="overflow-hidden rounded-xl border border-primary/20 shadow-md ring-1 ring-black/[0.04]">
-          <iframe
-            title="Toronto College of Dental Assisting — 2727 Steeles Ave W, Toronto"
-            src={mapsEmbedSrc}
-            className="aspect-[16/9] w-full min-h-[280px] border-0 sm:min-h-[360px]"
-            loading="lazy"
-            allowFullScreen
-            referrerPolicy="no-referrer-when-downgrade"
-          />
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-5xl px-4 pb-12 pt-4 grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:gap-10 items-start">
+      <section className="mx-auto max-w-5xl px-4 py-10 grid gap-8 lg:grid-cols-2 lg:gap-10 items-start">
         <form
           className="max-w-xl w-full rounded-xl border border-primary/25 bg-gradient-to-br from-white via-white to-primary/10 p-6 sm:p-8 shadow-lg shadow-primary/10 ring-1 ring-black/[0.04] space-y-5"
           onSubmit={(e) => e.preventDefault()}
@@ -87,15 +74,17 @@ function Contact() {
           <p className="text-center text-xs text-muted-foreground">This is a display-only form.</p>
         </form>
 
-        <div className="text-right text-sm leading-relaxed text-foreground/90 lg:pt-2 lg:border-l lg:border-primary/20 lg:pl-10">
-          <p className="font-bold text-[color:var(--navy)]">Location:</p>
-          <p className="mt-1">
-            2727 Steeles Ave W
-            <br />
-            Toronto, ON
-            <br />
-            M3J 3G9
-          </p>
+        <div className="text-center text-sm leading-relaxed text-foreground/90 lg:pt-2 lg:border-l lg:border-primary/20 lg:pl-10">
+          <div className="overflow-hidden rounded-xl border border-primary/20 shadow-md ring-1 ring-black/[0.04]">
+            <iframe
+              title="Toronto College of Dental Assisting — 2727 Steeles Ave W, Toronto"
+              src={mapsEmbedSrc}
+              className="aspect-[4/3] w-full min-h-[220px] border-0"
+              loading="lazy"
+              allowFullScreen
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
 
           <p className="mt-6 font-bold text-[color:var(--navy)]">School Hours:</p>
           <ul className="mt-2 space-y-1">
@@ -138,14 +127,14 @@ function Contact() {
                 Email:
               </dt>{" "}
               <dd className="inline">
-                <a href="mailto:info@toronto-college-dental.org" className="hover:text-primary">
-                  info@toronto-college-dental.org
+                <a href="mailto:info@dental-assisting-toronto.ca" className="hover:text-primary">
+                  info@dental-assisting-toronto.ca
                 </a>
               </dd>
             </div>
           </dl>
 
-          <div className="mt-6 flex items-center justify-end gap-3 text-[color:var(--navy)]">
+          <div className="mt-6 flex items-center justify-center gap-3 text-[color:var(--navy)]">
             <a
               href="https://www.facebook.com/TCDHA"
               target="_blank"
