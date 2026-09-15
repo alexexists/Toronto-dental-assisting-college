@@ -11,9 +11,11 @@ const programImageClassName =
 
 export function CareerCtaBand({
   image = dentalHygieneImg,
+  mobileImage,
   imageClassName,
 }: {
   image?: string;
+  mobileImage?: string;
   imageClassName?: string;
 }) {
   return (
@@ -46,13 +48,34 @@ export function CareerCtaBand({
               </Link>
             </div>
           </div>
-          <div className="flex justify-center md:justify-end md:self-end">
-            <img
-              src={image}
-              alt="Toronto College dental assisting professionals"
-              loading="lazy"
-              className={cn(defaultImageClassName, imageClassName)}
-            />
+          <div className="flex justify-center self-end md:justify-end">
+            {mobileImage ? (
+              <>
+                <img
+                  src={mobileImage}
+                  alt="Toronto College dental assisting professionals"
+                  loading="lazy"
+                  className={cn(
+                    defaultImageClassName,
+                    "md:hidden !max-w-[650px] !w-[650px] sm:!max-w-[650px]",
+                    imageClassName,
+                  )}
+                />
+                <img
+                  src={image}
+                  alt="Toronto College dental assisting professionals"
+                  loading="lazy"
+                  className={cn(defaultImageClassName, "hidden md:block", imageClassName)}
+                />
+              </>
+            ) : (
+              <img
+                src={image}
+                alt="Toronto College dental assisting professionals"
+                loading="lazy"
+                className={cn(defaultImageClassName, imageClassName)}
+              />
+            )}
           </div>
         </div>
       </div>

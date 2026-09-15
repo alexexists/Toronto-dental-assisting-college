@@ -38,63 +38,65 @@ export function Header() {
         </div>
       </div>
 
-      <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-5 sm:py-6">
-        <Link to="/" className="inline-flex w-fit max-w-full items-center">
-          <img
-            src={logo}
-            alt="Toronto College of Dental Assisting"
-            className="h-14 sm:h-16 w-auto max-w-[min(100%,320px)] object-contain object-left"
-          />
-        </Link>
-        <div className="hidden md:flex items-center gap-3 text-right">
-          <a
-            href="tel:+14164233099"
-            aria-label="Call 416-423-3099"
-            className="group shrink-0 text-[#5eb8ad] transition-colors duration-300 hover:text-cta"
-          >
-            <Phone className="h-7 w-7" />
-          </a>
-          <div>
-            <a href="tel:+14164233099" className="block text-[color:var(--navy)] hover:text-primary">
-              <span className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">
-                Local{" "}
-              </span>
-              <span className="font-semibold">416-423-3099</span>
+      <div className="bg-[#f4f5f6]">
+        <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-5 sm:py-6">
+          <Link to="/" className="inline-flex w-fit max-w-full items-center">
+            <img
+              src={logo}
+              alt="Toronto College of Dental Assisting"
+              className="h-14 sm:h-16 w-auto max-w-[min(100%,320px)] object-contain object-left"
+            />
+          </Link>
+          <div className="hidden md:flex items-center gap-3 text-right">
+            <a
+              href="tel:+14164233099"
+              aria-label="Call 416-423-3099"
+              className="group shrink-0 text-[#5eb8ad] transition-colors duration-300 hover:text-cta"
+            >
+              <Phone className="h-7 w-7" />
             </a>
-            <a href="tel:+18669233099" className="mt-0.5 block text-[color:var(--navy)] hover:text-primary">
-              <span className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">
-                Toll Free{" "}
-              </span>
-              <span className="font-semibold">1-866-923-3099</span>
-            </a>
-            <a href="mailto:info@dental-assisting-toronto.ca" className="text-xs text-muted-foreground hover:text-primary">
-              info@dental-assisting-toronto.ca
-            </a>
+            <div>
+              <a href="tel:+14164233099" className="block text-[color:var(--navy)] hover:text-primary">
+                <span className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">
+                  Local{" "}
+                </span>
+                <span className="font-semibold">416-423-3099</span>
+              </a>
+              <a href="tel:+18669233099" className="mt-0.5 block text-[color:var(--navy)] hover:text-primary">
+                <span className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">
+                  Toll Free{" "}
+                </span>
+                <span className="font-semibold">1-866-923-3099</span>
+              </a>
+              <a href="mailto:info@dental-assisting-toronto.ca" className="text-xs text-muted-foreground hover:text-primary">
+                info@dental-assisting-toronto.ca
+              </a>
+            </div>
           </div>
+          <button
+            type="button"
+            className={cn(
+              "relative md:hidden inline-flex h-10 w-10 items-center justify-center rounded-md border transition-colors duration-300",
+              open ? "border-primary/40 bg-primary/10" : "border-border bg-background",
+            )}
+            onClick={() => setOpen((v) => !v)}
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+          >
+            <Menu
+              className={cn(
+                "h-5 w-5 transition-all duration-300 ease-out",
+                open ? "rotate-90 scale-75 opacity-0" : "rotate-0 scale-100 opacity-100",
+              )}
+            />
+            <X
+              className={cn(
+                "absolute h-5 w-5 transition-all duration-300 ease-out",
+                open ? "rotate-0 scale-100 opacity-100" : "-rotate-90 scale-75 opacity-0",
+              )}
+            />
+          </button>
         </div>
-        <button
-          type="button"
-          className={cn(
-            "relative md:hidden inline-flex h-10 w-10 items-center justify-center rounded-md border transition-colors duration-300",
-            open ? "border-primary/40 bg-primary/10" : "border-border bg-background",
-          )}
-          onClick={() => setOpen((v) => !v)}
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-        >
-          <Menu
-            className={cn(
-              "h-5 w-5 transition-all duration-300 ease-out",
-              open ? "rotate-90 scale-75 opacity-0" : "rotate-0 scale-100 opacity-100",
-            )}
-          />
-          <X
-            className={cn(
-              "absolute h-5 w-5 transition-all duration-300 ease-out",
-              open ? "rotate-0 scale-100 opacity-100" : "-rotate-90 scale-75 opacity-0",
-            )}
-          />
-        </button>
       </div>
 
       <nav className="border-y border-border bg-background">

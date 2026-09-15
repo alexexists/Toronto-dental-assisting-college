@@ -3,6 +3,7 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { ProgramHero } from "@/components/site/ProgramDetailSections";
 import { CareerCtaBand } from "@/components/site/CareerCtaBand";
 import faqHeroImg from "@/assets/faq-hero-admin.jpg";
+import programStudentsImg from "@/assets/dental-assisting-program-students.png";
 import { intraOralFaqs, type FaqBlock } from "@/lib/intra-oral-faq";
 import {
   Accordion,
@@ -98,7 +99,7 @@ function FAQ() {
         </Accordion>
       </section>
 
-      <CareerCtaBand />
+      <CareerCtaBand mobileImage={programStudentsImg} />
     </SiteLayout>
   );
 }

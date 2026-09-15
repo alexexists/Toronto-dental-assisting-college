@@ -61,13 +61,18 @@ function About() {
         </div>
       </nav>
 
-      <section id="about-us" className="mx-auto max-w-4xl scroll-mt-24 px-4 py-14 text-center">
-        <h2 className="font-display text-2xl sm:text-3xl text-[color:var(--navy)]">
-          We commit ourselves to our students and their futures
-        </h2>
-        <p className="mt-4 text-lg text-muted-foreground">
-          Striving to obtain each individual&apos;s maximum growth potential.
-        </p>
+      <section
+        id="about-us"
+        className="scroll-mt-24 bg-gradient-to-br from-[color:var(--navy)] via-[color:var(--navy)] to-[#1a3a4a] text-center"
+      >
+        <div className="mx-auto max-w-4xl px-4 py-14 sm:py-16">
+          <h2 className="font-display text-2xl sm:text-3xl text-white">
+            We commit ourselves to our students and their futures
+          </h2>
+          <p className="mt-4 text-lg text-white/80">
+            Striving to obtain each individual&apos;s maximum growth potential.
+          </p>
+        </div>
       </section>
 
       <ContentBlock title="Vision Statement" center>
@@ -223,7 +228,7 @@ function About() {
 
       <CareerCtaBand
         image={programStudentsImg}
-        imageClassName="max-w-[520px] sm:max-w-[600px] md:-mt-32 md:max-w-[680px] md:translate-x-10 lg:-mt-40 lg:max-w-[800px] lg:translate-x-14"
+        imageClassName="max-w-[520px] sm:max-w-[600px] md:!mt-0 md:max-w-[680px] md:translate-x-10 md:-translate-y-32 lg:!mt-0 lg:max-w-[800px] lg:translate-x-14 lg:-translate-y-40"
       />
     </SiteLayout>
   );

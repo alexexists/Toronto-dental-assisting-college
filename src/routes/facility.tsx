@@ -3,6 +3,7 @@ import { SiteLayout, CTAButton } from "@/components/site/SiteLayout";
 import { ProgramHero } from "@/components/site/ProgramDetailSections";
 import { CareerCtaBand } from "@/components/site/CareerCtaBand";
 import facilityHeroImg from "@/assets/facility-hero.jpg";
+import programStudentsImg from "@/assets/dental-assisting-program-students.png";
 import f1 from "@/assets/facility1.jpg";
 import f2 from "@/assets/facility2.jpg";
 import f3 from "@/assets/facility3.jpg";
@@ -63,7 +64,7 @@ function Facility() {
         </p>
       </section>
 
-      <CareerCtaBand />
+      <CareerCtaBand mobileImage={programStudentsImg} />
     </SiteLayout>
   );
 }

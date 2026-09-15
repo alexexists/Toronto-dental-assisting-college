@@ -4,6 +4,7 @@ import { ProgramHero } from "@/components/site/ProgramDetailSections";
 import { CareerCtaBand } from "@/components/site/CareerCtaBand";
 import { communityTestimonials, studentTestimonials } from "@/lib/testimonials";
 import testimonialsHeroImg from "@/assets/testimonials-hero-v2.jpg";
+import programStudentsImg from "@/assets/dental-assisting-program-students.png";
 
 const orderedStudentTestimonials = (() => {
   const valedictorianIndex = studentTestimonials.findIndex(
@@ -190,7 +191,7 @@ function Testimonials() {
         </section>
       </div>
 
-      <CareerCtaBand />
+      <CareerCtaBand mobileImage={programStudentsImg} />
     </SiteLayout>
   );
 }

@@ -3,9 +3,10 @@ import { SiteLayout, CTAButton } from "@/components/site/SiteLayout";
 import { CareerCtaBand } from "@/components/site/CareerCtaBand";
 import { GraduationCap, Users, Stethoscope, BriefcaseBusiness, ChevronRight } from "lucide-react";
 import { homeDentalAssistingTestimonials } from "@/lib/testimonials";
-import heroImg from "@/assets/hero-building.jpg";
+import heroImg from "@/assets/NewBuildling copy.png";
 import studentImg from "@/assets/student.jpg";
 import dentalAssistingStudentImg from "@/assets/dental-Assisting-student10.png";
+import programStudentsImg from "@/assets/dental-assisting-program-students.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -23,13 +24,11 @@ function Home() {
   return (
     <SiteLayout>
       {/* Hero */}
-      <section className="relative">
+      <section className="relative overflow-hidden">
         <img
           src={heroImg}
           alt="Toronto College of Dental Assisting building"
-          width={1920}
-          height={1080}
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/20" />
         <div className="relative mx-auto max-w-7xl px-4 py-28 sm:py-40 text-white">
@@ -237,7 +236,7 @@ function Home() {
         </div>
       </section>
 
-      <CareerCtaBand />
+      <CareerCtaBand mobileImage={programStudentsImg} />
 
       <img src={studentImg} alt="" className="hidden" aria-hidden />
     </SiteLayout>

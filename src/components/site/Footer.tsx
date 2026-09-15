@@ -4,7 +4,7 @@ import logo from "@/assets/Toronto-College-Dental-Assisting-Logo.png";
 
 export function Footer() {
   return (
-    <footer className="mt-16">
+    <footer>
       <div className="h-1 bg-primary" />
       <div className="bg-[color:var(--navy)] text-white">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 md:grid-cols-3">
