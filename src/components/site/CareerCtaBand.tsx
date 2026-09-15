@@ -19,8 +19,8 @@ export function CareerCtaBand({
   return (
     <section className="relative overflow-visible bg-primary text-primary-foreground">
       <div className="mx-auto max-w-7xl px-4">
-        <div className="grid items-end gap-6 md:grid-cols-[1fr_auto]">
-          <div className="py-10 sm:py-14">
+        <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-stretch">
+          <div className="flex flex-col justify-center py-10 text-left sm:py-14 md:self-center">
             <h2 className="font-display text-2xl text-white sm:text-3xl">
               Ready to start your dental career?
             </h2>

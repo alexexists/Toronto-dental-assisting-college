@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Facebook, Instagram, Twitter, Mail, MapPin, Phone } from "lucide-react";
+import logo from "@/assets/Toronto-College-Dental-Assisting-Logo.png";
 
 export function Footer() {
   return (
@@ -8,10 +9,18 @@ export function Footer() {
       <div className="bg-[color:var(--navy)] text-white">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 md:grid-cols-3">
           <div>
-            <div className="font-display text-xl font-bold">Toronto College of Dental Assisting</div>
+            <Link to="/" className="inline-flex w-fit max-w-full items-center">
+              <img
+                src={logo}
+                alt="Toronto College of Dental Assisting"
+                className="h-14 sm:h-16 w-auto max-w-[min(100%,280px)] object-contain object-left"
+              />
+            </Link>
+            <div className="mt-4 font-display text-xl font-bold">Toronto College of Dental Assisting</div>
             <p className="mt-3 text-sm text-white/70 leading-relaxed">
               A focused, hands-on program preparing students for rewarding careers
-              as Level I and Level II Dental Assistants.
+              as Level I and Level II Dental Assistants. Considered the best dental
+              assisting program in Canada.
             </p>
             <div className="mt-4 flex items-center gap-3">
               <a href="https://www.facebook.com/TCDHA" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-primary"><Facebook className="h-5 w-5" /></a>
