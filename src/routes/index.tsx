@@ -10,6 +10,8 @@ import heroGraduatesImg from "@/assets/apply-hero-graduates.jpg";
 import studentImg from "@/assets/student.jpg";
 import dentalAssistingStudentImg from "@/assets/dental-Assisting-student10.png";
 import programStudentsImg from "@/assets/dental-assisting-program-students.png";
+import programTileIntraOralImg from "@/assets/home-program-tile-intra-oral.jpg";
+import programTileLevelIiImg from "@/assets/home-program-tile-level-ii.jpg";
 
 const heroSlides = [
   {
@@ -98,15 +100,15 @@ function Home() {
         <div className="relative mx-auto max-w-7xl px-4 py-28 sm:py-40 text-white">
           <div className="max-w-2xl">
             <div className="text-xs sm:text-sm font-semibold uppercase tracking-[0.25em] text-primary">
-              Start Your Dental Career Today
+              Level I & Level II Dental Assisting
             </div>
             <h1 className="mt-4 font-display text-4xl sm:text-6xl font-bold leading-tight text-white">
-              Your Pathway to a<br />Dental Assisting Career
+              Launch Your Career<br />as a Dental Assistant
             </h1>
             <p className="mt-6 text-base sm:text-lg text-white/90 max-w-xl">
-              The Toronto College of Dental Assisting prepares students for rewarding
-              careers as Level I and Level II Dental Assistants through hands-on
-              training and expert instruction.
+              The Toronto College of Dental Assisting prepares Level I and Level II
+              Dental Assistants through hands-on clinical training and expert
+              instruction so you graduate ready for the dental team.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link to="/programs">
@@ -128,6 +130,59 @@ function Home() {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* Program pathway tiles */}
+      <section className="grid md:grid-cols-2">
+        <Link
+          to="/programs/intra-oral-dental-assisting"
+          hash="program-content"
+          className="group relative block min-h-[280px] overflow-hidden sm:min-h-[320px]"
+        >
+          <img
+            src={programTileIntraOralImg}
+            alt="Dental assisting student in scrubs with gloves and eye shields"
+            className="absolute inset-0 h-full w-full object-cover object-[72%_center] transition-transform duration-500 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/45 to-black/25" />
+          <div className="relative flex h-full min-h-[280px] flex-col justify-end px-6 py-8 text-white sm:min-h-[320px] sm:px-10 sm:py-10">
+            <div className="text-sm font-semibold text-primary">
+              Intra Oral Dental Assisting Level I and II
+            </div>
+            <h2 className="mt-2 font-display text-2xl font-bold leading-tight text-white sm:text-3xl">
+              Become a Dental Assistant in 10 months
+            </h2>
+            <span className="mt-6 inline-flex w-fit items-center justify-center rounded-md border-2 border-white px-6 py-2.5 text-sm font-bold uppercase tracking-wider text-white transition-colors duration-300 group-hover:border-primary group-hover:bg-primary">
+              Learn More
+            </span>
+          </div>
+          <div className="absolute inset-x-0 bottom-0 h-1 bg-primary" />
+        </Link>
+
+        <Link
+          to="/programs/dental-assisting-level-ii"
+          hash="program-content"
+          className="group relative block min-h-[280px] overflow-hidden sm:min-h-[320px]"
+        >
+          <img
+            src={programTileLevelIiImg}
+            alt="Dental professional holding a dental handpiece"
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/45 to-black/25" />
+          <div className="relative flex h-full min-h-[280px] flex-col justify-end px-6 py-8 text-white sm:min-h-[320px] sm:px-10 sm:py-10">
+            <div className="text-sm font-semibold text-primary">
+              Dental Assistant Level II
+            </div>
+            <h2 className="mt-2 font-display text-2xl font-bold leading-tight text-white sm:text-3xl">
+              Become a Dental Assistant Level II in 8 Weeks
+            </h2>
+            <span className="mt-6 inline-flex w-fit items-center justify-center rounded-md border-2 border-white px-6 py-2.5 text-sm font-bold uppercase tracking-wider text-white transition-colors duration-300 group-hover:border-primary group-hover:bg-primary">
+              Learn More
+            </span>
+          </div>
+          <div className="absolute inset-x-0 bottom-0 h-1 bg-primary" />
+        </Link>
       </section>
 
       {/* Program highlight */}

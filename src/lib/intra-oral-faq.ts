@@ -61,7 +61,7 @@ export const intraOralFaqs: IntraOralFaq[] = [
     blocks: [
       {
         type: "p",
-        text: "The total tuition cost is $18,490.00. The cost of books, uniforms, equipment and materials, insurance and rentals is $4,325.00.",
+        text: "The total tuition cost is $18,490.00. The cost of books, uniforms, equipment and materials, insurance and rentals is $4,345.00.",
       },
     ],
   },
@@ -91,7 +91,7 @@ export const intraOralFaqs: IntraOralFaq[] = [
     blocks: [
       {
         type: "p",
-        text: "YES! All provincial student loans across Canada are available as an option for payment.",
+        text: "Government student aid is available to students who qualify. Eligibility and availability vary by province.",
       },
       {
         type: "p-with-link",
@@ -151,13 +151,13 @@ export const intraOralFaqs: IntraOralFaq[] = [
     blocks: [
       {
         type: "p",
-        text: "Yes! TCDHA accepts international students if they meet all the entry requirements. TCDHA is designated with the International Student Program (ISP) as a Designated Learning Institution with Citizenship and Immigration Canada (CIC).",
+        text: "Yes! TCDHA accepts international students if they meet all the entry requirements. TCDHA is designated with the International Student Program (ISP) as a Designated Learning Institution with Immigration, Refugees and Citizenship Canada (IRCC).",
       },
       {
         type: "p-with-link",
         before:
           "Successfully completing the Intra Oral Dental Assisting Level I & II Program at the Toronto College of Dental Hygiene and Auxiliaries Inc. does not guarantee the ability to work and/or live in Canada. Please see the ",
-        linkText: "Citizenship and Immigration Canada (CIC) website",
+        linkText: "Immigration, Refugees and Citizenship Canada (IRCC) website",
         href: "https://www.canada.ca/en/immigration-refugees-citizenship.html",
         after: " for information on working and living in Canada.",
       },

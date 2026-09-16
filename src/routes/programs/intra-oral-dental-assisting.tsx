@@ -19,9 +19,7 @@ import intraOralStripImg from "@/assets/intra-oral-program-strip.jpg";
 
 const programDetailsItems = [
   { label: "41 week program", icon: GraduationCap },
-  { label: "Monday to Thursday", icon: Clock },
-  { label: "Morning class: 9am - 2pm", indent: true },
-  { label: "Evening class: 3pm - 8pm", indent: true },
+  { label: "Monday to Sunday, 7:00 a.m. to 8:00 p.m.", icon: Clock },
   { label: "Monthly payments", icon: Banknote },
   { label: "Classroom and clinical training", icon: Pencil },
   { label: "Hybrid learning", icon: Laptop },
@@ -101,7 +99,13 @@ function IntraOralProgram() {
             footer="This program is Approved as a vocational program under the Ontario Career Colleges Act, 2005"
             embedded
           />
-          <SalaryCallout role="an Intra Oral Dental Assistant" rate="$27.83/hr" embedded />
+          <SalaryCallout
+            role="a Certified Dental Assistant II (Intra-Oral)"
+            rate="$29.52 per hour"
+            statsYear="2026"
+            statsPrefix="as of"
+            embedded
+          />
         </div>
       </ProgramDetailLayout>
 

@@ -94,14 +94,15 @@ export function ProgramDetailLayout({
   children: ReactNode;
 }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const hash = useRouterState({ select: (s) => s.location.hash });
 
   useLayoutEffect(() => {
-    if (window.location.hash !== `#${PROGRAM_CONTENT_ID}`) return;
+    if (hash !== `#${PROGRAM_CONTENT_ID}` && hash !== PROGRAM_CONTENT_ID) return;
 
     scrollToProgramContent("smooth");
     const timeoutId = window.setTimeout(() => scrollToProgramContent("smooth"), 0);
     return () => window.clearTimeout(timeoutId);
-  }, [pathname]);
+  }, [pathname, hash]);
 
   return (
     <div id={PROGRAM_CONTENT_ID} className="mx-auto max-w-7xl scroll-mt-0 px-4 py-12 lg:py-14">
@@ -490,7 +491,9 @@ export function ProgramHowToApplySection() {
 
       <div>
         <p className="text-base font-bold leading-relaxed text-[color:var(--navy)]">Next class start:</p>
-        <p className="mt-1 font-display text-3xl font-bold text-primary sm:text-4xl">November 2025</p>
+        <p className="mt-1 font-display text-3xl font-bold text-primary sm:text-4xl">
+          Contact us for current start dates
+        </p>
       </div>
 
       <div className="rounded-md border border-border bg-white px-5 py-4">
@@ -1029,7 +1032,7 @@ export function ProgramFinancingOptionsSection() {
 
         <FinancingOptionCard title="Other Provincial Assistance Programs" light>
           <p>
-            Other provinces may also offer finanical assistance programs for those who qualify. Please visit{" "}
+            Other provinces may also offer financial assistance programs for those who qualify. Please visit{" "}
             <a
               href="https://www.canada.ca/en/services/benefits/education/student-aid.html"
               target="_blank"
@@ -1372,7 +1375,19 @@ export function ProgramDetailsCard({
   );
 }
 
-export function SalaryCallout({ role, rate, embedded = false }: { role: string; rate: string; embedded?: boolean }) {
+export function SalaryCallout({
+  role,
+  rate,
+  embedded = false,
+  statsYear = "2024",
+  statsPrefix = "as per the",
+}: {
+  role: string;
+  rate: string;
+  embedded?: boolean;
+  statsYear?: string;
+  statsPrefix?: string;
+}) {
   return (
     <section className={`bg-[#1ABC9C] ${embedded ? "overflow-hidden rounded-md" : ""}`}>
       <div
@@ -1388,7 +1403,7 @@ export function SalaryCallout({ role, rate, embedded = false }: { role: string; 
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-white/95 sm:text-base">
             The average salary range for {role} is approximately{" "}
-            <span className="font-semibold text-white">{rate}</span> as per the 2024 Statistics{" "}
+            <span className="font-semibold text-white">{rate}</span> {statsPrefix} {statsYear} Statistics{" "}
             <a
               href="https://odaa.org/wage-charts.html"
               target="_blank"

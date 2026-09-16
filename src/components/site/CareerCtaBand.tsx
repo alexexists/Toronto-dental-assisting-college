@@ -7,7 +7,7 @@ const defaultImageClassName =
   "h-auto w-full max-w-[260px] object-contain object-bottom sm:max-w-[300px] md:-mt-20 md:max-w-[340px] lg:-mt-28 lg:max-w-[400px]";
 
 const programImageClassName =
-  "max-w-[420px] sm:max-w-[460px] md:-mt-28 md:max-w-[520px] lg:-mt-36 lg:max-w-[580px]";
+  "max-w-[410px] sm:max-w-[450px] md:-mt-24 md:max-w-[540px] lg:-mt-28 lg:max-w-[590px]";
 
 export function CareerCtaBand({
   image = dentalHygieneImg,
@@ -53,7 +53,7 @@ export function CareerCtaBand({
               "relative flex justify-center self-end md:justify-end md:self-stretch",
               // Keep a real column width so absolutely positioned images don't collapse to 0
               image === programStudentsImg
-                ? "md:w-[min(100%,680px)] lg:w-[min(100%,800px)]"
+                ? "md:w-[min(100%,610px)] lg:w-[min(100%,670px)]"
                 : "md:w-[min(100%,400px)] lg:w-[min(100%,400px)]",
             )}
           >

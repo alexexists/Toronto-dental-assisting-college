@@ -96,7 +96,13 @@ function DentalAssistingLevelII() {
             footer="This program is Approved as a vocational program under the Ontario Career Colleges Act, 2005"
             embedded
           />
-          <SalaryCallout role="a Dental Assistant" rate="$27.83/hr" embedded />
+          <SalaryCallout
+            role="a Certified Dental Assistant II"
+            rate="$29.52 per hour"
+            statsYear="2026"
+            statsPrefix="as of"
+            embedded
+          />
         </div>
         <ProgramCoreDutiesSection />
       </ProgramDetailLayout>

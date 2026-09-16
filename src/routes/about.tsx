@@ -1,8 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import type { ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { SiteLayout, CTAButton } from "@/components/site/SiteLayout";
 import { ProgramHero } from "@/components/site/ProgramDetailSections";
 import { CareerCtaBand } from "@/components/site/CareerCtaBand";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+  type CarouselApi,
+} from "@/components/ui/carousel";
 import {
   accountabilityQuotes,
   edibStatement,
@@ -12,17 +20,14 @@ import {
   values,
   visionStatement,
 } from "@/lib/about";
-import { studentTestimonials } from "@/lib/testimonials";
-import heroImg from "@/assets/facility-hero.jpg";
+import { homeDentalAssistingTestimonials } from "@/lib/testimonials";
+import heroImg from "@/assets/about-hero-students-clinic-2.png";
 import hygienistStripImg from "@/assets/dental-assisting-level-ii-strip.jpg";
 import clinicFloorImg from "@/assets/ClinicFloor.jpg";
-import simulationLabImg from "@/assets/SimulationLab.jpg";
+import faqHeroImg from "@/assets/faq-hero-admin.jpg";
 import landAcknowledgementImg from "@/assets/land-acknowledgement.jpg";
+import ediInclusionImg from "@/assets/edi-inclusion-circle.png";
 import programStudentsImg from "@/assets/dental-assisting-program-students.png";
-
-const featuredAlumniTestimonial = studentTestimonials.find(
-  (t) => t.name === "Joanna Marie Jardiel",
-)!;
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -48,7 +53,7 @@ function About() {
     <SiteLayout>
       <ProgramHero
         image={heroImg}
-        imageAlt="Spacious modern indoor dental training facility with multiple operatories"
+        imageAlt="Dental assisting students and instructors smiling in the modern training clinic"
         imagePosition="object-[60%_center] sm:object-[right_center]"
         title="Your Pathway to Success"
         subtitle="Start your dental career today with quality training and experienced staff."
@@ -144,29 +149,90 @@ function About() {
         <ProgramsLink />
       </ImageTextRow>
 
-      <ContentBlock title="Equity, Diversity, Inclusion and Belonging (EDI-B) Statement" alt center>
+      <ImageTextRow
+        image={ediInclusionImg}
+        imageAlt="Diverse students collaborating on an inclusion mural at Toronto College of Dental Assisting"
+        title="Equity, Diversity, Inclusion and Belonging (EDI-B) Statement"
+      >
         <p>{edibStatement}</p>
-        <div className="mt-8">
-          <ProgramsLink />
-        </div>
-      </ContentBlock>
+        <ProgramsLink />
+      </ImageTextRow>
 
       <section className="bg-[color:var(--navy)] text-white">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:py-16">
           <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
             <div className="text-center lg:text-left">
               <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl text-white">
-                We strive to obtain each individual&apos;s maximum growth potential.
+                See how our graduates launch dental careers
               </h2>
               <div className="mt-8">
                 <Link to="/testimonials">
                   <CTAButton className="px-9 py-4 text-base sm:px-10 sm:py-5 sm:text-lg">
-                    Read more Alumni experiences
+                    Read Alumni Stories
                   </CTAButton>
                 </Link>
               </div>
             </div>
 
+            <AlumniStoriesCarousel />
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 py-14 grid gap-8 md:grid-cols-2">
+        <HighlightCard
+          image={clinicFloorImg}
+          imageAlt="Toronto College clinic facilities"
+          title="Our Facilities"
+          body="Consider the many exciting opportunities available in the dental industry. The Toronto College of Dental Hygiene and Auxiliaries Inc. was founded by practicing dental professionals, including a dental hygienist and a dentist, and opened in the winter of 2003."
+          to="/facility"
+        />
+        <HighlightCard
+          image={faqHeroImg}
+          imageAlt="Experienced dental college staff member in clinical attire"
+          imageClassName="object-[70%_center]"
+          title="Experienced Staff"
+          body="The Toronto College of Dental Hygiene and Auxiliaries Inc. believes students, clients, staff, faculty, and the community in which we live and work, need to be treated with respect and that we all need to work collaboratively to achieve high standards of dental education."
+          to="/about"
+        />
+      </section>
+
+      <CareerCtaBand
+        image={programStudentsImg}
+        imageClassName="max-w-[400px] sm:max-w-[450px] md:-mt-28 md:max-w-[560px] md:translate-x-4 lg:-mt-36 lg:max-w-[660px] lg:translate-x-6"
+      />
+    </SiteLayout>
+  );
+}
+
+function AlumniStoriesCarousel() {
+  const [api, setApi] = useState<CarouselApi>();
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  useEffect(() => {
+    if (!api) return;
+
+    const onSelect = () => setSelectedIndex(api.selectedScrollSnap());
+    onSelect();
+    api.on("select", onSelect);
+    api.on("reInit", onSelect);
+
+    const intervalId = window.setInterval(() => {
+      api.scrollNext();
+    }, 6500);
+
+    return () => {
+      api.off("select", onSelect);
+      api.off("reInit", onSelect);
+      window.clearInterval(intervalId);
+    };
+  }, [api]);
+
+  return (
+    <Carousel opts={{ loop: true }} setApi={setApi} className="w-full min-w-0">
+      <CarouselContent>
+        {homeDentalAssistingTestimonials.map((t) => (
+          <CarouselItem key={t.name}>
             <article className="relative overflow-hidden rounded-2xl bg-white p-7 text-left shadow-[0_12px_32px_-18px_rgba(0,0,0,0.28)] ring-1 ring-black/[0.03] sm:p-8">
               <div
                 className="pointer-events-none absolute inset-0"
@@ -185,54 +251,49 @@ function About() {
               <div className="relative flex flex-col gap-5 sm:flex-row sm:items-start sm:gap-6">
                 <div className="mx-auto shrink-0 sm:mx-0">
                   <img
-                    src={featuredAlumniTestimonial.image}
-                    alt={featuredAlumniTestimonial.name}
+                    src={t.image}
+                    alt={t.name}
                     loading="lazy"
                     className="h-28 w-28 rounded-full object-cover object-top shadow-md ring-4 ring-primary/20 sm:h-32 sm:w-32"
                   />
                 </div>
                 <div className="min-w-0 flex-1 text-center sm:text-left">
-                  <p className="font-serif text-[0.95rem] italic leading-relaxed text-foreground/80 sm:text-base">
-                    {featuredAlumniTestimonial.quote}
+                  <p className="font-serif text-[0.95rem] italic leading-relaxed text-foreground/80 line-clamp-6 sm:text-base">
+                    {t.quote}
                   </p>
                   <div className="mx-auto mt-6 h-px w-16 bg-primary/32 sm:mx-0" />
                   <p className="mt-4 font-display text-xs font-bold uppercase tracking-wide text-[color:var(--navy)] sm:text-sm">
-                    {featuredAlumniTestimonial.name}
+                    {t.name}
                     <span className="mx-1.5 font-normal text-muted-foreground">|</span>
-                    {featuredAlumniTestimonial.subtitle}
+                    {t.subtitle}
                   </p>
-                  <p className="mt-1.5 text-sm text-muted-foreground">
-                    {featuredAlumniTestimonial.program}
-                  </p>
+                  <p className="mt-1.5 text-sm text-muted-foreground">{t.program}</p>
                 </div>
               </div>
             </article>
-          </div>
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+
+      <div className="mt-4 flex items-center justify-center gap-3">
+        <CarouselPrevious className="static h-9 w-9 translate-x-0 translate-y-0 border-white/30 bg-white/10 text-white hover:bg-white hover:text-[color:var(--navy)] disabled:opacity-40" />
+        <div className="flex items-center gap-1.5">
+          {homeDentalAssistingTestimonials.map((t, index) => (
+            <button
+              key={t.name}
+              type="button"
+              aria-label={`Show testimonial from ${t.name}`}
+              aria-current={index === selectedIndex ? "true" : undefined}
+              onClick={() => api?.scrollTo(index)}
+              className={`h-2 rounded-full transition-all ${
+                index === selectedIndex ? "w-5 bg-primary" : "w-2 bg-white/35 hover:bg-white/55"
+              }`}
+            />
+          ))}
         </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-4 py-14 grid gap-8 md:grid-cols-2">
-        <HighlightCard
-          image={clinicFloorImg}
-          imageAlt="Toronto College clinic facilities"
-          title="Our Facilities"
-          body="Consider the many exciting opportunities available in the dental industry. The Toronto College of Dental Hygiene and Auxiliaries Inc. was founded by practicing dental professionals, including a dental hygienist and a dentist, and opened in the winter of 2003."
-          to="/facility"
-        />
-        <HighlightCard
-          image={simulationLabImg}
-          imageAlt="Dental simulation lab with instructors and students"
-          title="Experienced Staff"
-          body="The Toronto College of Dental Hygiene and Auxiliaries Inc. believes students, clients, staff, faculty, and the community in which we live and work, need to be treated with respect and that we all need to work collaboratively to achieve high standards of dental education."
-          to="/about"
-        />
-      </section>
-
-      <CareerCtaBand
-        image={programStudentsImg}
-        imageClassName="max-w-[260px] sm:max-w-[300px] md:max-w-[340px] md:translate-x-5 lg:max-w-[400px] lg:translate-x-7"
-      />
-    </SiteLayout>
+        <CarouselNext className="static h-9 w-9 translate-x-0 translate-y-0 border-white/30 bg-white/10 text-white hover:bg-white hover:text-[color:var(--navy)] disabled:opacity-40" />
+      </div>
+    </Carousel>
   );
 }
 
@@ -335,19 +396,26 @@ function ImageTextRow({
 function HighlightCard({
   image,
   imageAlt,
+  imageClassName,
   title,
   body,
   to,
 }: {
   image: string;
   imageAlt: string;
+  imageClassName?: string;
   title: string;
   body: string;
   to: string;
 }) {
   return (
     <article className="overflow-hidden rounded-lg border bg-card shadow-sm">
-      <img src={image} alt={imageAlt} loading="lazy" className="aspect-[16/10] w-full object-cover" />
+      <img
+        src={image}
+        alt={imageAlt}
+        loading="lazy"
+        className={`aspect-[16/10] w-full object-cover ${imageClassName ?? ""}`}
+      />
       <div className="p-6">
         <h3 className="font-display text-xl text-[color:var(--navy)]">{title}</h3>
         <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{body}</p>

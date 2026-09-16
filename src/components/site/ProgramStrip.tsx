@@ -18,6 +18,7 @@ type ProgramStripProps = {
   excerpt: string;
   excerpt2: string;
   to: string;
+  hash?: string;
   image: keyof typeof images;
   imageAlt: string;
   youtubeId?: string;
@@ -33,6 +34,7 @@ export function ProgramStrip({
   excerpt,
   excerpt2,
   to,
+  hash = "program-content",
   image,
   imageAlt,
   youtubeId,
@@ -77,7 +79,7 @@ export function ProgramStrip({
         {excerpt2}
       </p>
       <div className="mt-8">
-        <Link to={to}>
+        <Link to={to} hash={hash}>
           <CTAButton
             className={
               isDark
@@ -94,7 +96,7 @@ export function ProgramStrip({
 
   const media = (
     <div className="relative min-h-[280px] sm:min-h-[360px] lg:min-h-full">
-      <Link to={to} className="group absolute inset-0 block" aria-label={`View ${title}`}>
+      <Link to={to} hash={hash} className="group absolute inset-0 block" aria-label={`View ${title}`}>
         <img src={images[image]} alt={imageAlt} className="absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-black/15 transition-colors group-hover:bg-black/25" />
       </Link>

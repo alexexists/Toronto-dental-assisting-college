@@ -134,6 +134,7 @@ export function Header() {
                 <Link
                   key={program.slug}
                   to={program.path}
+                  hash="program-content"
                   className="block px-4 py-3 text-sm font-semibold tracking-wide text-[color:var(--navy)] hover:bg-muted hover:text-primary"
                 >
                   {program.navLabel}
@@ -197,6 +198,7 @@ export function Header() {
                     <Link
                       key={program.slug}
                       to={program.path}
+                      hash="program-content"
                       onClick={() => setOpen(false)}
                       className="block py-2 text-sm font-medium text-muted-foreground hover:text-primary"
                     >
