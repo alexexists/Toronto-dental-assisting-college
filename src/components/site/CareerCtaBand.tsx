@@ -48,7 +48,15 @@ export function CareerCtaBand({
               </Link>
             </div>
           </div>
-          <div className="flex justify-center self-end md:justify-end">
+          <div
+            className={cn(
+              "relative flex justify-center self-end md:justify-end md:self-stretch",
+              // Keep a real column width so absolutely positioned images don't collapse to 0
+              image === programStudentsImg
+                ? "md:w-[min(100%,680px)] lg:w-[min(100%,800px)]"
+                : "md:w-[min(100%,400px)] lg:w-[min(100%,400px)]",
+            )}
+          >
             {mobileImage ? (
               <>
                 <img
@@ -65,7 +73,11 @@ export function CareerCtaBand({
                   src={image}
                   alt="Toronto College dental assisting professionals"
                   loading="lazy"
-                  className={cn(defaultImageClassName, "hidden md:block", imageClassName)}
+                  className={cn(
+                    defaultImageClassName,
+                    "hidden md:absolute md:bottom-0 md:right-0 md:block md:!mt-0 md:!w-auto md:max-w-full",
+                    imageClassName,
+                  )}
                 />
               </>
             ) : (
@@ -73,7 +85,11 @@ export function CareerCtaBand({
                 src={image}
                 alt="Toronto College dental assisting professionals"
                 loading="lazy"
-                className={cn(defaultImageClassName, imageClassName)}
+                className={cn(
+                  defaultImageClassName,
+                  "md:absolute md:bottom-0 md:right-0 md:!mt-0 md:!w-auto md:max-w-full",
+                  imageClassName,
+                )}
               />
             )}
           </div>

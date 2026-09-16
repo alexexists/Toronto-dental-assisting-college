@@ -13,10 +13,11 @@ import {
   visionStatement,
 } from "@/lib/about";
 import { studentTestimonials } from "@/lib/testimonials";
-import heroImg from "@/assets/hero-building.jpg";
+import heroImg from "@/assets/facility-hero.jpg";
 import hygienistStripImg from "@/assets/dental-assisting-level-ii-strip.jpg";
-import facilityImg from "@/assets/facility1.jpg";
-import classroomImg from "@/assets/classroom.jpg";
+import clinicFloorImg from "@/assets/ClinicFloor.jpg";
+import simulationLabImg from "@/assets/SimulationLab.jpg";
+import landAcknowledgementImg from "@/assets/land-acknowledgement.jpg";
 import programStudentsImg from "@/assets/dental-assisting-program-students.png";
 
 const featuredAlumniTestimonial = studentTestimonials.find(
@@ -47,7 +48,8 @@ function About() {
     <SiteLayout>
       <ProgramHero
         image={heroImg}
-        imageAlt="Toronto College of Dental Assisting campus"
+        imageAlt="Spacious modern indoor dental training facility with multiple operatories"
+        imagePosition="object-[60%_center] sm:object-[right_center]"
         title="Your Pathway to Success"
         subtitle="Start your dental career today with quality training and experienced staff."
       />
@@ -133,8 +135,8 @@ function About() {
       </section>
 
       <ImageTextRow
-        image={facilityImg}
-        imageAlt="Toronto dental college training and facilities"
+        image={landAcknowledgementImg}
+        imageAlt="Calm shoreline landscape representing the traditional lands acknowledged by TCDHA"
         title="TCDHA Indigenous Nations Land Acknowledgement"
         reversed
       >
@@ -211,15 +213,15 @@ function About() {
 
       <section className="mx-auto max-w-7xl px-4 py-14 grid gap-8 md:grid-cols-2">
         <HighlightCard
-          image={facilityImg}
+          image={clinicFloorImg}
           imageAlt="Toronto College clinic facilities"
           title="Our Facilities"
           body="Consider the many exciting opportunities available in the dental industry. The Toronto College of Dental Hygiene and Auxiliaries Inc. was founded by practicing dental professionals, including a dental hygienist and a dentist, and opened in the winter of 2003."
           to="/facility"
         />
         <HighlightCard
-          image={classroomImg}
-          imageAlt="Toronto dental college students training"
+          image={simulationLabImg}
+          imageAlt="Dental simulation lab with instructors and students"
           title="Experienced Staff"
           body="The Toronto College of Dental Hygiene and Auxiliaries Inc. believes students, clients, staff, faculty, and the community in which we live and work, need to be treated with respect and that we all need to work collaboratively to achieve high standards of dental education."
           to="/about"
@@ -228,7 +230,7 @@ function About() {
 
       <CareerCtaBand
         image={programStudentsImg}
-        imageClassName="max-w-[520px] sm:max-w-[600px] md:!mt-0 md:max-w-[680px] md:translate-x-10 md:-translate-y-32 lg:!mt-0 lg:max-w-[800px] lg:translate-x-14 lg:-translate-y-40"
+        imageClassName="max-w-[260px] sm:max-w-[300px] md:max-w-[340px] md:translate-x-5 lg:max-w-[400px] lg:translate-x-7"
       />
     </SiteLayout>
   );
