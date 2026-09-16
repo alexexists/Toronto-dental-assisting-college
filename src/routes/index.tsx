@@ -1,12 +1,36 @@
+import { useEffect, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout, CTAButton } from "@/components/site/SiteLayout";
 import { CareerCtaBand } from "@/components/site/CareerCtaBand";
 import { GraduationCap, Users, Stethoscope, BriefcaseBusiness, ChevronRight } from "lucide-react";
 import { homeDentalAssistingTestimonials } from "@/lib/testimonials";
-import heroImg from "@/assets/NewBuildling copy.png";
+import heroBuildingImg from "@/assets/NewBuildlinghero2.jpg";
+import heroFacilityImg from "@/assets/facility-hero.jpg";
+import heroGraduatesImg from "@/assets/apply-hero-graduates.jpg";
 import studentImg from "@/assets/student.jpg";
 import dentalAssistingStudentImg from "@/assets/dental-Assisting-student10.png";
 import programStudentsImg from "@/assets/dental-assisting-program-students.png";
+
+const heroSlides = [
+  {
+    src: heroBuildingImg,
+    alt: "Toronto College of Dental Assisting building",
+    imageClassName:
+      "object-center scale-110 -translate-y-6 max-md:scale-[1.72] max-md:translate-x-44 md:-translate-x-12",
+  },
+  {
+    src: heroFacilityImg,
+    alt: "Modern dental training facility with operatories",
+    imageClassName: "object-[60%_center] sm:object-[right_center]",
+  },
+  {
+    src: heroGraduatesImg,
+    alt: "Graduating dental assisting students",
+    imageClassName: "object-[55%_32%] sm:object-[62%_24%]",
+  },
+] as const;
+
+const HERO_INTERVAL_MS = 5000;
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -21,15 +45,55 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
+  const [heroIndex, setHeroIndex] = useState(0);
+
+  useEffect(() => {
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const desktopQuery = window.matchMedia("(min-width: 768px)");
+    let id: number | undefined;
+
+    const sync = () => {
+      if (id !== undefined) {
+        window.clearInterval(id);
+        id = undefined;
+      }
+
+      if (!desktopQuery.matches) {
+        setHeroIndex(0);
+        return;
+      }
+
+      if (motionQuery.matches) return;
+
+      id = window.setInterval(() => {
+        setHeroIndex((i) => (i + 1) % heroSlides.length);
+      }, HERO_INTERVAL_MS);
+    };
+
+    sync();
+    desktopQuery.addEventListener("change", sync);
+    motionQuery.addEventListener("change", sync);
+    return () => {
+      if (id !== undefined) window.clearInterval(id);
+      desktopQuery.removeEventListener("change", sync);
+      motionQuery.removeEventListener("change", sync);
+    };
+  }, []);
+
   return (
     <SiteLayout>
       {/* Hero */}
       <section className="relative overflow-hidden">
-        <img
-          src={heroImg}
-          alt="Toronto College of Dental Assisting building"
-          className="absolute inset-0 h-full w-full object-cover object-center"
-        />
+        {heroSlides.map((slide, index) => (
+          <img
+            key={slide.src}
+            src={slide.src}
+            alt={slide.alt}
+            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-in-out ${slide.imageClassName} ${
+              index === heroIndex ? "opacity-100" : "opacity-0"
+            }`}
+          />
+        ))}
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/20" />
         <div className="relative mx-auto max-w-7xl px-4 py-28 sm:py-40 text-white">
           <div className="max-w-2xl">

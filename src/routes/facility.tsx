@@ -4,10 +4,12 @@ import { ProgramHero } from "@/components/site/ProgramDetailSections";
 import { CareerCtaBand } from "@/components/site/CareerCtaBand";
 import facilityHeroImg from "@/assets/facility-hero.jpg";
 import programStudentsImg from "@/assets/dental-assisting-program-students.png";
-import f1 from "@/assets/facility1.jpg";
-import f2 from "@/assets/facility2.jpg";
-import f3 from "@/assets/facility3.jpg";
-import classroom from "@/assets/classroom.jpg";
+import operatoryImg from "@/assets/Operatory.jpg";
+import simulationLabImg from "@/assets/SimulationLab.jpg";
+import sterilizationRoomImg from "@/assets/sterilzation-room.jpg";
+import clinicFloorImg from "@/assets/ClinicFloor.jpg";
+import lunchRoomImg from "@/assets/LunchRoom.jpg";
+import computerLabImg from "@/assets/Computerlab.jpg";
 
 export const Route = createFileRoute("/facility")({
   head: () => ({
@@ -16,7 +18,7 @@ export const Route = createFileRoute("/facility")({
       { name: "description", content: "Tour our modern dental assisting training facility in Toronto, featuring full operatories, simulation labs, and sterilization rooms." },
       { property: "og:title", content: "Our Facility — TCDA" },
       { property: "og:description", content: "Modern dental training facility in Toronto." },
-      { property: "og:image", content: f1 },
+      { property: "og:image", content: operatoryImg },
     ],
   }),
   component: Facility,
@@ -24,10 +26,12 @@ export const Route = createFileRoute("/facility")({
 
 function Facility() {
   const photos = [
-    { src: f1, alt: "Modern dental operatory" },
-    { src: f2, alt: "Dental simulation lab with mannequin heads" },
-    { src: f3, alt: "Sterilization and instrument processing area" },
-    { src: classroom, alt: "Training classroom with dental chairs" },
+    { src: operatoryImg, alt: "Modern dental operatories for clinical practice" },
+    { src: simulationLabImg, alt: "Hands-on simulation labs with dental mannequins" },
+    { src: sterilizationRoomImg, alt: "Dedicated sterilization and instrument processing" },
+    { src: clinicFloorImg, alt: "Modern classrooms for hands-on dental training" },
+    { src: lunchRoomImg, alt: "Comfortable breakfast, lunch and dining area" },
+    { src: computerLabImg, alt: "Fully equipped computer labs" },
   ];
   return (
     <SiteLayout>
