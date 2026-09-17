@@ -3,21 +3,61 @@ import { Facebook, Instagram, Twitter, Mail, MapPin, Phone } from "lucide-react"
 import logo from "@/assets/Toronto-College-Dental-Assisting-Logo.png";
 
 const policyLinks = [
-  { label: "TCDHA Privacy Policy", href: "#" },
-  { label: "TCDHA Sexual Violence Policy", href: "#" },
-  { label: "TCDHA Continuity of Education Plan", href: "#" },
-  { label: "TCDHA Accessibility Policy", href: "#" },
-  { label: "TCDHA Multi-year Plan", href: "#" },
-  { label: "TCDHA Safety Plan", href: "#" },
-  { label: "TCDHA Equity, Diversity, Inclusion and Belonging Statement", href: "#" },
-  { label: "2022 COISL Default RAP Usage Rates by Sector", href: "#" },
-  { label: "2022 COISL Default Rates and RAP Usage Rates by Institution-PCCs", href: "#" },
+  {
+    label: "TCDHA Privacy Policy",
+    href: "https://www.toronto-college-dental.org/tcdha_documents/TCDHA%20Privacy%20Policy.pdf",
+    external: true,
+  },
+  {
+    label: "TCDHA Sexual Violence Policy",
+    href: "https://www.toronto-college-dental.org/tcdha_documents/TCDHA%20Sexual%20Violence%20Policy.pdf",
+    external: true,
+  },
+  {
+    label: "TCDHA Continuity of Education Plan",
+    href: "https://www.toronto-college-dental.org/tcdha_documents/Continuity%20of%20Education%20Plan.pdf",
+    external: true,
+  },
+  {
+    label: "TCDHA Accessibility Policy",
+    href: "https://www.toronto-college-dental.org/tcdha_documents/TCDHA%20Accessibility%20Policy.pdf",
+    external: true,
+  },
+  {
+    label: "TCDHA Multi-year Plan",
+    href: "https://www.toronto-college-dental.org/tcdha_documents/TCDHA%20Multi-year%20Plan.pdf",
+    external: true,
+  },
+  {
+    label: "TCDHA Safety Plan",
+    href: "https://www.toronto-college-dental.org/tcdha_documents/TCDHA%20Safety%20Plan.pdf",
+    external: true,
+  },
+  {
+    label: "TCDHA Equity, Diversity, Inclusion and Belonging Statement",
+    href: "https://www.toronto-college-dental.org/tcdha_documents/TCDHA%20EDI-B%20Policy.pdf",
+    external: true,
+  },
+  {
+    label: "2022 COISL Default RAP Usage Rates by Sector",
+    href: "https://www.toronto-college-dental.org/tcdha_documents/2022%20COISL%20Default%20RAP%20Usage%20Rates%20by%20Sector.xlsx",
+    external: true,
+  },
+  {
+    label: "2022 COISL Default Rates and RAP Usage Rates by Institution-PCCs",
+    href: "https://www.toronto-college-dental.org/tcdha_documents/2022%20COISL%20Default%20Rates%20and%20RAP%20Usage%20Rates%20by%20Institution-PCCs.xlsx",
+    external: true,
+  },
   {
     label: "2023 Toronto College of Dental Hygiene & Auxiliaries graduation and job rates",
     href: "https://www.tcu.gov.on.ca/pepg/audiences/pcc/career-college-kpi/data/?pccid=102193&yr=2023",
     external: true,
   },
-  { label: "KPI for the 2023 Reporting Cycle", href: "#" },
+  {
+    label: "KPI for the 2023 Reporting Cycle",
+    href: "https://www.toronto-college-dental.org/tcdha_documents/2023%20KPI%20Reporting%20Cycle.xlsx",
+    external: true,
+  },
 ] as const;
 
 export function Footer() {
@@ -55,7 +95,7 @@ export function Footer() {
               <li><Link to="/programs/dental-assisting-level-ii" hash="program-content" className="text-white/80 hover:text-white">Dental Assisting Level II</Link></li>
               <li><Link to="/facility" className="text-white/80 hover:text-white">Facility</Link></li>
               <li><Link to="/testimonials" className="text-white/80 hover:text-white">Testimonials</Link></li>
-              <li><Link to="/faq" className="text-white/80 hover:text-white">FAQ</Link></li>
+              <li><Link to="/dental-assisting-college-faq" className="text-white/80 hover:text-white">FAQ</Link></li>
               <li><Link to="/contact" className="text-white/80 hover:text-white">Contact</Link></li>
               <li><Link to="/apply" className="text-white/80 hover:text-white">Apply Now</Link></li>
             </ul>
@@ -82,7 +122,7 @@ export function Footer() {
                   <a
                     href={item.href}
                     className="text-white/70 underline-offset-2 hover:text-white hover:underline"
-                    {...("external" in item && item.external
+                    {...(item.external
                       ? { target: "_blank", rel: "noopener noreferrer" }
                       : {})}
                   >

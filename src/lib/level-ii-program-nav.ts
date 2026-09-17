@@ -39,7 +39,7 @@ export function getLevelIiNavItems(active: LevelIiProgramPage) {
     },
     { label: "Our Features & Facilities", to: "/facility" },
     { label: "Student Success Stories", to: "/testimonials" },
-    { label: "Common Questions", to: "/faq" },
+    { label: "Common Questions", to: "/dental-assisting-college-faq" },
   ];
 }
 

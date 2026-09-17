@@ -16,6 +16,7 @@ import {
   intraOralSidebarTitle,
 } from "@/lib/intra-oral-program-nav";
 import intraOralStripImg from "@/assets/intra-oral-program-strip.jpg";
+import { ogImageMeta } from "@/lib/structured-data";
 
 const programDetailsItems = [
   { label: "41 week program", icon: GraduationCap },
@@ -31,17 +32,25 @@ const programDetailsItems = [
 export const Route = createFileRoute("/programs/intra-oral-dental-assisting")({
   head: () => ({
     meta: [
-      { title: "Intra Oral Dental Assisting Level I & II — Toronto College of Dental Assisting" },
+      {
+        title:
+          "Intra Oral Dental Assisting Level I & II in Toronto | 10-Month Hybrid | TCDA",
+      },
       {
         name: "description",
         content:
-          "Hybrid 10-month Intra Oral Dental Assisting Level I & II program with classroom, clinical, and field training in Toronto.",
+          "Study Intra Oral Dental Assisting Level I & II in Toronto. Hybrid 10-month program with classroom, clinical, HARP, and field training at Toronto College of Dental Assisting.",
       },
-      { property: "og:title", content: "Intra Oral Dental Assisting Level I & II — TCDA" },
+      {
+        property: "og:title",
+        content: "Intra Oral Dental Assisting Level I & II in Toronto | TCDA",
+      },
       {
         property: "og:description",
-        content: "Prepare for your dental career with NDAEB-approved Intra Oral Dental Assisting training.",
+        content:
+          "NDAEB-aligned Intra Oral Dental Assisting training with hands-on clinical practice in Toronto.",
       },
+      ...ogImageMeta(),
     ],
   }),
   component: IntraOralProgram,
@@ -52,7 +61,7 @@ function IntraOralProgram() {
     <SiteLayout>
       <ProgramHero
         image={intraOralStripImg}
-        imageAlt="Asian and Black dental assistants working together in clinical practice"
+        imageAlt="Dental assistants practicing chairside skills together in a Toronto training clinic"
         imagePosition="object-center"
         title="Intra Oral Dental Assisting Level I & II"
       >
@@ -69,12 +78,18 @@ function IntraOralProgram() {
         <ProgramOverviewSection
           title="Program Overview and Benefits"
           introImage={intraOralStripImg}
-          introImageAlt="Asian and Black dental assistants working together in clinical practice"
+          introImageAlt="Dental assistants practicing chairside skills together in a Toronto training clinic"
           youtubeId="u637NGnNLF0"
           videoTitle="Intra Oral Dental Assisting Level I & II program video"
           introParagraphs={[
             "The Intra Oral Dental Assisting Level I and II course will prepare the student to assist the dentist in all dental procedures in a general practice or a specialist setting.",
-            "Our state of the art facilities give students plenty of practice in real situations with modern equipment. The program includes field training in a dental office as well as extensive practical experience with seasoned instructors. Training includes taking x-rays and sterilization, as well as an office administration overview to give the individual a well-rounded knowledge of all the functions of a modern dental office.",
+            <>
+              Our{" "}
+              <Link to="/facility" className="font-medium text-primary underline-offset-2 hover:underline">
+                state-of-the-art facilities
+              </Link>{" "}
+              give students plenty of practice in real situations with modern equipment. The program includes field training in a dental office as well as extensive practical experience with seasoned instructors. Training includes taking x-rays and sterilization, as well as an office administration overview to give the individual a well-rounded knowledge of all the functions of a modern dental office.
+            </>,
           ]}
           bodyParagraphs={[
             "The Intra Oral Dental Assisting Level I and II is offered as a hybrid 10 month (20 hours per week) program which means all theory can be taken from the comfort of your home and all clinic and lab components will be completed on site. It is designed to allow the individual to continue to work and learn at the same time. All concepts taught in the classroom are demonstrated and practiced in the clinical setting on mannequins, student partners, and clients. Students must demonstrate these clinical skills while adhering to the ODAA Code of Ethics.",
@@ -88,7 +103,18 @@ function IntraOralProgram() {
               >
                 National Dental Assisting Examining Board (NDAEB)
               </a>
-              . Graduates of the program are able to write the National Dental Assisting Board Examination.
+              . Graduates of the program are able to write the National Dental Assisting Board Examination. See our{" "}
+              <Link
+                to="/dental-assisting-college-faq"
+                className="font-medium text-primary underline-offset-2 hover:underline"
+              >
+                dental assisting FAQ
+              </Link>{" "}
+              or{" "}
+              <Link to="/apply" className="font-medium text-primary underline-offset-2 hover:underline">
+                apply online
+              </Link>
+              .
             </>,
           ]}
         />

@@ -9,46 +9,27 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as TestimonialsRouteImport } from './routes/testimonials'
-import { Route as FaqRouteImport } from './routes/faq'
-import { Route as FacilityRouteImport } from './routes/facility'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as ApplyRouteImport } from './routes/apply'
-import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as ApplyRouteImport } from './routes/apply'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as DentalAssistingCollegeFaqRouteImport } from './routes/dental-assisting-college-faq'
+import { Route as FacilityRouteImport } from './routes/facility'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as TestimonialsRouteImport } from './routes/testimonials'
 import { Route as ProgramsIndexRouteImport } from './routes/programs/index'
-import { Route as ProgramsIntraOralDentalAssistingPrerequisitesRouteImport } from './routes/programs/intra-oral-dental-assisting-prerequisites'
-import { Route as ProgramsIntraOralDentalAssistingFeesRouteImport } from './routes/programs/intra-oral-dental-assisting-fees'
-import { Route as ProgramsIntraOralDentalAssistingApplyRouteImport } from './routes/programs/intra-oral-dental-assisting-apply'
-import { Route as ProgramsIntraOralDentalAssistingRouteImport } from './routes/programs/intra-oral-dental-assisting'
-import { Route as ProgramsDentalAssistingLevelIiPrerequisitesRouteImport } from './routes/programs/dental-assisting-level-ii-prerequisites'
-import { Route as ProgramsDentalAssistingLevelIiFeesRouteImport } from './routes/programs/dental-assisting-level-ii-fees'
-import { Route as ProgramsDentalAssistingLevelIiApplyRouteImport } from './routes/programs/dental-assisting-level-ii-apply'
 import { Route as ProgramsDentalAssistingLevelIiRouteImport } from './routes/programs/dental-assisting-level-ii'
+import { Route as ProgramsDentalAssistingLevelIiApplyRouteImport } from './routes/programs/dental-assisting-level-ii-apply'
+import { Route as ProgramsDentalAssistingLevelIiFeesRouteImport } from './routes/programs/dental-assisting-level-ii-fees'
+import { Route as ProgramsDentalAssistingLevelIiPrerequisitesRouteImport } from './routes/programs/dental-assisting-level-ii-prerequisites'
+import { Route as ProgramsIntraOralDentalAssistingRouteImport } from './routes/programs/intra-oral-dental-assisting'
+import { Route as ProgramsIntraOralDentalAssistingApplyRouteImport } from './routes/programs/intra-oral-dental-assisting-apply'
+import { Route as ProgramsIntraOralDentalAssistingFeesRouteImport } from './routes/programs/intra-oral-dental-assisting-fees'
+import { Route as ProgramsIntraOralDentalAssistingPrerequisitesRouteImport } from './routes/programs/intra-oral-dental-assisting-prerequisites'
 
-const TestimonialsRoute = TestimonialsRouteImport.update({
-  id: '/testimonials',
-  path: '/testimonials',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FaqRoute = FaqRouteImport.update({
-  id: '/faq',
-  path: '/faq',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FacilityRoute = FacilityRouteImport.update({
-  id: '/facility',
-  path: '/facility',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApplyRoute = ApplyRouteImport.update({
-  id: '/apply',
-  path: '/apply',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -56,9 +37,35 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const ApplyRoute = ApplyRouteImport.update({
+  id: '/apply',
+  path: '/apply',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DentalAssistingCollegeFaqRoute =
+  DentalAssistingCollegeFaqRouteImport.update({
+    id: '/dental-assisting-college-faq',
+    path: '/dental-assisting-college-faq',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const FacilityRoute = FacilityRouteImport.update({
+  id: '/facility',
+  path: '/facility',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TestimonialsRoute = TestimonialsRouteImport.update({
+  id: '/testimonials',
+  path: '/testimonials',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProgramsIndexRoute = ProgramsIndexRouteImport.update({
@@ -66,40 +73,10 @@ const ProgramsIndexRoute = ProgramsIndexRouteImport.update({
   path: '/programs/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ProgramsIntraOralDentalAssistingPrerequisitesRoute =
-  ProgramsIntraOralDentalAssistingPrerequisitesRouteImport.update({
-    id: '/programs/intra-oral-dental-assisting-prerequisites',
-    path: '/programs/intra-oral-dental-assisting-prerequisites',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const ProgramsIntraOralDentalAssistingFeesRoute =
-  ProgramsIntraOralDentalAssistingFeesRouteImport.update({
-    id: '/programs/intra-oral-dental-assisting-fees',
-    path: '/programs/intra-oral-dental-assisting-fees',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const ProgramsIntraOralDentalAssistingApplyRoute =
-  ProgramsIntraOralDentalAssistingApplyRouteImport.update({
-    id: '/programs/intra-oral-dental-assisting-apply',
-    path: '/programs/intra-oral-dental-assisting-apply',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const ProgramsIntraOralDentalAssistingRoute =
-  ProgramsIntraOralDentalAssistingRouteImport.update({
-    id: '/programs/intra-oral-dental-assisting',
-    path: '/programs/intra-oral-dental-assisting',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const ProgramsDentalAssistingLevelIiPrerequisitesRoute =
-  ProgramsDentalAssistingLevelIiPrerequisitesRouteImport.update({
-    id: '/programs/dental-assisting-level-ii-prerequisites',
-    path: '/programs/dental-assisting-level-ii-prerequisites',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const ProgramsDentalAssistingLevelIiFeesRoute =
-  ProgramsDentalAssistingLevelIiFeesRouteImport.update({
-    id: '/programs/dental-assisting-level-ii-fees',
-    path: '/programs/dental-assisting-level-ii-fees',
+const ProgramsDentalAssistingLevelIiRoute =
+  ProgramsDentalAssistingLevelIiRouteImport.update({
+    id: '/programs/dental-assisting-level-ii',
+    path: '/programs/dental-assisting-level-ii',
     getParentRoute: () => rootRouteImport,
   } as any)
 const ProgramsDentalAssistingLevelIiApplyRoute =
@@ -108,10 +85,40 @@ const ProgramsDentalAssistingLevelIiApplyRoute =
     path: '/programs/dental-assisting-level-ii-apply',
     getParentRoute: () => rootRouteImport,
   } as any)
-const ProgramsDentalAssistingLevelIiRoute =
-  ProgramsDentalAssistingLevelIiRouteImport.update({
-    id: '/programs/dental-assisting-level-ii',
-    path: '/programs/dental-assisting-level-ii',
+const ProgramsDentalAssistingLevelIiFeesRoute =
+  ProgramsDentalAssistingLevelIiFeesRouteImport.update({
+    id: '/programs/dental-assisting-level-ii-fees',
+    path: '/programs/dental-assisting-level-ii-fees',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ProgramsDentalAssistingLevelIiPrerequisitesRoute =
+  ProgramsDentalAssistingLevelIiPrerequisitesRouteImport.update({
+    id: '/programs/dental-assisting-level-ii-prerequisites',
+    path: '/programs/dental-assisting-level-ii-prerequisites',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ProgramsIntraOralDentalAssistingRoute =
+  ProgramsIntraOralDentalAssistingRouteImport.update({
+    id: '/programs/intra-oral-dental-assisting',
+    path: '/programs/intra-oral-dental-assisting',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ProgramsIntraOralDentalAssistingApplyRoute =
+  ProgramsIntraOralDentalAssistingApplyRouteImport.update({
+    id: '/programs/intra-oral-dental-assisting-apply',
+    path: '/programs/intra-oral-dental-assisting-apply',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ProgramsIntraOralDentalAssistingFeesRoute =
+  ProgramsIntraOralDentalAssistingFeesRouteImport.update({
+    id: '/programs/intra-oral-dental-assisting-fees',
+    path: '/programs/intra-oral-dental-assisting-fees',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ProgramsIntraOralDentalAssistingPrerequisitesRoute =
+  ProgramsIntraOralDentalAssistingPrerequisitesRouteImport.update({
+    id: '/programs/intra-oral-dental-assisting-prerequisites',
+    path: '/programs/intra-oral-dental-assisting-prerequisites',
     getParentRoute: () => rootRouteImport,
   } as any)
 
@@ -120,6 +127,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/apply': typeof ApplyRoute
   '/contact': typeof ContactRoute
+  '/dental-assisting-college-faq': typeof DentalAssistingCollegeFaqRoute
   '/facility': typeof FacilityRoute
   '/faq': typeof FaqRoute
   '/testimonials': typeof TestimonialsRoute
@@ -138,6 +146,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/apply': typeof ApplyRoute
   '/contact': typeof ContactRoute
+  '/dental-assisting-college-faq': typeof DentalAssistingCollegeFaqRoute
   '/facility': typeof FacilityRoute
   '/faq': typeof FaqRoute
   '/testimonials': typeof TestimonialsRoute
@@ -157,6 +166,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/apply': typeof ApplyRoute
   '/contact': typeof ContactRoute
+  '/dental-assisting-college-faq': typeof DentalAssistingCollegeFaqRoute
   '/facility': typeof FacilityRoute
   '/faq': typeof FaqRoute
   '/testimonials': typeof TestimonialsRoute
@@ -177,6 +187,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/apply'
     | '/contact'
+    | '/dental-assisting-college-faq'
     | '/facility'
     | '/faq'
     | '/testimonials'
@@ -195,6 +206,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/apply'
     | '/contact'
+    | '/dental-assisting-college-faq'
     | '/facility'
     | '/faq'
     | '/testimonials'
@@ -213,6 +225,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/apply'
     | '/contact'
+    | '/dental-assisting-college-faq'
     | '/facility'
     | '/faq'
     | '/testimonials'
@@ -232,6 +245,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ApplyRoute: typeof ApplyRoute
   ContactRoute: typeof ContactRoute
+  DentalAssistingCollegeFaqRoute: typeof DentalAssistingCollegeFaqRoute
   FacilityRoute: typeof FacilityRoute
   FaqRoute: typeof FaqRoute
   TestimonialsRoute: typeof TestimonialsRoute
@@ -248,39 +262,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/testimonials': {
-      id: '/testimonials'
-      path: '/testimonials'
-      fullPath: '/testimonials'
-      preLoaderRoute: typeof TestimonialsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/faq': {
-      id: '/faq'
-      path: '/faq'
-      fullPath: '/faq'
-      preLoaderRoute: typeof FaqRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/facility': {
-      id: '/facility'
-      path: '/facility'
-      fullPath: '/facility'
-      preLoaderRoute: typeof FacilityRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/apply': {
-      id: '/apply'
-      path: '/apply'
-      fullPath: '/apply'
-      preLoaderRoute: typeof ApplyRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -290,11 +276,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/apply': {
+      id: '/apply'
+      path: '/apply'
+      fullPath: '/apply'
+      preLoaderRoute: typeof ApplyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dental-assisting-college-faq': {
+      id: '/dental-assisting-college-faq'
+      path: '/dental-assisting-college-faq'
+      fullPath: '/dental-assisting-college-faq'
+      preLoaderRoute: typeof DentalAssistingCollegeFaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/facility': {
+      id: '/facility'
+      path: '/facility'
+      fullPath: '/facility'
+      preLoaderRoute: typeof FacilityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/testimonials': {
+      id: '/testimonials'
+      path: '/testimonials'
+      fullPath: '/testimonials'
+      preLoaderRoute: typeof TestimonialsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/programs/': {
@@ -304,46 +325,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProgramsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/programs/intra-oral-dental-assisting-prerequisites': {
-      id: '/programs/intra-oral-dental-assisting-prerequisites'
-      path: '/programs/intra-oral-dental-assisting-prerequisites'
-      fullPath: '/programs/intra-oral-dental-assisting-prerequisites'
-      preLoaderRoute: typeof ProgramsIntraOralDentalAssistingPrerequisitesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/programs/intra-oral-dental-assisting-fees': {
-      id: '/programs/intra-oral-dental-assisting-fees'
-      path: '/programs/intra-oral-dental-assisting-fees'
-      fullPath: '/programs/intra-oral-dental-assisting-fees'
-      preLoaderRoute: typeof ProgramsIntraOralDentalAssistingFeesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/programs/intra-oral-dental-assisting-apply': {
-      id: '/programs/intra-oral-dental-assisting-apply'
-      path: '/programs/intra-oral-dental-assisting-apply'
-      fullPath: '/programs/intra-oral-dental-assisting-apply'
-      preLoaderRoute: typeof ProgramsIntraOralDentalAssistingApplyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/programs/intra-oral-dental-assisting': {
-      id: '/programs/intra-oral-dental-assisting'
-      path: '/programs/intra-oral-dental-assisting'
-      fullPath: '/programs/intra-oral-dental-assisting'
-      preLoaderRoute: typeof ProgramsIntraOralDentalAssistingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/programs/dental-assisting-level-ii-prerequisites': {
-      id: '/programs/dental-assisting-level-ii-prerequisites'
-      path: '/programs/dental-assisting-level-ii-prerequisites'
-      fullPath: '/programs/dental-assisting-level-ii-prerequisites'
-      preLoaderRoute: typeof ProgramsDentalAssistingLevelIiPrerequisitesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/programs/dental-assisting-level-ii-fees': {
-      id: '/programs/dental-assisting-level-ii-fees'
-      path: '/programs/dental-assisting-level-ii-fees'
-      fullPath: '/programs/dental-assisting-level-ii-fees'
-      preLoaderRoute: typeof ProgramsDentalAssistingLevelIiFeesRouteImport
+    '/programs/dental-assisting-level-ii': {
+      id: '/programs/dental-assisting-level-ii'
+      path: '/programs/dental-assisting-level-ii'
+      fullPath: '/programs/dental-assisting-level-ii'
+      preLoaderRoute: typeof ProgramsDentalAssistingLevelIiRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/programs/dental-assisting-level-ii-apply': {
@@ -353,11 +339,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProgramsDentalAssistingLevelIiApplyRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/programs/dental-assisting-level-ii': {
-      id: '/programs/dental-assisting-level-ii'
-      path: '/programs/dental-assisting-level-ii'
-      fullPath: '/programs/dental-assisting-level-ii'
-      preLoaderRoute: typeof ProgramsDentalAssistingLevelIiRouteImport
+    '/programs/dental-assisting-level-ii-fees': {
+      id: '/programs/dental-assisting-level-ii-fees'
+      path: '/programs/dental-assisting-level-ii-fees'
+      fullPath: '/programs/dental-assisting-level-ii-fees'
+      preLoaderRoute: typeof ProgramsDentalAssistingLevelIiFeesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/programs/dental-assisting-level-ii-prerequisites': {
+      id: '/programs/dental-assisting-level-ii-prerequisites'
+      path: '/programs/dental-assisting-level-ii-prerequisites'
+      fullPath: '/programs/dental-assisting-level-ii-prerequisites'
+      preLoaderRoute: typeof ProgramsDentalAssistingLevelIiPrerequisitesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/programs/intra-oral-dental-assisting': {
+      id: '/programs/intra-oral-dental-assisting'
+      path: '/programs/intra-oral-dental-assisting'
+      fullPath: '/programs/intra-oral-dental-assisting'
+      preLoaderRoute: typeof ProgramsIntraOralDentalAssistingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/programs/intra-oral-dental-assisting-apply': {
+      id: '/programs/intra-oral-dental-assisting-apply'
+      path: '/programs/intra-oral-dental-assisting-apply'
+      fullPath: '/programs/intra-oral-dental-assisting-apply'
+      preLoaderRoute: typeof ProgramsIntraOralDentalAssistingApplyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/programs/intra-oral-dental-assisting-fees': {
+      id: '/programs/intra-oral-dental-assisting-fees'
+      path: '/programs/intra-oral-dental-assisting-fees'
+      fullPath: '/programs/intra-oral-dental-assisting-fees'
+      preLoaderRoute: typeof ProgramsIntraOralDentalAssistingFeesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/programs/intra-oral-dental-assisting-prerequisites': {
+      id: '/programs/intra-oral-dental-assisting-prerequisites'
+      path: '/programs/intra-oral-dental-assisting-prerequisites'
+      fullPath: '/programs/intra-oral-dental-assisting-prerequisites'
+      preLoaderRoute: typeof ProgramsIntraOralDentalAssistingPrerequisitesRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -368,6 +389,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ApplyRoute: ApplyRoute,
   ContactRoute: ContactRoute,
+  DentalAssistingCollegeFaqRoute: DentalAssistingCollegeFaqRoute,
   FacilityRoute: FacilityRoute,
   FaqRoute: FaqRoute,
   TestimonialsRoute: TestimonialsRoute,
@@ -390,13 +412,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

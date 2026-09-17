@@ -36,7 +36,7 @@ function LevelIiApply() {
     <SiteLayout>
       <ProgramHero
         image={levelIiStripImg}
-        imageAlt="Dental assistant with dentist and patient in a modern clinical training environment"
+        imageAlt="Dental assisting Level II student training with a dentist and patient in clinic"
         imagePosition="object-center"
         title="Dental Assisting Level II"
         subtitle="Become a Dental Assistant Level II in just 8 Weekends"

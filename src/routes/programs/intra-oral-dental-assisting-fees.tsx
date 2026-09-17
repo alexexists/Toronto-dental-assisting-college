@@ -44,7 +44,7 @@ function IntraOralFees() {
     <SiteLayout>
       <ProgramHero
         image={intraOralStripImg}
-        imageAlt="Asian and Black dental assistants working together in clinical practice"
+        imageAlt="Dental assistants practicing chairside skills together in a Toronto training clinic"
         imagePosition="object-center"
         title="Intra Oral Dental Assisting Level I & II"
       >

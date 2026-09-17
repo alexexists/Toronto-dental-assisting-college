@@ -12,7 +12,7 @@ export const programs = [
     overviewExcerpt2:
       "Our state of the art facilities give students plenty of practice in real situations with modern equipment. The program includes field training in a dental office as well as extensive practical experience with seasoned instructors.",
     image: "student",
-    imageAlt: "Asian and Black dental assistants working together in clinical practice",
+    imageAlt: "Dental assistants practicing chairside skills together in a Toronto training clinic",
     youtubeId: "u637NGnNLF0",
     videoTitle: "Intra Oral Dental Assisting Level I & II program video",
     stripReversed: false,
@@ -30,7 +30,7 @@ export const programs = [
     overviewExcerpt2:
       "This program provides the student with the theoretical and practical experience of a Level II Dental Assistant. All concepts taught in the classroom are demonstrated and practiced in the clinical setting on mannequins, student partners, and clients.",
     image: "classroom",
-    imageAlt: "Dental assistant with dentist and patient in a modern clinical training environment",
+    imageAlt: "Dental assisting Level II student training with a dentist and patient in clinic",
     youtubeId: "x205X2HmFJk",
     videoTitle: "Dental Assisting Level II program video",
     stripReversed: true,

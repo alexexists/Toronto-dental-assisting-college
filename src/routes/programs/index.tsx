@@ -5,21 +5,28 @@ import { ProgramStrip } from "@/components/site/ProgramStrip";
 import { ProgramsPageShell } from "@/components/site/ProgramsPageShell";
 import { programs } from "@/lib/programs";
 import programsHeroImg from "@/assets/programs-hero.jpg";
+import { ogImageMeta } from "@/lib/structured-data";
 
 export const Route = createFileRoute("/programs/")({
   head: () => ({
     meta: [
-      { title: "Programs — Toronto College of Dental Assisting" },
+      {
+        title: "Dental Assisting Programs in Toronto | Level I & II | TCDA",
+      },
       {
         name: "description",
         content:
-          "Explore our Intra Oral Dental Assisting Level I & II and Dental Assisting Level II programs in Toronto.",
+          "Compare Intra Oral Dental Assisting Level I & II and Dental Assisting Level II programs in Toronto at Toronto College of Dental Assisting.",
       },
-      { property: "og:title", content: "Our Programs — TCDA" },
+      {
+        property: "og:title",
+        content: "Dental Assisting Programs in Toronto | TCDA",
+      },
       {
         property: "og:description",
-        content: "Comprehensive dental assisting programs with hands-on training in Toronto.",
+        content: "Hands-on Level I and Level II dental assisting training in Toronto.",
       },
+      ...ogImageMeta(),
     ],
   }),
   component: ProgramsIndex,
@@ -30,10 +37,10 @@ function ProgramsIndex() {
     <SiteLayout>
       <ProgramHero
         image={programsHeroImg}
-        imageAlt="Dental professionals training in a modern clinical environment"
+        imageAlt="Dental assisting students training in a modern Toronto clinical classroom"
         imagePosition="object-[65%_center] sm:object-[right_center]"
-        title="Our Dental Programs"
-        subtitle="Become a Dental Assistant Level II in just 8 Weekends"
+        title="Dental Assisting Programs in Toronto"
+        subtitle="Intra Oral Level I & II and Dental Assisting Level II pathways"
       >
         <Link to="/apply">
           <CTAButton className="border-2 border-cta bg-cta text-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-[color:var(--navy)] hover:bg-[color:var(--navy)] hover:opacity-100 hover:shadow-xl hover:shadow-primary/25">

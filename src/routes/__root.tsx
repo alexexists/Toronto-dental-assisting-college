@@ -12,6 +12,13 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import faviconPng from "../assets/TCDHA-favicon3.png?url";
 import { reportClientError } from "../lib/client-error-reporting";
+import { absoluteUrl, canonicalLink, normalizePathname } from "../lib/seo";
+import {
+  DEFAULT_OG_IMAGE_PATH,
+  jsonLdScript,
+  ogImageMeta,
+  organizationJsonLd,
+} from "../lib/structured-data";
 
 function NotFoundComponent() {
   return (
@@ -74,27 +81,48 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Toronto College of Dental Assisting" },
-      { name: "description", content: "Train to become a Level I or Level II Dental Assistant at Toronto College of Dental Assisting." },
-      { property: "og:title", content: "Toronto College of Dental Assisting" },
-      { property: "og:description", content: "Hands-on Dental Assisting program in Toronto. Start your dental career with us." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-    ],
-    links: [
-      { rel: "stylesheet", href: appCss },
-      { rel: "icon", type: "image/png", href: faviconPng },
-      { rel: "shortcut icon", type: "image/png", href: faviconPng },
-      { rel: "apple-touch-icon", type: "image/png", sizes: "180x180", href: "/apple-touch-icon.png" },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;500;600&display=swap" },
-    ],
-  }),
+  head: ({ matches }) => {
+    const leaf = matches[matches.length - 1];
+    const pathname = normalizePathname(leaf?.pathname ?? "/");
+    const pageUrl = absoluteUrl(pathname);
+
+    return {
+      meta: [
+        { charSet: "utf-8" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { title: "Toronto College of Dental Assisting" },
+        {
+          name: "description",
+          content:
+            "Train to become a Level I or Level II Dental Assistant at Toronto College of Dental Assisting.",
+        },
+        { property: "og:title", content: "Toronto College of Dental Assisting" },
+        {
+          property: "og:description",
+          content: "Hands-on Dental Assisting program in Toronto. Start your dental career with us.",
+        },
+        { property: "og:type", content: "website" },
+        { property: "og:url", content: pageUrl },
+        { property: "og:site_name", content: "Toronto College of Dental Assisting" },
+        ...ogImageMeta(DEFAULT_OG_IMAGE_PATH),
+        { name: "twitter:card", content: "summary_large_image" },
+      ],
+      links: [
+        { rel: "stylesheet", href: appCss },
+        { rel: "icon", type: "image/png", href: faviconPng },
+        { rel: "shortcut icon", type: "image/png", href: faviconPng },
+        { rel: "apple-touch-icon", type: "image/png", sizes: "180x180", href: "/apple-touch-icon.png" },
+        canonicalLink(pathname),
+        { rel: "preconnect", href: "https://fonts.googleapis.com" },
+        { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+        {
+          rel: "stylesheet",
+          href: "https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;500;600&display=swap",
+        },
+      ],
+      scripts: [jsonLdScript(organizationJsonLd())],
+    };
+  },
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,

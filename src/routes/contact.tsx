@@ -1,16 +1,31 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout, CTAButton } from "@/components/site/SiteLayout";
 import { ProgramHero } from "@/components/site/ProgramDetailSections";
 import contactHeroImg from "@/assets/contact-hero-v2.jpg";
 import { Facebook, Instagram, Twitter } from "lucide-react";
+import { ogImageMeta } from "@/lib/structured-data";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Toronto College of Dental Assisting" },
-      { name: "description", content: "Get in touch with Toronto College of Dental Assisting. Phone, email, address, and hours." },
-      { property: "og:title", content: "Contact TCDA" },
-      { property: "og:description", content: "Reach out to learn more about our Dental Assisting program." },
+      {
+        title: "Contact Toronto College of Dental Assisting | Phone, Email & Campus",
+      },
+      {
+        name: "description",
+        content:
+          "Contact Toronto College of Dental Assisting at 2727 Steeles Ave W. Call 416-423-3099 or email info@dental-assisting-toronto.ca for Dental Assisting admissions.",
+      },
+      {
+        property: "og:title",
+        content: "Contact Toronto College of Dental Assisting | TCDA",
+      },
+      {
+        property: "og:description",
+        content:
+          "Reach our Toronto admissions team about Intra Oral Level I & II and Dental Assisting Level II programs.",
+      },
+      ...ogImageMeta(),
     ],
   }),
   component: Contact,
@@ -37,10 +52,10 @@ function Contact() {
     <SiteLayout>
       <ProgramHero
         image={contactHeroImg}
-        imageAlt="Admissions team member answering phone inquiries"
+        imageAlt="Toronto College of Dental Assisting admissions desk ready to help prospective students"
         imagePosition="object-[70%_22%] sm:object-[right_20%]"
-        title="Contact Us"
-        subtitle="We'd love to hear from you. Reach out with any questions about the program."
+        title="Contact Toronto College of Dental Assisting"
+        subtitle="Questions about Intra Oral Level I & II or Dental Assisting Level II? Reach out — we're happy to help."
       />
 
       <section className="mx-auto max-w-5xl px-4 py-10 grid gap-8 lg:grid-cols-2 lg:gap-10 items-start">
@@ -51,7 +66,19 @@ function Contact() {
           <div className="border-b border-primary/15 pb-4">
             <h2 className="font-display text-2xl text-[color:var(--navy)]">Send us a message</h2>
             <p className="mt-1 text-sm text-muted-foreground">
-              Questions about programs, admissions, or campus visits — we're here to help.
+              Questions about{" "}
+              <Link
+                to="/programs/intra-oral-dental-assisting"
+                hash="program-content"
+                className="font-semibold text-primary hover:underline"
+              >
+                Intra Oral Level I &amp; II
+              </Link>
+              , admissions, or campus visits — we&apos;re here to help. You can also{" "}
+              <Link to="/apply" className="font-semibold text-primary hover:underline">
+                apply online
+              </Link>
+              .
             </p>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">

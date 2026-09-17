@@ -92,6 +92,7 @@ In Netlify: **Site configuration → Domain management** → add your domain and
 - `/programs/dental-assisting-level-ii` — Level II
 - `/facility` — Facility photos
 - `/testimonials` — Student testimonials
-- `/faq` — FAQ
+- `/dental-assisting-college-faq` — FAQ
+- `/faq` — redirects to `/dental-assisting-college-faq`
 - `/contact` — Contact info
 - `/apply` — Application form

@@ -4,7 +4,71 @@
 
 [build.environment]
   NODE_VERSION = "22"
+  VITE_SITE_URL = "https://dental-assisting-toronto.ca"
 
 [dev]
   command = "npm run dev"
   targetPort = 8080
+
+# Canonical host: apex (no www)
+[[redirects]]
+  from = "https://www.dental-assisting-toronto.ca/*"
+  to = "https://dental-assisting-toronto.ca/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.dental-assisting-toronto.ca/"
+  to = "https://dental-assisting-toronto.ca/"
+  status = 301
+  force = true
+
+# Legacy FAQ path
+[[redirects]]
+  from = "/faq"
+  to = "/dental-assisting-college-faq"
+  status = 301
+  force = true
+
+# No trailing slash (except site root)
+[[redirects]]
+  from = "/programs/"
+  to = "/programs"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/about/"
+  to = "/about"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/facility/"
+  to = "/facility"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/testimonials/"
+  to = "/testimonials"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/contact/"
+  to = "/contact"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/apply/"
+  to = "/apply"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/dental-assisting-college-faq/"
+  to = "/dental-assisting-college-faq"
+  status = 301
+  force = true

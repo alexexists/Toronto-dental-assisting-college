@@ -1,0 +1,8 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Redirect-only legacy path — do not index
+Disallow: /faq
+
+Sitemap: https://dental-assisting-toronto.ca/sitemap.xml

@@ -1,0 +1,18 @@
+[
+  { "path": "/", "priority": 1.0, "changefreq": "weekly" },
+  { "path": "/programs", "priority": 0.9, "changefreq": "weekly" },
+  { "path": "/programs/intra-oral-dental-assisting", "priority": 0.9, "changefreq": "weekly" },
+  { "path": "/programs/intra-oral-dental-assisting-prerequisites", "priority": 0.7, "changefreq": "monthly" },
+  { "path": "/programs/intra-oral-dental-assisting-apply", "priority": 0.8, "changefreq": "monthly" },
+  { "path": "/programs/intra-oral-dental-assisting-fees", "priority": 0.8, "changefreq": "monthly" },
+  { "path": "/programs/dental-assisting-level-ii", "priority": 0.9, "changefreq": "weekly" },
+  { "path": "/programs/dental-assisting-level-ii-prerequisites", "priority": 0.7, "changefreq": "monthly" },
+  { "path": "/programs/dental-assisting-level-ii-apply", "priority": 0.8, "changefreq": "monthly" },
+  { "path": "/programs/dental-assisting-level-ii-fees", "priority": 0.8, "changefreq": "monthly" },
+  { "path": "/about", "priority": 0.8, "changefreq": "monthly" },
+  { "path": "/facility", "priority": 0.7, "changefreq": "monthly" },
+  { "path": "/testimonials", "priority": 0.7, "changefreq": "monthly" },
+  { "path": "/dental-assisting-college-faq", "priority": 0.7, "changefreq": "monthly" },
+  { "path": "/apply", "priority": 0.9, "changefreq": "monthly" },
+  { "path": "/contact", "priority": 0.8, "changefreq": "monthly" }
+]

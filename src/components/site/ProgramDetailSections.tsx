@@ -647,7 +647,9 @@ export function ProgramLevelIiHowToApplySection() {
 
       <div>
         <p className="text-base font-bold leading-relaxed text-[color:var(--navy)]">Next classes start:</p>
-        <p className="mt-1 font-display text-3xl font-bold text-primary sm:text-4xl">July 17th, 2026</p>
+        <p className="mt-1 font-display text-3xl font-bold text-primary sm:text-4xl">
+          Contact us for current start dates
+        </p>
       </div>
 
       <div className="rounded-md border border-border bg-white px-5 py-4">

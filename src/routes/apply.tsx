@@ -3,14 +3,25 @@ import { SiteLayout, CTAButton } from "@/components/site/SiteLayout";
 import { ProgramHero } from "@/components/site/ProgramDetailSections";
 import applyHeroImg from "@/assets/apply-hero-graduates.jpg";
 import { programs } from "@/lib/programs";
+import { APPLY_OG_IMAGE_PATH, ogImageMeta } from "@/lib/structured-data";
 
 export const Route = createFileRoute("/apply")({
   head: () => ({
     meta: [
-      { title: "Apply — Toronto College of Dental Assisting" },
-      { name: "description", content: "Apply to the Dental Assisting program at Toronto College of Dental Assisting." },
-      { property: "og:title", content: "Apply to TCDA" },
-      { property: "og:description", content: "Start your application for our Dental Assisting program." },
+      {
+        title: "Apply to Dental Assisting Programs in Toronto | TCDA",
+      },
+      {
+        name: "description",
+        content:
+          "Apply to Toronto College of Dental Assisting for Intra Oral Level I & II or Dental Assisting Level II. Start your dental assisting career in Toronto.",
+      },
+      { property: "og:title", content: "Apply to Dental Assisting Programs in Toronto | TCDA" },
+      {
+        property: "og:description",
+        content: "Submit your application for Dental Assisting Level I & II training in Toronto.",
+      },
+      ...ogImageMeta(APPLY_OG_IMAGE_PATH),
     ],
   }),
   component: Apply,
@@ -24,9 +35,9 @@ function Apply() {
     <SiteLayout>
       <ProgramHero
         image={applyHeroImg}
-        imageAlt="Diverse graduating dental assisting students celebrating"
+        imageAlt="Dental assisting graduates celebrating after completing Toronto College of Dental Assisting programs"
         imagePosition="object-[55%_32%] sm:object-[62%_24%]"
-        title="Apply Now"
+        title="Apply to Dental Assisting in Toronto"
         subtitle="Ready to start your dental career? Fill out the application below and let's get you started."
       />
 

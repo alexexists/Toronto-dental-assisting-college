@@ -29,20 +29,29 @@ import landAcknowledgementImg from "@/assets/land-acknowledgement.jpg";
 import ediInclusionImg from "@/assets/edi-inclusion-circle.png";
 import programStudentsImg from "@/assets/dental-assisting-program-students.png";
 
+import { ogImageMeta } from "@/lib/structured-data";
+
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Us — Toronto College of Dental Assisting" },
+      {
+        title: "About Toronto College of Dental Assisting | Mission & Values",
+      },
       {
         name: "description",
         content:
-          "Learn about Toronto College of Dental Hygiene and Auxiliaries Inc. — our mission, values, faculty, and commitment to dental education.",
+          "Learn about Toronto College of Dental Assisting — our mission, values, EDI-B commitment, and pathway to Level I and Level II dental assisting careers.",
       },
-      { property: "og:title", content: "About Us — TCDA" },
+      {
+        property: "og:title",
+        content: "About Toronto College of Dental Assisting | TCDA",
+      },
       {
         property: "og:description",
-        content: "Your pathway to success in dental education.",
+        content:
+          "Mission, values, and student-focused dental assisting education in Toronto.",
       },
+      ...ogImageMeta(),
     ],
   }),
   component: About,
@@ -53,10 +62,10 @@ function About() {
     <SiteLayout>
       <ProgramHero
         image={heroImg}
-        imageAlt="Dental assisting students and instructors smiling in the modern training clinic"
+        imageAlt="Dental assisting students and instructors smiling in the modern Toronto training clinic"
         imagePosition="object-[60%_center] sm:object-[right_center]"
-        title="Your Pathway to Success"
-        subtitle="Start your dental career today with quality training and experienced staff."
+        title="About Toronto College of Dental Assisting"
+        subtitle="Your pathway to success — quality training and experienced staff for Level I and Level II careers."
       />
 
       <nav className="border-b bg-muted/40">
@@ -92,12 +101,27 @@ function About() {
 
       <ImageTextRow
         image={hygienistStripImg}
-        imageAlt="Dental assistant with dentist and patient in a modern clinical training environment"
+        imageAlt="Dental assistant working with a dentist and patient during clinical training"
         title="Our philosophy"
       >
         {philosophyParagraphs.map((p) => (
           <p key={p.slice(0, 40)}>{p}</p>
         ))}
+        <p>
+          Explore our{" "}
+          <Link
+            to="/programs/intra-oral-dental-assisting"
+            hash="program-content"
+            className="font-semibold text-primary hover:underline"
+          >
+            dental assisting program in Toronto
+          </Link>{" "}
+          or browse{" "}
+          <Link to="/dental-assisting-college-faq" className="font-semibold text-primary hover:underline">
+            frequently asked questions
+          </Link>
+          .
+        </p>
         <ProgramsLink />
       </ImageTextRow>
 
@@ -151,7 +175,7 @@ function About() {
 
       <ImageTextRow
         image={ediInclusionImg}
-        imageAlt="Diverse students collaborating on an inclusion mural at Toronto College of Dental Assisting"
+        imageAlt="Students collaborating on an inclusion mural at Toronto College of Dental Assisting"
         title="Equity, Diversity, Inclusion and Belonging (EDI-B) Statement"
       >
         <p>{edibStatement}</p>
@@ -182,18 +206,18 @@ function About() {
       <section className="mx-auto max-w-7xl px-4 py-14 grid gap-8 md:grid-cols-2">
         <HighlightCard
           image={clinicFloorImg}
-          imageAlt="Toronto College clinic facilities"
+          imageAlt="Clinic floor with dental chairs at Toronto College of Dental Assisting"
           title="Our Facilities"
           body="Consider the many exciting opportunities available in the dental industry. The Toronto College of Dental Hygiene and Auxiliaries Inc. was founded by practicing dental professionals, including a dental hygienist and a dentist, and opened in the winter of 2003."
           to="/facility"
         />
         <HighlightCard
           image={faqHeroImg}
-          imageAlt="Experienced dental college staff member in clinical attire"
+          imageAlt="Admissions staff member in clinical attire ready to help prospective students"
           imageClassName="object-[70%_center]"
           title="Experienced Staff"
           body="The Toronto College of Dental Hygiene and Auxiliaries Inc. believes students, clients, staff, faculty, and the community in which we live and work, need to be treated with respect and that we all need to work collaboratively to achieve high standards of dental education."
-          to="/about"
+          to="/contact"
         />
       </section>
 

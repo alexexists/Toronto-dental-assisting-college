@@ -61,7 +61,7 @@ export function CareerCtaBand({
               <>
                 <img
                   src={mobileImage}
-                  alt="Toronto College dental assisting professionals"
+                  alt="Toronto College of Dental Assisting students and graduates in clinical attire"
                   loading="lazy"
                   className={cn(
                     defaultImageClassName,
@@ -71,7 +71,7 @@ export function CareerCtaBand({
                 />
                 <img
                   src={image}
-                  alt="Toronto College dental assisting professionals"
+                  alt="Toronto College of Dental Assisting students and graduates in clinical attire"
                   loading="lazy"
                   className={cn(
                     defaultImageClassName,
@@ -83,7 +83,7 @@ export function CareerCtaBand({
             ) : (
               <img
                 src={image}
-                alt="Toronto College dental assisting professionals"
+                alt="Toronto College of Dental Assisting students and graduates in clinical attire"
                 loading="lazy"
                 className={cn(
                   defaultImageClassName,

@@ -17,6 +17,7 @@ import {
   levelIiSidebarTitle,
 } from "@/lib/level-ii-program-nav";
 import levelIiStripImg from "@/assets/dental-assisting-level-ii-strip.jpg";
+import { ogImageMeta } from "@/lib/structured-data";
 
 const programDetailsItems = [
   { label: "8 week program", icon: GraduationCap },
@@ -28,17 +29,24 @@ const programDetailsItems = [
 export const Route = createFileRoute("/programs/dental-assisting-level-ii")({
   head: () => ({
     meta: [
-      { title: "Dental Assisting Level II — Toronto College of Dental Assisting" },
+      {
+        title: "Dental Assisting Level II in Toronto | 8-Weekend Program | TCDA",
+      },
       {
         name: "description",
         content:
-          "Become a Dental Assistant Level II in 8 weekends. NDAEB-approved hybrid program with classroom and clinical training.",
+          "Become a Dental Assistant Level II in Toronto in 8 weekends. Classroom and clinical training at Toronto College of Dental Assisting with flexible Friday–Sunday scheduling.",
       },
-      { property: "og:title", content: "Dental Assisting Level II — TCDA" },
+      {
+        property: "og:title",
+        content: "Dental Assisting Level II in Toronto | TCDA",
+      },
       {
         property: "og:description",
-        content: "Level II Dental Assisting program with theoretical and practical clinical experience in Toronto.",
+        content:
+          "Weekend Dental Assisting Level II program with theoretical and practical clinical experience in Toronto.",
       },
+      ...ogImageMeta(),
     ],
   }),
   component: DentalAssistingLevelII,
@@ -49,7 +57,7 @@ function DentalAssistingLevelII() {
     <SiteLayout>
       <ProgramHero
         image={levelIiStripImg}
-        imageAlt="Dental assistant with dentist and patient in a modern clinical training environment"
+        imageAlt="Dental assisting Level II student training with a dentist and patient in clinic"
         imagePosition="object-center"
         title="Dental Assisting Level II"
         subtitle="Become a Dental Assistant Level II in just 8 Weekends"
@@ -67,12 +75,12 @@ function DentalAssistingLevelII() {
         <ProgramOverviewSection
           title="Program Overview and Benefits"
           introImage={levelIiStripImg}
-          introImageAlt="dental assisting level 2 student training"
+          introImageAlt="Dental assisting Level II student training with a dentist and patient in clinic"
           youtubeId="x205X2HmFJk"
           videoTitle="Dental Assisting Level II program video"
           introParagraphs={[
             <>
-              Our Level II Dental Assisting Program's curriculum has been approved by the{" "}
+              Our Level II Dental Assisting Program&apos;s curriculum has been approved by the{" "}
               <a
                 href="https://ndaeb.ca/"
                 target="_blank"
@@ -83,7 +91,17 @@ function DentalAssistingLevelII() {
               </a>
               . Graduates of the program are able to write the National Dental Assisting Board Examination.
             </>,
-            "This program provides the student with the theoretical and practical experience of a Level II Dental Assistant. All concepts taught in the classroom are demonstrated and practiced in the clinical setting on mannequins, student partners, and clients. Students must demonstrate these clinical skills while adhering to the ODAA Code of Ethics.",
+            <>
+              This program provides the student with the theoretical and practical experience of a Level II Dental Assistant. All concepts taught in the classroom are demonstrated and practiced in the clinical setting on mannequins, student partners, and clients. Students must demonstrate these clinical skills while adhering to the ODAA Code of Ethics. Ready to start?{" "}
+              <Link to="/apply" className="font-medium text-primary underline-offset-2 hover:underline">
+                Apply to our Toronto programs
+              </Link>{" "}
+              or{" "}
+              <Link to="/contact" className="font-medium text-primary underline-offset-2 hover:underline">
+                contact admissions
+              </Link>
+              .
+            </>,
           ]}
           bodyParagraphs={[
             "The Dental Assisting Level II program is offered as a hybrid 2 month (20 hours per week) program which means theory can be taken from the comfort of your home and clinic and lab components will be completed on site. It is designed to allow the individual to continue to work and learn at the same time. All concepts taught in the classroom are demonstrated and practiced in the clinical setting on mannequins, student partners, and clients. Students must demonstrate these clinical skills while adhering to the ODAA Code of Ethics.",

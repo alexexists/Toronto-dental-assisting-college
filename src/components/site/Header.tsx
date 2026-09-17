@@ -9,7 +9,7 @@ const navLinks = [
   { to: "/about", label: "ABOUT" },
   { to: "/facility", label: "FACILITY" },
   { to: "/testimonials", label: "TESTIMONIALS" },
-  { to: "/faq", label: "FAQ" },
+  { to: "/dental-assisting-college-faq", label: "FAQ" },
   { to: "/apply", label: "APPLY" },
   { to: "/contact", label: "CONTACT" },
 ] as const;

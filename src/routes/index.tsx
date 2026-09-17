@@ -12,22 +12,23 @@ import dentalAssistingStudentImg from "@/assets/dental-Assisting-student10.png";
 import programStudentsImg from "@/assets/dental-assisting-program-students.png";
 import programTileIntraOralImg from "@/assets/home-program-tile-intra-oral.jpg";
 import programTileLevelIiImg from "@/assets/home-program-tile-level-ii.jpg";
+import { HOME_OG_IMAGE_PATH, ogImageMeta } from "@/lib/structured-data";
 
 const heroSlides = [
   {
     src: heroBuildingImg,
-    alt: "Toronto College of Dental Assisting building",
+    alt: "Toronto College of Dental Assisting campus building in Toronto",
     imageClassName:
       "object-center scale-110 -translate-y-6 max-md:scale-[1.72] max-md:translate-x-44 md:-translate-x-12",
   },
   {
     src: heroFacilityImg,
-    alt: "Modern dental training facility with operatories",
+    alt: "Modern dental assisting training facility with operatories in Toronto",
     imageClassName: "object-[60%_center] sm:object-[right_center]",
   },
   {
     src: heroGraduatesImg,
-    alt: "Graduating dental assisting students",
+    alt: "Graduating dental assisting students celebrating at Toronto College of Dental Assisting",
     imageClassName: "object-[55%_32%] sm:object-[62%_24%]",
   },
 ] as const;
@@ -37,10 +38,24 @@ const HERO_INTERVAL_MS = 5000;
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Toronto College of Dental Assisting — Start Your Dental Career" },
-      { name: "description", content: "Train to become a Level I or Level II Dental Assistant in Toronto. Hands-on instruction, modern facility, career support." },
-      { property: "og:title", content: "Toronto College of Dental Assisting" },
-      { property: "og:description", content: "Your pathway to a dental assisting career in Toronto." },
+      {
+        title: "Dental Assisting College in Toronto | Level I & II Programs",
+      },
+      {
+        name: "description",
+        content:
+          "Train as a Level I or Level II Dental Assistant in Toronto at Toronto College of Dental Assisting. Hands-on clinical training, modern facility, and career support.",
+      },
+      {
+        property: "og:title",
+        content: "Dental Assisting College in Toronto | Level I & II Programs",
+      },
+      {
+        property: "og:description",
+        content:
+          "Hands-on Intra Oral Level I & II and Dental Assisting Level II programs in Toronto.",
+      },
+      ...ogImageMeta(HOME_OG_IMAGE_PATH),
     ],
   }),
   component: Home,
@@ -106,7 +121,7 @@ function Home() {
               Launch Your Career<br />as a Dental Assistant
             </h1>
             <p className="mt-6 text-base sm:text-lg text-white/90 max-w-xl">
-              The Toronto College of Dental Assisting prepares Level I and Level II
+              Toronto College of Dental Assisting prepares Level I and Level II
               Dental Assistants through hands-on clinical training and expert
               instruction so you graduate ready for the dental team.
             </p>
@@ -141,13 +156,13 @@ function Home() {
         >
           <img
             src={programTileIntraOralImg}
-            alt="Dental assisting student in scrubs with gloves and eye shields"
+            alt="Dental assisting student in scrubs training for Intra Oral Level I and II in Toronto"
             className="absolute inset-0 h-full w-full object-cover object-[72%_center] transition-transform duration-500 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/45 to-black/25" />
           <div className="relative flex h-full min-h-[280px] flex-col justify-end px-6 py-8 text-white sm:min-h-[320px] sm:px-10 sm:py-10">
             <div className="text-sm font-semibold text-primary">
-              Intra Oral Dental Assisting Level I and II
+              Intra Oral Dental Assisting Level I and II in Toronto
             </div>
             <h2 className="mt-2 font-display text-2xl font-bold leading-tight text-white sm:text-3xl">
               Become a Dental Assistant in 10 months
@@ -166,7 +181,7 @@ function Home() {
         >
           <img
             src={programTileLevelIiImg}
-            alt="Dental professional holding a dental handpiece"
+            alt="Dental Assisting Level II clinical training with a dental handpiece"
             className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/45 to-black/25" />
@@ -191,9 +206,24 @@ function Home() {
           <div className="text-sm font-semibold uppercase tracking-widest text-primary">Our Program</div>
           <h2 className="mt-2 font-display text-3xl sm:text-4xl">Level I & Level II Dental Assisting</h2>
           <p className="mt-4 text-muted-foreground">
-            Our intensive program combines classroom theory with extensive
-            chairside practice. Graduate ready to step into a dental office
-            and contribute from day one.
+            Our intensive{" "}
+            <Link to="/programs/intra-oral-dental-assisting" hash="program-content" className="font-semibold text-primary hover:underline">
+              Intra Oral Dental Assisting Level I &amp; II
+            </Link>{" "}
+            and{" "}
+            <Link to="/programs/dental-assisting-level-ii" hash="program-content" className="font-semibold text-primary hover:underline">
+              Dental Assisting Level II
+            </Link>{" "}
+            programs in Toronto combine classroom theory with extensive chairside practice. Graduate ready
+            to step into a dental office and contribute from day one. Explore{" "}
+            <Link to="/facility" className="font-semibold text-primary hover:underline">
+              our training facility
+            </Link>{" "}
+            or read{" "}
+            <Link to="/testimonials" className="font-semibold text-primary hover:underline">
+              graduate success stories
+            </Link>
+            .
           </p>
           <ul className="mt-6 space-y-2 text-sm">
             <li className="flex gap-3"><span className="text-primary font-bold">✓</span>Comprehensive curriculum covering theory and clinical skills</li>
@@ -224,7 +254,7 @@ function Home() {
           <div className="flex justify-center lg:justify-start">
             <img
               src={dentalAssistingStudentImg}
-              alt="Dental assisting students in clinical training"
+              alt="Toronto College of Dental Assisting students practicing chairside clinical skills"
               loading="lazy"
               className="h-auto w-full max-w-md object-contain lg:max-w-lg"
             />
@@ -239,6 +269,19 @@ function Home() {
               enabling individuals to achieve personal and professional success by offering high
               standards of current comprehensive dental education. These standards provide knowledge
               and skills that reflect current practices and promote ongoing education and research.
+              Learn more{" "}
+              <Link to="/about" className="font-semibold text-primary hover:underline">
+                about our college
+              </Link>
+              , review{" "}
+              <Link to="/dental-assisting-college-faq" className="font-semibold text-primary hover:underline">
+                dental assisting FAQ
+              </Link>
+              , or{" "}
+              <Link to="/apply" className="font-semibold text-primary hover:underline">
+                apply to start your dental assisting career
+              </Link>
+              .
             </p>
             <ul className="mt-8 grid gap-3 sm:grid-cols-2">
               {[
@@ -300,9 +343,16 @@ function Home() {
             Comprehensive Dental Assisting Training
           </h2>
           <p className="mt-4 text-muted-foreground lg:max-w-xl">
-            Whether you're starting fresh or looking to advance your career,
-            our program gives you the practical skills, clinical experience,
-            and confidence you need to excel in today's dental industry.
+            Whether you&apos;re starting fresh or looking to advance your career, our{" "}
+            <Link to="/programs" className="font-semibold text-primary hover:underline">
+              dental assisting program in Toronto
+            </Link>{" "}
+            options give you the practical skills, clinical experience, and confidence you need to excel in
+            today&apos;s dental industry. Questions?{" "}
+            <Link to="/contact" className="font-semibold text-primary hover:underline">
+              Contact our admissions team
+            </Link>
+            .
           </p>
           <div className="mt-8">
             <Link to="/programs"><CTAButton>Explore the programs</CTAButton></Link>
