@@ -200,6 +200,21 @@ function Home() {
         </Link>
       </section>
 
+      <a
+        href="https://www.toronto-college-dental.org/dental-patient-services.html"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group block bg-primary px-4 py-7 text-center text-primary-foreground transition-colors duration-300 hover:bg-cta sm:py-8"
+      >
+        <p className="text-xl sm:text-2xl">
+          Would you like to become a patient?{" "}
+          <span className="inline-flex items-center gap-1 font-bold underline underline-offset-4">
+            Click here to see how
+            <ChevronRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-0.5" aria-hidden />
+          </span>
+        </p>
+      </a>
+
       {/* Program highlight */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:py-20 grid items-center gap-10 lg:grid-cols-2">
         <div>
