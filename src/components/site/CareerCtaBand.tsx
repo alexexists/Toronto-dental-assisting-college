@@ -26,8 +26,10 @@ export function CareerCtaBand({
             <h2 className="font-display text-2xl text-white sm:text-3xl">
               Ready to start your dental career?
             </h2>
-            <p className="mt-2 max-w-lg text-white/90">
-              Applications are now being accepted for the next intake.
+            <p className="mt-2 max-w-2xl text-white/90">
+              Applications are now being accepted for the next intake. Reach out
+              <br />
+              to our Admissions Team for personalized guidance and support.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Link to="/apply">

@@ -19,8 +19,8 @@ import intraOralStripImg from "@/assets/intra-oral-program-strip.jpg";
 import { ogImageMeta } from "@/lib/structured-data";
 
 const programDetailsItems = [
-  { label: "41 week program", icon: GraduationCap },
-  { label: "Monday to Sunday, 7:00 a.m. to 8:00 p.m.", icon: Clock },
+  { label: "10 month program", icon: GraduationCap },
+  { label: "20-hour weekly schedule with morning, afternoon, evening, and weekend classes", icon: Clock },
   { label: "Monthly payments", icon: Banknote },
   { label: "Classroom and clinical training", icon: Pencil },
   { label: "Hybrid learning", icon: Laptop },

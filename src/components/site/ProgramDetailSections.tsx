@@ -492,8 +492,16 @@ export function ProgramHowToApplySection() {
       <div>
         <p className="text-base font-bold leading-relaxed text-[color:var(--navy)]">Next class start:</p>
         <p className="mt-1 font-display text-3xl font-bold text-primary sm:text-4xl">
-          Contact us for current start dates
+          Apply now or contact us for current start dates.
         </p>
+        <div className="mt-4 flex flex-wrap gap-3">
+          <Link to="/contact">
+            <CTAButton className="px-5 py-2.5 text-xs shadow-sm">Contact Us</CTAButton>
+          </Link>
+          <Link to="/apply">
+            <CTAButton className="px-5 py-2.5 text-xs shadow-sm">Apply Now</CTAButton>
+          </Link>
+        </div>
       </div>
 
       <div className="rounded-md border border-border bg-white px-5 py-4">
@@ -502,7 +510,7 @@ export function ProgramHowToApplySection() {
           <span className="font-bold text-primary">Monday to Thursday</span>
         </p>
         <p className="mt-2 text-base leading-relaxed text-foreground/90">
-          Course length: <span className="font-bold text-primary">41 weeks</span>
+          Course length: <span className="font-bold text-primary">10 months</span>
         </p>
       </div>
 
@@ -648,8 +656,16 @@ export function ProgramLevelIiHowToApplySection() {
       <div>
         <p className="text-base font-bold leading-relaxed text-[color:var(--navy)]">Next classes start:</p>
         <p className="mt-1 font-display text-3xl font-bold text-primary sm:text-4xl">
-          Contact us for current start dates
+          Apply now or contact us for current start dates.
         </p>
+        <div className="mt-4 flex flex-wrap gap-3">
+          <Link to="/contact">
+            <CTAButton className="px-5 py-2.5 text-xs shadow-sm">Contact Us</CTAButton>
+          </Link>
+          <Link to="/apply">
+            <CTAButton className="px-5 py-2.5 text-xs shadow-sm">Apply Now</CTAButton>
+          </Link>
+        </div>
       </div>
 
       <div className="rounded-md border border-border bg-white px-5 py-4">
@@ -739,11 +755,19 @@ export function ProgramLevelIiHowToApplySection() {
 
 export function ProgramFeesSection({ feesImage }: { feesImage: string }) {
   const additionalFees = [
-    { label: "Textbooks", amount: "$1,600" },
-    { label: "Expendable Materials", amount: "$1,460" },
-    { label: "Uniforms", amount: "$185" },
-    { label: "Insurance", amount: "$250" },
-    { label: "Equipment Rental Fees", amount: "$850" },
+    { label: "Book Fees", amount: "$1,600" },
+    {
+      label: "Expendable Supplies",
+      amount: "$1,460.00",
+      detail: "Materials for all practical courses",
+    },
+    { label: "Major Equipment", amount: "$850.00", detail: "Equipment rental fee" },
+    {
+      label: "Uniforms",
+      amount: "$185.00",
+      detail: "1 Golf shirt, 1 lab coat, 1 pair of scrubs, 1 pair of goggles",
+    },
+    { label: "Insurance", amount: "$250.00" },
   ];
 
   return (
@@ -789,6 +813,7 @@ export function ProgramFeesSection({ feesImage }: { feesImage: string }) {
               {additionalFees.map((fee) => (
                 <li key={fee.label}>
                   {fee.label}: {fee.amount}
+                  {fee.detail ? ` (${fee.detail})` : ""}
                 </li>
               ))}
             </ul>
