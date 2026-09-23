@@ -165,7 +165,7 @@ function Home() {
               Intra Oral Dental Assisting Level I and II in Toronto
             </div>
             <h2 className="mt-2 font-display text-2xl font-bold leading-tight text-white sm:text-3xl">
-              Become a Dental Assistant in 10 months
+              Become a Dental Assistant (Level I and Level II) in 10 months
             </h2>
             <span className="mt-6 inline-flex w-fit items-center justify-center rounded-md border-2 border-white px-6 py-2.5 text-sm font-bold uppercase tracking-wider text-white transition-colors duration-300 group-hover:border-primary group-hover:bg-primary">
               Learn More
@@ -190,7 +190,7 @@ function Home() {
               Dental Assistant Level II
             </div>
             <h2 className="mt-2 font-display text-2xl font-bold leading-tight text-white sm:text-3xl">
-              Become a Dental Assistant Level II in 8 Weeks
+              Become a Dental Assistant (Level II) in 8 Weeks
             </h2>
             <span className="mt-6 inline-flex w-fit items-center justify-center rounded-md border-2 border-white px-6 py-2.5 text-sm font-bold uppercase tracking-wider text-white transition-colors duration-300 group-hover:border-primary group-hover:bg-primary">
               Learn More
