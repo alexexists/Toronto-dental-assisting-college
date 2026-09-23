@@ -30,45 +30,7 @@
   status = 301
   force = true
 
-# No trailing slash (except site root)
-[[redirects]]
-  from = "/programs/"
-  to = "/programs"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/about/"
-  to = "/about"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/facility/"
-  to = "/facility"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/testimonials/"
-  to = "/testimonials"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/contact/"
-  to = "/contact"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/apply/"
-  to = "/apply"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/dental-assisting-college-faq/"
-  to = "/dental-assisting-college-faq"
-  status = 301
-  force = true
+# Note: do NOT add /contact/ → /contact style redirects here.
+# With force=true they can match both slash and no-slash URLs on Netlify
+# and create an infinite 301 loop (deep links fail; in-app clicks still work).
+# Trailing slashes are handled by TanStack Router (trailingSlash: "never").
