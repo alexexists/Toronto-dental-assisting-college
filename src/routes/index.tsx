@@ -8,7 +8,7 @@ import heroBuildingImg from "@/assets/NewBuildlinghero2.jpg";
 import heroFacilityImg from "@/assets/facility-hero.jpg";
 import heroGraduatesImg from "@/assets/apply-hero-graduates.jpg";
 import studentImg from "@/assets/student.jpg";
-import dentalAssistingStudentImg from "@/assets/dental-Assisting-student10.png";
+import dentalAssistingStudentImg from "@/assets/dental-assisting-students-hq.png";
 import programStudentsImg from "@/assets/dental-assisting-program-students.png";
 import programTileIntraOralImg from "@/assets/home-program-tile-intra-oral.jpg";
 import programTileLevelIiImg from "@/assets/home-program-tile-level-ii.jpg";
@@ -269,7 +269,7 @@ function Home() {
           <div className="flex justify-center lg:justify-start">
             <img
               src={dentalAssistingStudentImg}
-              alt="Toronto College of Dental Assisting students practicing chairside clinical skills"
+              alt="Dental assisting professionals in lab coat and scrubs representing Toronto College of Dental Assisting graduates"
               loading="lazy"
               className="h-auto w-full max-w-md object-contain lg:max-w-lg"
             />

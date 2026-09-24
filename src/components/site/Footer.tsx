@@ -5,47 +5,47 @@ import logo from "@/assets/Toronto-College-Dental-Assisting-Logo.png";
 const policyLinks = [
   {
     label: "TCDHA Privacy Policy",
-    href: "https://www.toronto-college-dental.org/tcdha_documents/TCDHA%20Privacy%20Policy.pdf",
+    href: "/tcdha_documents/TCDHA%20Privacy%20Policy%20(2727%20Steeles).pdf",
     external: true,
   },
   {
     label: "TCDHA Sexual Violence Policy",
-    href: "https://www.toronto-college-dental.org/tcdha_documents/TCDHA%20Sexual%20Violence%20Policy.pdf",
+    href: "/tcdha_documents/TCDHA%20Sexual%20Violence%20Policy.pdf",
     external: true,
   },
   {
     label: "TCDHA Continuity of Education Plan",
-    href: "https://www.toronto-college-dental.org/tcdha_documents/Continuity%20of%20Education%20Plan.pdf",
+    href: "/tcdha_documents/Continuity%20of%20Education%20Plan.pdf",
     external: true,
   },
   {
     label: "TCDHA Accessibility Policy",
-    href: "https://www.toronto-college-dental.org/tcdha_documents/TCDHA%20Accessibility%20Policy.pdf",
+    href: "/tcdha_documents/TCDHA%20Accessibility%20Policy%20(2727%20Steeles).pdf",
     external: true,
   },
   {
     label: "TCDHA Multi-year Plan",
-    href: "https://www.toronto-college-dental.org/tcdha_documents/TCDHA%20Multi-year%20Plan.pdf",
+    href: "/tcdha_documents/TCDHA%20Multi-year%20Plan.pdf",
     external: true,
   },
   {
     label: "TCDHA Safety Plan",
-    href: "https://www.toronto-college-dental.org/tcdha_documents/TCDHA%20Safety%20Plan.pdf",
+    href: "/tcdha_documents/TCDHA%20Safety%20Plan%20(2727%20Steeles).pdf",
     external: true,
   },
   {
     label: "TCDHA Equity, Diversity, Inclusion and Belonging Statement",
-    href: "https://www.toronto-college-dental.org/tcdha_documents/TCDHA%20EDI-B%20Policy.pdf",
+    href: "/tcdha_documents/TCDHA%20EDI-B%20Policy.pdf",
     external: true,
   },
   {
     label: "2022 COISL Default RAP Usage Rates by Sector",
-    href: "https://www.toronto-college-dental.org/tcdha_documents/2022%20COISL%20Default%20RAP%20Usage%20Rates%20by%20Sector.xlsx",
+    href: "/tcdha_documents/2022%20COISL%20Default%20RAP%20Usage%20Rates%20by%20Sector.xlsx",
     external: true,
   },
   {
     label: "2022 COISL Default Rates and RAP Usage Rates by Institution-PCCs",
-    href: "https://www.toronto-college-dental.org/tcdha_documents/2022%20COISL%20Default%20Rates%20and%20RAP%20Usage%20Rates%20by%20Institution-PCCs.xlsx",
+    href: "/tcdha_documents/2022%20COISL%20Default%20Rates%20and%20RAP%20Usage%20Rates%20by%20Institution-PCCs.xlsx",
     external: true,
   },
   {
@@ -55,7 +55,7 @@ const policyLinks = [
   },
   {
     label: "KPI for the 2023 Reporting Cycle",
-    href: "https://www.toronto-college-dental.org/tcdha_documents/2023%20KPI%20Reporting%20Cycle.xlsx",
+    href: "/tcdha_documents/2023%20KPI%20Reporting%20Cycle.xlsx",
     external: true,
   },
 ] as const;
