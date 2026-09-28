@@ -380,10 +380,8 @@ export function ProgramLevelIiPrerequisitesSection() {
 }
 
 const intraOralRequestApplicationUrl = "https://www.toronto-college-dental.org/requestapplication.html";
-const intraOralDownloadInfoUrl =
-  "https://www.toronto-college-dental.org/admissions/TCDHA-IODALNew%20Students.pdf";
-const levelIiDownloadInfoUrl =
-  "https://www.toronto-college-dental.org/admissions/TCDHA-DA2-InformationforNewStudents.pdf";
+const intraOralDownloadInfoUrl = "/tcdha_documents/TCDHA-IODA%20New%20Students_2026.pdf";
+const levelIiDownloadInfoUrl = "/tcdha_documents/TCDHA-DA2%20New%20Students_2026.pdf";
 const ndaebGeneralInfoUrl = "https://ndaeb.ca/international_general_E.php";
 
 const programTuitionInfoParagraphs = [
@@ -1138,8 +1136,8 @@ export function ProgramLevelIiFinancingOptionsSection() {
           Toronto College of Dental Hygiene and Auxiliaries Inc. makes payment for the course easier through monthly
           payments.
         </p>
-        <p>Total cost of the program is $5,690 (8 weeks).</p>
-        <p>The average monthly fee is approximately $2,845/month.</p>
+        <p>Total cost of the program is $7,690.00 (8 weeks).</p>
+        <p>The average monthly fee is approximately $3,845/month.</p>
         <p>
           <strong>
             Note: The fees are calculated for each educational day, so some payments may fluctuate slightly from month

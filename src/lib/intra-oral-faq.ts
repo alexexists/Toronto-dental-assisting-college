@@ -117,7 +117,7 @@ export const intraOralFaqs: IntraOralFaq[] = [
     blocks: [
       {
         type: "p",
-        text: "Other payments options include the Second Career Program, Registered Education Savings Plan (RESP), Registered Retirement Savings Plan (RRSP), and Student Line of Credit.",
+        text: "Other payments options include the Better Jobs Ontario Program, Registered Education Savings Plan (RESP), Registered Retirement Savings Plan (RRSP), and Student Line of Credit.",
       },
     ],
   },
@@ -173,7 +173,7 @@ export const intraOralFaqs: IntraOralFaq[] = [
     blocks: [
       {
         type: "p",
-        text: "There are 121 fully operational dental chairs, 18 of which are located in digital radiography rooms in the radiography wing. The clinical area also includes 3 digital panoramic x-ray machine.",
+        text: "TCDHA has 25 fully operational dental chairs. The clinical area also includes 10 digital radiography rooms and an extra-oral digital panoramic x-ray machine.",
       },
       {
         type: "p",

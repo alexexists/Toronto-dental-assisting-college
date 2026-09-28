@@ -74,9 +74,9 @@ function Contact() {
               >
                 Intra Oral Level I &amp; II
               </Link>
-              , admissions, or campus visits — we&apos;re here to help. You can also{" "}
+              , admissions, or campus visits. You can also{" "}
               <Link to="/apply" className="font-semibold text-primary hover:underline">
-                apply online
+                request an official application here
               </Link>
               .
             </p>
@@ -92,7 +92,7 @@ function Contact() {
             <textarea
               rows={5}
               className={inputClass}
-              placeholder="Tell us how we can help..."
+              placeholder="Ask us your question"
             />
           </div>
           <CTAButton type="submit" className="w-full shadow-md">
