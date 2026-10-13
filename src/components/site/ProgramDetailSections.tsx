@@ -380,8 +380,8 @@ export function ProgramLevelIiPrerequisitesSection() {
 }
 
 const intraOralRequestApplicationUrl = "https://www.toronto-college-dental.org/requestapplication.html";
-const intraOralDownloadInfoUrl = "/tcdha_documents/TCDHA-IODA%20New%20Students_2026.pdf";
-const levelIiDownloadInfoUrl = "/tcdha_documents/TCDHA-DA2%20New%20Students_2026.pdf";
+const intraOralDownloadInfoUrl = "/tcdha_documents/TCDHA-IODA%20New%20Students_2026%20V3.pdf";
+const levelIiDownloadInfoUrl = "/tcdha_documents/TCDHA-DA2%20New%20Students_2026.pdf?v=2026-10-13";
 const ndaebGeneralInfoUrl = "https://ndaeb.ca/international_general_E.php";
 
 const programTuitionInfoParagraphs = [
