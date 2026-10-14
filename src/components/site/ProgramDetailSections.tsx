@@ -17,6 +17,7 @@ import {
   User,
   Asterisk,
 } from "lucide-react";
+import { intraOralFundingOptionsUrl } from "@/lib/intra-oral-program-nav";
 import { CTAButton } from "./SiteLayout";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 
@@ -89,7 +90,14 @@ export function ProgramDetailLayout({
   children,
 }: {
   sidebarTitle: string;
-  navItems: { label: string; to?: string; href?: string; hash?: string; active?: boolean }[];
+  navItems: {
+    label: string;
+    to?: string;
+    href?: string;
+    hash?: string;
+    active?: boolean;
+    external?: boolean;
+  }[];
   benefitItems: string[];
   children: ReactNode;
 }) {
@@ -144,7 +152,12 @@ export function ProgramDetailLayout({
                 }
 
                 return (
-                  <a key={item.label} href={item.href} className={className}>
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    className={className}
+                    {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  >
                     {content}
                   </a>
                 );
@@ -771,12 +784,8 @@ export function ProgramFeesSection({ feesImage }: { feesImage: string }) {
   return (
     <section id="program-fees" className="scroll-mt-24 space-y-8">
       <div>
-        <h2 className="font-display text-2xl sm:text-3xl text-[color:var(--navy)]">Program Fees &amp; Financing</h2>
+        <h2 className="font-display text-2xl sm:text-3xl text-[color:var(--navy)]">Program Fees</h2>
         <div className="mt-3 h-1 w-14 bg-primary" />
-      </div>
-
-      <div>
-        <h3 className="font-display text-lg font-bold text-primary">Program Fees</h3>
         <p className="mt-4 text-muted-foreground leading-relaxed">
           The Toronto College of Dental Assisting fees for the Intra Oral Dental Assisting Level I
           and II Program are as follows:
@@ -964,9 +973,6 @@ export function ProgramLevelIiFeesSection({ feesImage }: { feesImage: string }) 
   );
 }
 
-const financingLinkClass =
-  "font-medium text-[#3db5d8] underline-offset-2 hover:underline";
-
 function FinancingOptionCard({
   title,
   children,
@@ -993,129 +999,40 @@ function FinancingOptionCard({
   );
 }
 
-export function ProgramFinancingOptionsSection() {
+export function ProgramFundingOptionsSection() {
   return (
-    <section id="financing-options" className="scroll-mt-24 mt-10 space-y-6">
+    <section id="funding-options" className="mt-10 scroll-mt-24 space-y-6">
       <div>
-        <h2 className="font-display text-2xl sm:text-3xl text-[color:var(--navy)]">
-          Financing Options For Intra Oral Dental Assisting Level I and II Program
-        </h2>
-        <div className="mt-3 h-1 w-full max-w-none bg-primary" />
+        <h2 className="font-display text-2xl sm:text-3xl text-[color:var(--navy)]">Funding Options</h2>
+        <div className="mt-3 h-1 w-14 bg-primary" />
       </div>
 
-      <div className="space-y-4">
-        <FinancingOptionCard title="Monthly Payments">
-          <p>
-            Toronto College of Dental Assisting makes payment for the course easier through monthly payments.
-          </p>
-          <p>Total cost of the program is $22,835 (10 months).</p>
-          <p>The average monthly fee is approximately $2,050/month.</p>
-          <p>
-            <strong>
-              Note: The fees are calculated for each educational day, so some payments may fluctuate slightly from
-              month to month.
-            </strong>
-          </p>
-        </FinancingOptionCard>
-
-        <FinancingOptionCard title="OSAP Ontario Student Assistance Program" light>
-          <p>
-            Students enrolled in the Intra Oral Dental Assisting Level I &amp; II program may be eligible, if
-            qualified, for loans, grants, or awards granted under the Ontario Student Assistance Program (OSAP). For
-            more information, please visit:
-          </p>
-          <p>
-            <a
-              href="https://www.ontario.ca/page/osap-ontario-student-assistance-program"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={financingLinkClass}
-            >
-              www.ontario.ca/page/osap-ontario-student-assistance-program
-            </a>
-          </p>
-          <p>
-            For the default rate memo, please visit{" "}
-            <a
-              href="https://osap.gov.on.ca/OSAPPortal/en/PlanYourEducation/ChooseaCareerSchoolProgram/POCONT1_096897"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={financingLinkClass}
-            >
-              https://osap.gov.on.ca/OSAPPortal/en/PlanYourEducation/ChooseaCareerSchoolProgram/POCONT1_096897
-            </a>
-          </p>
-        </FinancingOptionCard>
-
-        <FinancingOptionCard title="Student Loans from Financial institutions">
-          <p>
-            Intra Oral Dental Assisting Level I &amp; II is a respected profession and banks may offer financial
-            assistance knowing that the loan will be repaid. We work with several financial institutions and can help
-            you arrange financing.
-          </p>
-        </FinancingOptionCard>
-
-        <FinancingOptionCard title="Other Provincial Assistance Programs" light>
-          <p>
-            Other provinces may also offer financial assistance programs for those who qualify. Please visit{" "}
-            <a
-              href="https://www.canada.ca/en/services/benefits/education/student-aid.html"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={financingLinkClass}
-            >
-              https://www.canada.ca/en/services/benefits/education/student-aid.html
-            </a>
-          </p>
-        </FinancingOptionCard>
-
-        <FinancingOptionCard title="The Lifelong Learning Plan">
-          <p>
-            The Canada Revenue Agency Lifelong Learning Plan (LLP):{" "}
-            <a
-              href="http://www.cra-arc.gc.ca/tx/ndvdls/tpcs/rrsp-reer/llp-reep/menu-eng.html"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={financingLinkClass}
-            >
-              http://www.cra-arc.gc.ca/tx/ndvdls/tpcs/rrsp-reer/llp-reep/menu-eng.html
-            </a>{" "}
-            allows you to withdraw funds from your RRSP&apos;s to finance your education. You can also withdraw funding
-            from your spouse or common law partner&apos;s LLP. Limits are $10,000 per year to a maximum of $20,000.
-          </p>
-        </FinancingOptionCard>
-
-        <FinancingOptionCard title="Registered Education Savings Plan" light>
-          <p>
-            Registered Education Savings Plan (RESP){" "}
-            <a
-              href="http://www.cra-arc.gc.ca/tx/ndvdls/tpcs/resp-reee/menu-eng.html"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={financingLinkClass}
-            >
-              http://www.cra-arc.gc.ca/tx/ndvdls/tpcs/resp-reee/menu-eng.html
-            </a>{" "}
-            If you are named as the beneficiary of this plan by one of your family members you may be able to use these
-            funds.
-          </p>
-        </FinancingOptionCard>
-
-        <FinancingOptionCard title="Employment Ontario">
-          <p>
-            The Government of Ontario administers programs that helps people who are unemployed and want to get back
-            into the workforce. There is limited funding but you may qualify. Please visit{" "}
-            <a
-              href="http://www.tcu.gov.on.ca/eng/employmentontario/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={financingLinkClass}
-            >
-              http://www.tcu.gov.on.ca/eng/employmentontario/
-            </a>{" "}
-            for more information.
-          </p>
-        </FinancingOptionCard>
+      <div className="rounded-md border border-border bg-white px-5 py-5 sm:px-6">
+        <p className="text-sm leading-relaxed text-foreground/90 sm:text-base">
+          Students in the Intra Oral Dental Assisting Level I and II program may be able to use one or more of these
+          funding options. Full details, eligibility, and links are in the 2026 Funding Options Information document.
+        </p>
+        <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-relaxed text-foreground/90 sm:text-base">
+          <li>Monthly payment plans</li>
+          <li>OSAP (Ontario Student Assistance Program), for students who qualify</li>
+          <li>Student loans from financial institutions, including BMO, CIBC, RBC, Scotiabank, and TD</li>
+          <li>Assistance programs in other provinces and territories</li>
+          <li>The Lifelong Learning Plan: up to $10,000 a year from an RRSP, to a maximum of $20,000</li>
+          <li>Registered Education Savings Plan (RESP)</li>
+          <li>Employment Ontario</li>
+          <li>Canada Student Loan Forgiveness for dental hygienists, expanded as of December 31, 2025</li>
+          <li>
+            Windmill Microlending: low-interest loans of up to $15,000 for eligible skilled immigrants and refugees
+          </li>
+        </ul>
+        <a
+          href={intraOralFundingOptionsUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-5 inline-flex items-center justify-center rounded-md bg-cta px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-cta-foreground transition hover:opacity-90"
+        >
+          View All Funding Options
+        </a>
       </div>
     </section>
   );

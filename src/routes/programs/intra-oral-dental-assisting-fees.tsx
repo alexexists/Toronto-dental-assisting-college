@@ -4,7 +4,7 @@ import {
   ProgramHero,
   ProgramDetailLayout,
   ProgramFeesSection,
-  ProgramFinancingOptionsSection,
+  ProgramFundingOptionsSection,
 } from "@/components/site/ProgramDetailSections";
 import {
   getIntraOralNavItems,
@@ -19,20 +19,21 @@ export const Route = createFileRoute("/programs/intra-oral-dental-assisting-fees
   head: () => ({
     meta: [
       {
-        title: "Program Fees & Financing — Intra Oral Dental Assisting — Toronto College of Dental Assisting",
+        title: "Program Fees — Intra Oral Dental Assisting — Toronto College of Dental Assisting",
       },
       {
         name: "description",
         content:
-          "Tuition and additional fees for the Intra Oral Dental Assisting Level I & II program at Toronto College of Dental Assisting.",
+          "Tuition, additional fees, and funding options for the Intra Oral Dental Assisting Level I & II program, including monthly payment plans, OSAP, and other student assistance.",
       },
       {
         property: "og:title",
-        content: "Program Fees & Financing — Intra Oral Dental Assisting — TCDA",
+        content: "Program Fees — Intra Oral Dental Assisting — TCDA",
       },
       {
         property: "og:description",
-        content: "Program fees, additional costs, and tuition information for Intra Oral Dental Assisting.",
+        content:
+          "Program fees, additional costs, and funding options for Intra Oral Dental Assisting, including monthly payment plans and OSAP.",
       },
     ],
   }),
@@ -59,7 +60,7 @@ function IntraOralFees() {
         benefitItems={intraOralOverviewBenefitItems}
       >
         <ProgramFeesSection feesImage={feesImg} />
-        <ProgramFinancingOptionsSection />
+        <ProgramFundingOptionsSection />
       </ProgramDetailLayout>
       <ProgramCareerCtaBand />
     </SiteLayout>

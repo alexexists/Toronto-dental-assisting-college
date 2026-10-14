@@ -34,10 +34,15 @@ export function getIntraOralNavItems(active: IntraOralProgramPage) {
       active: active === "apply",
     },
     {
-      label: "Program Fees & Financing",
+      label: "Program Fees",
       to: "/programs/intra-oral-dental-assisting-fees",
       hash: "program-content",
       active: active === "fees",
+    },
+    {
+      label: "Funding Options",
+      href: intraOralFundingOptionsUrl,
+      external: true,
     },
     { label: "Our Features & Facilities", to: "/facility" },
     { label: "Student Success Stories", to: "/testimonials" },
@@ -46,3 +51,6 @@ export function getIntraOralNavItems(active: IntraOralProgramPage) {
 }
 
 export const intraOralSidebarTitle = "Intra Oral Dental Assisting Level I and II";
+
+export const intraOralFundingOptionsUrl =
+  "/tcdha_documents/2026%20Funding%20Options%20Information.pdf";
