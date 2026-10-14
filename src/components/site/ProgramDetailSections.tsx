@@ -18,6 +18,7 @@ import {
   Asterisk,
 } from "lucide-react";
 import { intraOralFundingOptionsUrl } from "@/lib/intra-oral-program-nav";
+import { ProgramCareerCtaBand } from "./CareerCtaBand";
 import { CTAButton } from "./SiteLayout";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 
@@ -83,6 +84,24 @@ export function ProgramHero({
   );
 }
 
+function ProgramBenefitsCard({ items }: { items: string[] }) {
+  return (
+    <div className="rounded-md border border-border bg-white p-5 shadow-sm">
+      <h2 className="font-display text-sm font-bold uppercase tracking-wide text-[color:var(--navy)]">
+        Benefits &amp; Advantages
+      </h2>
+      <ul className="mt-4 space-y-3">
+        {items.map((item) => (
+          <li key={item} className="flex gap-3 text-sm leading-snug text-foreground/90">
+            <Check className="mt-0.5 h-5 w-5 shrink-0 text-primary" strokeWidth={3.5} />
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 export function ProgramDetailLayout({
   sidebarTitle,
   navItems,
@@ -113,9 +132,10 @@ export function ProgramDetailLayout({
   }, [pathname, hash]);
 
   return (
+    <>
     <div id={PROGRAM_CONTENT_ID} className="mx-auto max-w-7xl scroll-mt-0 px-4 py-12 lg:py-14">
       <div className="grid gap-10 lg:grid-cols-[minmax(240px,280px)_minmax(0,1fr)] lg:gap-12 lg:items-start">
-        <aside className="order-2 space-y-8 lg:order-1 lg:sticky lg:top-8">
+        <aside className="space-y-8 lg:sticky lg:top-8">
           <div className="overflow-hidden rounded-md border border-border bg-white shadow-sm">
             <div className="border-b border-border bg-muted/30 px-4 py-3">
               <p className="font-display text-xs font-bold uppercase leading-snug tracking-wide text-[color:var(--navy)]">
@@ -165,24 +185,19 @@ export function ProgramDetailLayout({
             </nav>
           </div>
 
-          <div className="rounded-md border border-border bg-white p-5 shadow-sm">
-            <h2 className="font-display text-sm font-bold uppercase tracking-wide text-[color:var(--navy)]">
-              Benefits &amp; Advantages
-            </h2>
-            <ul className="mt-4 space-y-3">
-              {benefitItems.map((item) => (
-                <li key={item} className="flex gap-3 text-sm leading-snug text-foreground/90">
-                  <Check className="mt-0.5 h-5 w-5 shrink-0 text-primary" strokeWidth={3.5} />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
+          <div className="hidden lg:block">
+            <ProgramBenefitsCard items={benefitItems} />
           </div>
         </aside>
 
-        <div className="order-1 min-w-0 lg:order-2">{children}</div>
+        <div className="min-w-0">{children}</div>
       </div>
     </div>
+    <div className="mx-auto w-full max-w-7xl px-4 pb-12 lg:hidden">
+      <ProgramBenefitsCard items={benefitItems} />
+    </div>
+    <ProgramCareerCtaBand />
+  </>
   );
 }
 
@@ -1009,21 +1024,27 @@ export function ProgramFundingOptionsSection() {
 
       <div className="rounded-md border border-border bg-white px-5 py-5 sm:px-6">
         <p className="text-sm leading-relaxed text-foreground/90 sm:text-base">
-          Students in the Intra Oral Dental Assisting Level I and II program may be able to use one or more of these
-          funding options. Full details, eligibility, and links are in the 2026 Funding Options Information document.
+          Students in the Intra Oral Dental Assisting Level I and II program may be able to use one or more of the
+          funding options. Full details, eligibility, and links are in the 2026{" "}
+          <a
+            href={intraOralFundingOptionsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium text-primary underline-offset-2 hover:underline"
+          >
+            Funding Options Information document
+          </a>
+          .
         </p>
         <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-relaxed text-foreground/90 sm:text-base">
           <li>Monthly payment plans</li>
-          <li>OSAP (Ontario Student Assistance Program), for students who qualify</li>
-          <li>Student loans from financial institutions, including BMO, CIBC, RBC, Scotiabank, and TD</li>
-          <li>Assistance programs in other provinces and territories</li>
-          <li>The Lifelong Learning Plan: up to $10,000 a year from an RRSP, to a maximum of $20,000</li>
-          <li>Registered Education Savings Plan (RESP)</li>
+          <li>Provincial financial assistance programs for students who qualify</li>
+          <li>Student loans from financial institutions</li>
+          <li>The Lifelong Learning Plan</li>
+          <li>Registered Education Savings Plan</li>
           <li>Employment Ontario</li>
-          <li>Canada Student Loan Forgiveness for dental hygienists, expanded as of December 31, 2025</li>
-          <li>
-            Windmill Microlending: low-interest loans of up to $15,000 for eligible skilled immigrants and refugees
-          </li>
+          <li>Canada Student Loan Forgiveness for dental hygienists</li>
+          <li>Windmill Microlending</li>
         </ul>
         <a
           href={intraOralFundingOptionsUrl}

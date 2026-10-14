@@ -10,7 +10,6 @@ import {
   SalaryCallout,
 } from "@/components/site/ProgramDetailSections";
 import { CTAButton } from "@/components/site/SiteLayout";
-import { ProgramCareerCtaBand } from "@/components/site/CareerCtaBand";
 import {
   getLevelIiNavItems,
   levelIiOverviewBenefitItems,
@@ -124,8 +123,6 @@ function DentalAssistingLevelII() {
         </div>
         <ProgramCoreDutiesSection />
       </ProgramDetailLayout>
-
-      <ProgramCareerCtaBand />
     </SiteLayout>
   );
 }

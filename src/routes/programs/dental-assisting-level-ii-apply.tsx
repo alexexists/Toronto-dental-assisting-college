@@ -11,8 +11,6 @@ import {
   levelIiSidebarTitle,
 } from "@/lib/level-ii-program-nav";
 import levelIiStripImg from "@/assets/dental-assisting-level-ii-strip.jpg";
-import { ProgramCareerCtaBand } from "@/components/site/CareerCtaBand";
-
 export const Route = createFileRoute("/programs/dental-assisting-level-ii-apply")({
   head: () => ({
     meta: [
@@ -53,7 +51,6 @@ function LevelIiApply() {
       >
         <ProgramLevelIiHowToApplySection />
       </ProgramDetailLayout>
-      <ProgramCareerCtaBand />
     </SiteLayout>
   );
 }

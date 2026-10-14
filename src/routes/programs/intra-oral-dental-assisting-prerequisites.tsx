@@ -12,8 +12,6 @@ import {
   intraOralSidebarTitle,
 } from "@/lib/intra-oral-program-nav";
 import intraOralStripImg from "@/assets/intra-oral-program-strip.jpg";
-import { ProgramCareerCtaBand } from "@/components/site/CareerCtaBand";
-
 export const Route = createFileRoute("/programs/intra-oral-dental-assisting-prerequisites")({
   head: () => ({
     meta: [
@@ -60,7 +58,6 @@ function IntraOralPrerequisites() {
         <ProgramPrerequisitesSection />
         <ProgramInternationalApplicantsPanel />
       </ProgramDetailLayout>
-      <ProgramCareerCtaBand />
     </SiteLayout>
   );
 }

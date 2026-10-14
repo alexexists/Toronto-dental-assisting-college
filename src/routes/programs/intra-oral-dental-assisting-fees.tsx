@@ -13,8 +13,6 @@ import {
 } from "@/lib/intra-oral-program-nav";
 import intraOralStripImg from "@/assets/intra-oral-program-strip.jpg";
 import feesImg from "@/assets/dental-assisting-college-fees.png";
-import { ProgramCareerCtaBand } from "@/components/site/CareerCtaBand";
-
 export const Route = createFileRoute("/programs/intra-oral-dental-assisting-fees")({
   head: () => ({
     meta: [
@@ -62,7 +60,6 @@ function IntraOralFees() {
         <ProgramFeesSection feesImage={feesImg} />
         <ProgramFundingOptionsSection />
       </ProgramDetailLayout>
-      <ProgramCareerCtaBand />
     </SiteLayout>
   );
 }

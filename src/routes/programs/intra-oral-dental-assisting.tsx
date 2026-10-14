@@ -9,7 +9,6 @@ import {
   SalaryCallout,
 } from "@/components/site/ProgramDetailSections";
 import { CTAButton } from "@/components/site/SiteLayout";
-import { ProgramCareerCtaBand } from "@/components/site/CareerCtaBand";
 import {
   getIntraOralNavItems,
   intraOralOverviewBenefitItems,
@@ -134,8 +133,6 @@ function IntraOralProgram() {
           />
         </div>
       </ProgramDetailLayout>
-
-      <ProgramCareerCtaBand />
     </SiteLayout>
   );
 }

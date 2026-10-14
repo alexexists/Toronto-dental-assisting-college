@@ -13,8 +13,6 @@ import {
 } from "@/lib/level-ii-program-nav";
 import levelIiStripImg from "@/assets/dental-assisting-level-ii-strip.jpg";
 import feesImg from "@/assets/dental-assisting-college-fees.png";
-import { ProgramCareerCtaBand } from "@/components/site/CareerCtaBand";
-
 export const Route = createFileRoute("/programs/dental-assisting-level-ii-fees")({
   head: () => ({
     meta: [
@@ -58,7 +56,6 @@ function LevelIiFees() {
         <ProgramLevelIiFeesSection feesImage={feesImg} />
         <ProgramLevelIiFinancingOptionsSection />
       </ProgramDetailLayout>
-      <ProgramCareerCtaBand />
     </SiteLayout>
   );
 }
