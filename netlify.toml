@@ -5,6 +5,8 @@
 [build.environment]
   NODE_VERSION = "22"
   VITE_SITE_URL = "https://dental-assisting-toronto.ca"
+  VITE_FORMSPREE_APPLY_ID = "xeagabqr"
+  VITE_FORMSPREE_CONTACT_ID = "mrpqqznz"
 
 [dev]
   command = "npm run dev"
